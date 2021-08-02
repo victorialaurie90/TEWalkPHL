@@ -7,7 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 
 Vue.use(Router)
-
+//comment here to test
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
  * inside of App.vue depending on the URL.

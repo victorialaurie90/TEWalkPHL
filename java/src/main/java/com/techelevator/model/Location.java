@@ -3,7 +3,6 @@ package com.techelevator.model;
 public class Location {
 
     private int locationId;
-    private int categoryId;
     private String locationName;
     private String description;
     private String address;
@@ -25,14 +24,6 @@ public class Location {
 
     public void setLocationId(int locationId) {
         this.locationId = locationId;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 
     public String getLocationName() {

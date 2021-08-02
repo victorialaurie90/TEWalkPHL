@@ -1,0 +1,7 @@
+For 8/3/2021
+
+- Create Profile landing page (should be the first thing you see upon signing in?)
+- Create search component that will live in Nav Bar
+- Search Results Page:
+    - create a for loop for showing individual locations (as well as it's information)
+- Decide on either Store or Direct Api access

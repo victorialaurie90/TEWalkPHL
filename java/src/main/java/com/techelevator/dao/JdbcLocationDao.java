@@ -22,7 +22,7 @@ public class JdbcLocationDao implements LocationDao {
     @Override
     public List<Location> listAllLocations() {
         List<Location> locations = new ArrayList<>();
-        String sql = "SELECT * FROM locations";
+        String sql = "SELECT location_name FROM locations";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
             locations.add(mapRowToLocation(results));

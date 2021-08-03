@@ -7,7 +7,7 @@
                 <router-link :to= " { name: 'login'} "><li v-if = "isLoggedIn">Login</li></router-link> 
                 <router-link :to= " { name: 'search-result'} "><li>Search (TEST)</li></router-link>
                 <router-link :to= " { name: 'profile'} "><li v-if = "isLoggedIn">Profile</li></router-link>
-                <router-link :to= " { name: 'logout'} "><li v-if = "isLoggedIn" @click='this.$router.push({ name: "logout"})'>Logout</li></router-link>
+                <router-link :to= " { name: 'logout'} "><li v-if = "isLoggedIn">Logout</li></router-link>
             </ul>
         </nav>
     </div>

@@ -5,17 +5,17 @@
     <p>Fun Stuff Near You</p>
     <!-- <router-link :to= " { name: 'login'} "><button>Login</button></router-link> -->
     <div class="search-box">
-      <form>
+      <form v-on:submit.prevent="submitSearch">
         <input type="text" placeholder="What do you want to do?" v-model="searchTerm.text">
         <button type="submit">Search</button>
       </form>
     </div>
-    <div v-for='location in locations' v-bind:key="location.id">
+    <!-- <div v-for='location in locations' v-bind:key="location.id">
       <h3>{{location.name}}</h3>
-    </div>
-    <div class="categories">
+    </div> -->
+    <!-- <div class="categories">
 
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -23,6 +23,8 @@
 import searchService from "../services/SearchService";
 
 export default {
+// TODO: Reconsider whether we still need searchTerm, resetForm, rename submitSearch() since
+// filtering results will happen in JavaScript/front end
   name: "home",
   data() {
     return {
@@ -36,7 +38,7 @@ export default {
     resetForm(){
       this.searchTerm = {};
     },
-    created(){
+    submitSearch(){
       searchService.getSearchResults()
       .then(response => {
         this.locations = response.data;
@@ -47,3 +49,5 @@ export default {
   },
 };
 </script>
+
+

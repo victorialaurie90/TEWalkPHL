@@ -1,6 +1,6 @@
 <template>
   <div class = "footer">
-      <p>me is here</p>
+      <p>me is here. i'm the footer.</p>
   </div>
 </template>
 

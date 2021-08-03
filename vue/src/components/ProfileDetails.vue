@@ -1,7 +1,8 @@
 <template>
   <div class = "profile-information">
       <div class = "information">
-          <p>information</p>
+          <h3>User Information</h3>
+          <p>Name:</p>
           <badge-component class = "badge-component"/>
       </div>
       <div class = "check-ins">
@@ -36,12 +37,12 @@ export default {
 
 .information {
     flex-grow: 1;
-    background: green;
+    background: rgb(213, 223, 169);
 }
 
 .check-ins {
     flex-grow: 2;
-    background: yellow;
+    background: rgba(126, 104, 253, 0.438);
 }
 
 </style>

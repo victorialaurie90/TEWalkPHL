@@ -1,13 +1,14 @@
 <template>
     <div class="navigation">
         <nav>
-            <p>{{this.$store.state.user.username}}</p>
+            <p class="testing">{{this.$store.state.user.username}}</p>
             <ul class = "list">
-                <router-link :to= " { name: 'home' } "><li>Home</li></router-link> 
-                <router-link :to= " { name: 'login'} "><li v-if = "isLoggedIn">Login</li></router-link> 
-                <router-link :to= " { name: 'search-result'} "><li>Search (TEST)</li></router-link>
+                <router-link :to= " { name: 'home' } "><li>Home</li></router-link>
                 <router-link :to= " { name: 'profile'} "><li v-if = "isLoggedIn">Profile</li></router-link>
-                <router-link :to= " { name: 'logout'} "><li v-if = "isLoggedIn">Logout</li></router-link>
+                <router-link :to= " { name: 'logout'} "><li v-if = "isLoggedIn">Logout</li></router-link> 
+                <router-link :to= " { name: 'login'} "><li v-if = "isLoggedIn">Login</li></router-link> 
+                <router-link :to= " { name: 'register'} "><li v-if = "isLoggedIn">Register</li></router-link> 
+                <router-link :to= " { name: 'search-result'} "><li>Search (TEST TO BE DELETED)</li></router-link>
             </ul>
         </nav>
     </div>
@@ -22,12 +23,6 @@ export default {
         }
     },
     methods: {
-        logout() {
-            this.$store.state.user = 
-            {
-                
-            };
-        }
     }
 }
 </script>
@@ -35,7 +30,7 @@ export default {
 <style scoped>
 
 .navigation {
-    background-color: gold;
+    background-color: black;
 }
 
 ul {
@@ -56,6 +51,10 @@ li {
 
 li:hover {
     background-color: black;
+}
+
+.testing {
+    color: white;
 }
 
 </style>

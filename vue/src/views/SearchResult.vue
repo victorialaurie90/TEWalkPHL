@@ -4,7 +4,7 @@
             <location-details class="location-details"/>
             <map-api class="map-api"/>
         </div>
-        <div class="footer">
+        <div class="footer">i'm div class="footer" in SearchResult.vue. Should I live in App.vue instead?
             <footer-bar />
         </div>
     </div>
@@ -55,12 +55,12 @@ div.location-details-and-map {
 
 .location-details {
     flex-grow: 1;
-    background-color: red;
+    background-color: lightskyblue;
 }
 
 .map-api {
     flex-grow: 2;
-    background-color: fuchsia;
+    background-color: teal;
 }
 
 

@@ -4,12 +4,14 @@ import com.techelevator.model.Location;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Component
 public class JdbcLocationDao implements LocationDao {
 
     private JdbcTemplate jdbcTemplate;
@@ -18,14 +20,14 @@ public class JdbcLocationDao implements LocationDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     @Override
     public List<Location> listAllLocations() {
         List<Location> locations = new ArrayList<>();
         String sql = "SELECT * FROM locations";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
-            locations.add(mapRowToLocation(results));
+            Location sampleLocation = mapRowToLocation(results);
+            locations.add(sampleLocation);
         }
         return locations;
     }
@@ -77,17 +79,18 @@ public class JdbcLocationDao implements LocationDao {
 
     private Location mapRowToLocation(SqlRowSet results) {
         Location location = new Location();
-        location.setLocationId(results.getInt("location_id"));
         location.setLocationName(results.getString("location_name"));
-        location.setAddress(results.getString("address"));
-        location.setOpenTo(results.getString("open_to"));
-        location.setOpenFrom(results.getString("open_from"));
-        location.setTwitter(results.getString("twitter"));
-        location.setUrl(results.getString("url"));
-        location.setFacebook(results.getString("facebook"));
-        location.setImg(results.getString("img"));
-        location.setLatitude(results.getDouble("latitude"));
-        location.setLongitude(results.getDouble("longitude"));
-        return location;
+            location.setLocationId(results.getInt("location_id"));
+            location.setDescription(results.getString("description"));
+            location.setAddress(results.getString("address"));
+            location.setOpenTo(results.getString("open_to"));
+            location.setOpenFrom(results.getString("open_from"));
+            location.setTwitter(results.getString("twitter"));
+            location.setUrl(results.getString("url"));
+            location.setFacebook(results.getString("facebook"));
+            location.setImg(results.getString("img"));
+            location.setLatitude(results.getDouble("lat"));
+            location.setLongitude(results.getDouble("long"));
+            return location;
     }
 }

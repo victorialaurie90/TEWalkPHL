@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@PreAuthorize("isAuthenticated()")
 
 public class LocationController {
 
@@ -24,17 +24,25 @@ public class LocationController {
         this.locationDao = locationDao;
     }
 
-    public LocationController() {
-        this.locationDao = locationDao;
-    }
+//    @RequestMapping(path = "/locations", method = RequestMethod.GET)
+//    public Location[] getLocations() {
+//        List<Location> locations = locationDao.listAllLocations();
+//        Location[] locationList = new Location[locations.size()];
+//        locationList = locations.toArray(locationList);
+//        return  locationList;
+//    }
+
+
 
     @RequestMapping(path = "/locations", method = RequestMethod.GET)
     public List<Location> getLocations() {
-        List<Location> locations = locationDao.listAllLocations();
+        List<Location> locations = new ArrayList<>();
+            locations = locationDao.listAllLocations();
         return locations;
     }
 
-    //Maybe just use a filtering method on the get all methods?
+
+        //Maybe just use a filtering method on the get all methods?
 
     /*@RequestMapping(path = "/locations/{id}", method = RequestMethod.GET)
     public List<Location> getLocationsByCategoryId(@PathVariable int id) {

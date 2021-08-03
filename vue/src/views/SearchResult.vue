@@ -1,8 +1,8 @@
 <template>
-    <div class="search_results">
-        <div class="location_details_and_map">
-            <location-details />
-            <map-api />
+    <div class="search-results">
+        <div class="location-details-and-map">
+            <location-details class="location-details"/>
+            <map-api class="map-api"/>
         </div>
         <div class="footer">
             <footer-bar />
@@ -33,26 +33,35 @@ export default {
 <style>
 /* STYLE HERE IS VERY TEMPORARY. STYLE WAS USED TO UNDERSTAND WIDTH OF DIVS.  */
 
-/* body {
+body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
 }
 
-div.location_details_and_map {
+div.location-details-and-map {
     display: flex;
+    flex-grow: 1; 
     justify-content: center;
+    justify-content: space-around;
     width: 1000px;
-    margin: 0;
-}
+    margin: 0; 
+} 
 
-location-details {
-    flex-basis: 25%;
-}
-
-map-api {
-    flex-basis: 75%;
+/* .searchResults {
+    display: flex;
+    flex-grow: 1;
 } */
+
+.location-details {
+    flex-grow: 1;
+    background-color: red;
+}
+
+.map-api {
+    flex-grow: 1;
+    background-color: fuchsia;
+}
 
 
 </style>

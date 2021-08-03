@@ -35,11 +35,13 @@ ul#to_and_from {
 }
 
 #open_to {
-    flex-basis: 25%;
+    display: flex;
+    flex-grow: 1;
 }
 
 #open_from{
-    flex-basis: 75%;
+    display: flex;
+    flex-grow: 1;
 }
 
 </style>

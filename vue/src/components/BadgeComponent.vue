@@ -1,19 +1,15 @@
 <template>
-  <div id="map">
-      <p>Map Image</p>
+  <div class = "badge">
+      <img src="" alt="">
   </div>
 </template>
 
 <script>
 export default {
-
+    name: "badge-component",
 }
 </script>
 
 <style>
-
-/* div#map {
-    background: coral;
-} */
 
 </style>

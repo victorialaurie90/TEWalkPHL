@@ -39,9 +39,8 @@ body {
 } */
 
 .routerView {
-  width: 79%;
   position: absolute;
-  right: 0;
+  width: 100%;
 }
 
 </style>

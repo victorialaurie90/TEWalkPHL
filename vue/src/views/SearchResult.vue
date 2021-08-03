@@ -44,7 +44,7 @@ div.location-details-and-map {
     flex-grow: 1; 
     justify-content: center;
     justify-content: space-around;
-    width: 1000px;
+    width: 100%;
     margin: 0; 
 } 
 
@@ -59,7 +59,7 @@ div.location-details-and-map {
 }
 
 .map-api {
-    flex-grow: 1;
+    flex-grow: 2;
     background-color: fuchsia;
 }
 

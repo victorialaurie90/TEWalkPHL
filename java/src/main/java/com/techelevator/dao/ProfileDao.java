@@ -7,9 +7,7 @@ import java.util.List;
 
 public interface ProfileDao {
 
-List<Integer> getBadgesIdByUserId(int userId);
-
-List<CheckIn> getCheckInsByUserId(int userId);
+List<Profile> getBadgesIdByUserId(int userId);
 
 void createUserBadge(int userId, int badgeId);
 }

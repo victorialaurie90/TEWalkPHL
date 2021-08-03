@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface CheckInDao {
 
-void createCheckIn(CheckIn checkIn);
+    List<CheckIn> getCheckInsByUserId(int userId);
+
+    void createCheckIn(CheckIn checkIn);
 }

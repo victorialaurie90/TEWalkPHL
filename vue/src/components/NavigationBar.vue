@@ -1,11 +1,13 @@
 <template>
     <div class="navigation">
         <nav>
+            <p>{{this.$store.state.user.username}}</p>
             <ul class = "list">
                 <router-link :to= " { name: 'home' } "><li>Home</li></router-link> 
-                <router-link :to= " { name: 'login'} "><li>Login</li></router-link> 
-                <router-link :to= " { name: 'search-result'} "><li>Search</li></router-link>
-                <router-link :to= " { name: 'profile'} "><li>Profile</li></router-link>
+                <router-link :to= " { name: 'login'} "><li v-if = "isLoggedIn">Login</li></router-link> 
+                <router-link :to= " { name: 'search-result'} "><li>Search (TEST)</li></router-link>
+                <router-link :to= " { name: 'profile'} "><li v-if = "isLoggedIn">Profile</li></router-link>
+                <router-link :to= " { name: 'logout'} "><li v-if = "isLoggedIn" @click='this.$router.push({ name: "logout"})'>Logout</li></router-link>
             </ul>
         </nav>
     </div>
@@ -13,7 +15,20 @@
 
 <script>
 export default {
-    name: 'navigation-bar'
+    name: 'navigation-bar',
+    computed: {
+        isLoggedIn() {
+            return this.$store.state.user.username !== '';
+        }
+    },
+    methods: {
+        logout() {
+            this.$store.state.user = 
+            {
+                
+            };
+        }
+    }
 }
 </script>
 

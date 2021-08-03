@@ -1,15 +1,15 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const http = axios.create({
-//   baseURL: "http://localhost:8080"
-// });
+const http = axios.create({
+  baseURL: "http://localhost:8080"
+});
 
 export default {
 
-  getSearchResults(searchTerm) {
+  getSearchResults() {
     //TODO: change path to match the back-end controller 
-    //return http.get('/boards');
-    console.log(searchTerm);
+    return http.get('/locations');
+
   }
 
 }

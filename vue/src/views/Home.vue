@@ -35,7 +35,7 @@ export default {
     submitSearch(searchTerm){
       searchService.getSearchResults(searchTerm);
       //TODO: change to search page results view/vue when built
-      this.$router.push({name: "login"});
+      this.$router.push({name: "search-result"});
     }
   }
 };

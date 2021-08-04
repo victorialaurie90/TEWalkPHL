@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @PreAuthorize("isAuthenticated()")
+@CrossOrigin
 
 public class CheckInController {
 

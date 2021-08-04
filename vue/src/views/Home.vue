@@ -42,6 +42,9 @@ export default {
       searchService.getSearchResults()
       .then(response => {
         this.locations = response.data;
+        this.locations.forEach(loc => {
+          console.log(loc.locationName);
+        })
       });
       //TODO: change to search page results view/vue when built
       this.$router.push({name: "search-result"});

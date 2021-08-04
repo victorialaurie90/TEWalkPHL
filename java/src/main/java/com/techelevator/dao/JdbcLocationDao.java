@@ -23,7 +23,26 @@ public class JdbcLocationDao implements LocationDao {
     @Override
     public List<Location> listAllLocations() {
         List<Location> locations = new ArrayList<>();
-        String sql = "SELECT * FROM locations";
+        String sql =
+                "SELECT "
+                + " l.location_id,"
+                + " l.location_name,"
+                + " l.description,"
+                + " l.address,"
+                + " l.open_to,"
+                + " l.open_from,"
+                + " l.twitter,"
+                + " l.url,"
+                + " l.facebook,"
+                + " l.img,"
+                + " l.lat,"
+                + " l.long,"
+                + " (SELECT string_agg(c.category, ', ') AS categories FROM category c"
+                + " JOIN locations_category lc ON c.category_id = lc.category_id"
+                + " JOIN locations l ON l.location_id = lc.location_id"
+                + " WHERE l.location_id = ?)"
+                + " FROM locations l"
+                + " WHERE l.location_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
             Location sampleLocation = mapRowToLocation(results);
@@ -91,6 +110,7 @@ public class JdbcLocationDao implements LocationDao {
             location.setImg(results.getString("img"));
             location.setLatitude(results.getDouble("lat"));
             location.setLongitude(results.getDouble("long"));
+            location.setCategories(results.getString("categories"));
             return location;
     }
 }

@@ -102,14 +102,14 @@ INSERT INTO locations_category (location_id, category_id) VALUES(14, 8);
 
 --Wells Fargo Center
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long)
-VALUES ('Wells Fargo Center', 'The Wells Fargo Center is a multi-purpose arena located in Philadelphia. It serves as the home of the Philadelphia Flyers of the National Hockey League, the Philadelphia 76ers of the National Basketball Association, and the Philadelphia Wings of the National Lacrosse League.', '3601 S Broad St, Philadelphia, PA 19148',
+VALUES ('Wells Fargo Center', 'The Wells Fargo Center is a multi-purpose arena located in Philadelphia. It serves as the home of the Philadelphia Flyers, the Philadelphia 76ers, and the Philadelphia Wings.', '3601 S Broad St, Philadelphia, PA 19148',
 '12:00:00', '09:00:00', 'https://twitter.com/WellsFargo', 'https://www.wellsfargocenterphilly.com', 'https://www.facebook.com/wellsfargocenter/', 'placeholder.jpg', '39.9012', '-75.1720');
 INSERT INTO locations_category (location_id, category_id) VALUES(15, 3);
 INSERT INTO locations_category (location_id, category_id) VALUES(15, 8);
 
 --2300 Arena
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long)
-VALUES ('2300 Arena', '2300 Arena is a multipurpose indoor arena in Philadelphia, Pennsylvania used primarily for professional wrestling, boxing, mixed martial arts, and concert events. Originally known as Viking Hall, the venue has since been named Alhambra Arena, The Arena and Asylum Arena.', '2300 S Swanson St, Philadelphia, PA 19148',
+VALUES ('2300 Arena', '2300 Arena is a multipurpose indoor arena in Philadelphia, Pennsylvania used primarily for professional wrestling, boxing, mixed martial arts, and concert events.', '2300 S Swanson St, Philadelphia, PA 19148',
 '12:00:00', '09:00:00', 'https://twitter.com/WellsFargo', 'https://www.wellsfargocenterphilly.com', 'https://www.facebook.com/wellsfargocenter/', 'placeholder.jpg', '39.9012', '-75.1720');
 INSERT INTO locations_category (location_id, category_id) VALUES(16, 3);
 INSERT INTO locations_category (location_id, category_id) VALUES(16, 8);

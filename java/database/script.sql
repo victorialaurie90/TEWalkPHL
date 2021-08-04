@@ -45,6 +45,7 @@ facebook VARCHAR(255),
 img VARCHAR(255),
 lat DECIMAL(8,6),
 long DECIMAL(8,6),
+isFeatured BOOLEAN DEFAULT false,
 CONSTRAINT PK_locations PRIMARY KEY (location_id)
 );
 
@@ -69,7 +70,9 @@ VALUES (5, 'Restaurants'), (3, 'Sports'), (4, 'Parks'), (1, 'Shopping'), (6, 'Hi
 
 CREATE TABLE locations_category (
 location_id INTEGER, 
-category_id INTEGER
+category_id INTEGER,
+FOREIGN KEY (location_id) REFERENCES locations(location_id),
+FOREIGN KEY (category_id) REFERENCES category(category_id)
 );
 
 CREATE TABLE user_badge (

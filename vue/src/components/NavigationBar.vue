@@ -40,6 +40,10 @@ ul {
     overflow: hidden;
 }
 
+p {
+    margin: 0;
+}
+
 li {
  display: block;
  color: white;

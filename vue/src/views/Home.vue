@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import searchService from "../services/SearchService";
 
 export default {
 // TODO: Reconsider whether we still need searchTerm, resetForm, rename submitSearch() since
@@ -30,20 +29,28 @@ export default {
     return {
     };
   },
-  created() {
-    this.retrieveLocations();
-  },
-  methods: {
-    retrieveLocations(){
-      searchService.getLocations()
-      .then(response => {
-        this.$store.commit("SET_LOCATIONS", response.data);
-        this.$router.push({name: "search-result"});
-        })
-      }
-    }
 };
 </script>
 
+<style scoped>
 
+h1{
+  font-size: 84px;
+  display: flex;
+  justify-content: center;
+  margin-top:250px;
+  margin-bottom: 5px;
+}
+p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.search-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+</style>
 

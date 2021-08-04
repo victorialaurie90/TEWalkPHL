@@ -7,8 +7,8 @@
       >
       <h3 id="location_name">{{location.locationName}}</h3>
       <ul id="to_and_from">
+        <li id="open_from">Open From: {{location.openFrom}}</li> 
         <li id="open_to">Open To: {{location.openTo}}</li>
-        <li id="open_from">Open From: {{location.openFrom}}</li>
       </ul>
       <p id="category">Category: TBD?</p>
       <p id="address">Address: {{location.address}}</p>
@@ -35,19 +35,28 @@ export default {
     background: grey;
 } */
 
+div.details {
+    width: 33%;
+    height: 94.75vh;
+    overflow-y: auto;
+    position: relative;
+} 
+div.testing{
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
 ul#to_and_from {
     display: flex;
     list-style: none;
+    justify-content: flex-start;
+    padding-left:0px;
 }
-
 #open_to {
-    display: flex;
-    flex-grow: 1;
+    display: flex;  
 }
-
 #open_from{
     display: flex;
-    flex-grow: 1;
+    padding-right: 15px; 
 }
 
 </style>

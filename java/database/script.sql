@@ -17,14 +17,14 @@ CONSTRAINT PK_badges PRIMARY KEY (badge_id)
 );
 
 --INSERT BADGES
-INSERT INTO badges (badge_id, badge_name) 
-VALUES (1, 'Defender of the Land'), 
-(2, 'Bar Hopper'), 
-(3, 'Sports Enthusiast'), 
-(4, 'Tree Hugger'), 
-(5, 'Jeet Yet?'), 
-(6, 'You Know, I''m Something of a Historian Myself'),
-(7, 'City of Brotherly Love');
+INSERT INTO badges (badge_id, badge_name, badge_description) 
+VALUES (1, 'Defender of the Land', 'Check in at every location in WalkPHL'), 
+(2, 'Bar Hopper', 'Check in at 5 bars'), 
+(3, 'Sports Enthusiast', 'Check in at 5 sports arenas'), 
+(4, 'Tree Hugger', 'Check in at 5 parks'), 
+(5, 'Jeet Yet?', 'Check in at 5 restaurants'), 
+(6, 'You Know, I''m Something of a Historian Myself', 'Check in at 5 historic sites'),
+(7, 'City of Brotherly Love', 'Check in at 5 locations with another user');
 
 CREATE TABLE category (
 category_id SERIAL NOT NULL,

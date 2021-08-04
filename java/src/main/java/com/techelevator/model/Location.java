@@ -14,6 +14,7 @@ public class Location {
     private String img;
     private double latitude;
     private double longitude;
+    private String categories;
 
     public Location() {
     }
@@ -114,5 +115,7 @@ public class Location {
         this.longitude = longitude;
     }
 
+    public String getCategories() { return categories; }
 
+    public void setCategories(String categories) { this.categories = categories; }
 }

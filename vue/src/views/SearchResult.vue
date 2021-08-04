@@ -1,7 +1,7 @@
 <template>
     <div class="search-results">
-        <div class="location-details-and-map">
-            <location-details class="location-details"/>
+        <div class="locations-list-and-map">
+            <locations-list />
             <map-api class="map-api"/>
         </div>
         <div class="footer">i'm div class="footer" in SearchResult.vue. Should I live in App.vue instead?
@@ -13,20 +13,18 @@
 <script>
 import MapApi from '../components/MapApi.vue'
 import FooterBar from '../components/FooterBar.vue'
-import LocationDetails from '../components/LocationDetails.vue'
+import LocationsList from '../components/LocationsList.vue'
 
 export default {
     name: 'search-result',
     components: { 
-        LocationDetails,
+        LocationsList,
         MapApi,
         FooterBar
     },
-    // data() {
-    //     return {
-            
-    //     }
-    // }
+    computed: {
+        
+    }
 }
 </script>
 
@@ -39,7 +37,7 @@ body {
     min-height: 100vh;
 }
 
-div.location-details-and-map {
+div.locations-list-and-map {
     display: flex;
     flex-grow: 1; 
     justify-content: center;
@@ -53,7 +51,7 @@ div.location-details-and-map {
     flex-grow: 1;
 } */
 
-.location-details {
+.locations-list {
     flex-grow: 1;
     background-color: lightskyblue;
 }

@@ -5,11 +5,7 @@ const http = axios.create({
 });
 
 export default {
-
-  getSearchResults() {
-    //TODO: change path to match the back-end controller 
+  getLocations() {
     return http.get('/locations');
-
   }
-
 }

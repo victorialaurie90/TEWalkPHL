@@ -6,7 +6,7 @@
     <!-- <router-link :to= " { name: 'login'} "><button>Login</button></router-link> -->
     <div class="search-box">
       <form v-on:submit.prevent="submitSearch">
-        <input type="text" placeholder="What do you want to do?" v-model="searchTerm.text">
+        <input type="text" placeholder="What do you want to do?">
         <button type="submit">Search</button>
       </form>
     </div>
@@ -28,29 +28,22 @@ export default {
   name: "home",
   data() {
     return {
-      searchTerm: {
-        text: ""
-      },
-      locations: []
     };
   },
-  methods: {
-    resetForm(){
-      this.searchTerm = {};
-    },
-    submitSearch(){
-      searchService.getSearchResults()
-      .then(response => {
-        this.locations = response.data;
-        this.locations.forEach(loc => {
-          console.log(loc.locationName);
-        })
-      });
-      //TODO: change to search page results view/vue when built
-      this.$router.push({name: "search-result"});
-    }
+  created() {
+    this.retrieveLocations();
   },
+  methods: {
+    retrieveLocations(){
+      searchService.getLocations()
+      .then(response => {
+        this.$store.commit("SET_LOCATIONS", response.data);
+        this.$router.push({name: "search-result"});
+        })
+      }
+    }
 };
 </script>
+
 
 

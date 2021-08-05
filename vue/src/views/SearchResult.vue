@@ -18,6 +18,12 @@ import searchService from '../services/SearchService.js'
 
 export default {
     name: 'search-result',
+  
+    data() {
+        return {
+            
+            }
+    },    
     components: { 
         LocationsList,
         MapApi,
@@ -35,18 +41,14 @@ export default {
         })
       }
     },
-    //  computed: {
-    // searchByCategories(categories) {
-    //   return this.$store.state.locations.filter(
-    //   locations => locations.categories
-    //   ); },
+
     
     // searchByKeyword() {},
     // searchByCurrentLocation() {},
     // searchByAvailableNow() {}
     // },
-  }
-
+  
+}
 </script>
 
 <style>

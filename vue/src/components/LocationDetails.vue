@@ -31,15 +31,14 @@ export default {
 <style>
 /* STYLE HERE IS VERY TEMPORARY. USED TO UNDERSTAND FLEX WITHIN COMPONENTS. */
 
-/* div.details {
-    background: grey;
-} */
 
 div.details {
     width: 33%;
     height: 94.75vh;
     overflow-y: auto;
     position: relative;
+    background:white;
+    color: black;
 } 
 div.testing{
     border-top: solid 1px;

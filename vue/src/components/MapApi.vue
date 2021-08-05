@@ -32,6 +32,17 @@ export default {
         style: 'mapbox://styles/mapbox/streets-v11'
       });
 
+//       map.addControl(
+//       new MapboxDirections({
+// accessToken: mapboxgl.accessToken
+//       }),
+//       'top-left'
+//         );    
+
+      
+      // const dir = new mapboxgl.MapboxDirections({accessToken: mapboxgl.accessToken, unit: 'metric', profile: 'mapbox/walking'});
+      // dir.addTo(map);
+
       const nav = new mapboxgl.NavigationControl();
       map.addControl(nav, "top-right");
 

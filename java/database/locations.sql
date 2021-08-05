@@ -213,3 +213,6 @@ VALUES ('Fusion Arena', 'Esports arena home to the Overwatch team competitive te
 '24:00:00', '00:00:00', 'https://twitter.com/Fusion', 'https://fusionarenaphilly.com/', 'https://www.facebook.com/PhiladelphiaFusion/', 'placeholder.jpg', '39.5413', '-75.10596', 'Sports, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(30, 3);
 INSERT INTO locations_category (location_id, category_id) VALUES(30, 7);
+
+--Insert test check ins to locations
+INSERT INTO check_ins (date_time, location_id, user_id) VALUES (CURRENT_TIMESTAMP, 1, 3), (CURRENT_TIMESTAMP, 3, 3), (CURRENT_TIMESTAMP, 4, 3);

@@ -215,4 +215,4 @@ INSERT INTO locations_category (location_id, category_id) VALUES(30, 3);
 INSERT INTO locations_category (location_id, category_id) VALUES(30, 7);
 
 --Insert test check ins to locations
-INSERT INTO check_ins (date_time, location_id, user_id) VALUES (CURRENT_TIMESTAMP, 1, 3), (CURRENT_TIMESTAMP, 3, 3), (CURRENT_TIMESTAMP, 4, 3);
+INSERT INTO check_ins (date_time, location_id, user_id) VALUES (CURRENT_TIMESTAMP, 1, 1), (CURRENT_TIMESTAMP, 3, 1), (CURRENT_TIMESTAMP, 4, 1);

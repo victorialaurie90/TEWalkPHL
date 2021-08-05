@@ -6,6 +6,8 @@ public class CheckIn {
     private String dateTime;
     private int locationId;
     private int userId;
+    private String locationName;
+    private String categories;
 
     public CheckIn() {
     }
@@ -40,5 +42,21 @@ public class CheckIn {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
+    public String getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String categories) {
+        this.categories = categories;
     }
 }

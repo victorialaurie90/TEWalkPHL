@@ -35,10 +35,18 @@ export default {
         })
       }
     },
-    computed: {
-        
-    }
-}
+    //  computed: {
+    // searchByCategories(categories) {
+    //   return this.$store.state.locations.filter(
+    //   locations => locations.categories
+    //   ); },
+    
+    // searchByKeyword() {},
+    // searchByCurrentLocation() {},
+    // searchByAvailableNow() {}
+    // },
+  }
+
 </script>
 
 <style>

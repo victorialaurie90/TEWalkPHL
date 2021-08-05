@@ -5,10 +5,14 @@
     <p>Fun Stuff Near You</p>
     <!-- <router-link :to= " { name: 'login'} "><button>Login</button></router-link> -->
     <div class="search-box">
-      <form v-on:submit.prevent="submitSearch">
+    <form v-on:submit.prevent="submitSearch">
         <input type="text" placeholder="What do you want to do?">
         <button type="submit">Search</button>
-      </form>
+    </form>
+    
+    <form v-on:click.prevent="searchByCategory">
+        <button type="submit">Bars</button>
+    </form>
     </div>
     <!-- <div v-for='location in locations' v-bind:key="location.id">
       <h3>{{location.name}}</h3>

@@ -29,7 +29,8 @@ export default new Vuex.Store({
       facebook: "",
       img: "",
       latitude: 0,
-      longitude: 0 
+      longitude: 0,
+      categories: "" 
     }
   },
   mutations: {

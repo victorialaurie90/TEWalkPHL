@@ -24,25 +24,22 @@ public class JdbcLocationDao implements LocationDao {
     public List<Location> listAllLocations() {
         List<Location> locations = new ArrayList<>();
         String sql =
-                "SELECT "
-                + " l.location_id,"
-                + " l.location_name,"
-                + " l.description,"
-                + " l.address,"
-                + " l.open_to,"
-                + " l.open_from,"
-                + " l.twitter,"
-                + " l.url,"
-                + " l.facebook,"
-                + " l.img,"
-                + " l.lat,"
-                + " l.long,"
-                + " (SELECT string_agg(c.category, ', ') AS categories FROM category c"
-                + " JOIN locations_category lc ON c.category_id = lc.category_id"
-                + " JOIN locations l ON l.location_id = lc.location_id"
-                + " WHERE l.location_id = ?)"
-                + " FROM locations l"
-                + " WHERE l.location_id = ?;";
+                "SELECT"
+                + " location_id,"
+                + " location_name,"
+                + " description,"
+                + " address,"
+                + " open_to,"
+                + " open_from,"
+                + " twitter,"
+                + " url,"
+                + " facebook,"
+                + " img,"
+                + " lat,"
+                + " long,"
+                + " categories "
+                + " FROM locations;";
+
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
             Location sampleLocation = mapRowToLocation(results);

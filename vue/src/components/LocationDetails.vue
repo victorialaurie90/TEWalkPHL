@@ -10,7 +10,7 @@
         <li id="open_from">Open From: {{location.openFrom}}</li> 
         <li id="open_to">Open To: {{location.openTo}}</li>
       </ul>
-      <p id="category">Category: TBD?</p>
+      <p id="category">Category: {{location.categories}}</p>
       <p id="address">Address: {{location.address}}</p>
       <p id="description">Description: {{location.description}}</p>
       <ul id="social_media">

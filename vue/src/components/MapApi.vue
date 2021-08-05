@@ -19,7 +19,7 @@ export default {
       let mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
  
       mapboxgl.accessToken = 'pk.eyJ1IjoidG9tc2NvbnRlIiwiYSI6ImNrcnd4eG93eDBrenQybnFleHh6aXNhd3kifQ.tgzQgT1l3z4Bq7WpHQe3Wg';
-      let map = new mapboxgl.Map({
+      let map = new mapboxgl.Map({  
       container: 'map',
       center: [-75.1652, 39.9526],
       zoom: 11.15,

@@ -45,6 +45,7 @@ facebook VARCHAR(255),
 img VARCHAR(255),
 lat DECIMAL(8,6),
 long DECIMAL(8,6),
+categories VARCHAR(255),
 isFeatured BOOLEAN DEFAULT false,
 CONSTRAINT PK_locations PRIMARY KEY (location_id)
 );

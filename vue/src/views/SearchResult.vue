@@ -74,5 +74,4 @@ div.locations-list-and-map {
     background-color: teal;
 }
 
-
 </style>

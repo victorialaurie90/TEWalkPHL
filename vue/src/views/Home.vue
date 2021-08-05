@@ -2,7 +2,7 @@
   <div class="home">
     
     <h1>WLK - PHL</h1>
-    <p>Fun Stuff Near You</p>
+    <p>Find Your Next Favorite Jawn</p>
     <!-- <router-link :to= " { name: 'login'} "><button>Login</button></router-link> -->
     <div class="search-box">
     <form v-on:submit.prevent="submitSearch">

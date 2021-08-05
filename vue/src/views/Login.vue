@@ -121,6 +121,7 @@ div.border {
   padding-bottom: 70px;
   padding-left: 20px;
   padding-right: 20px;
+  background-color: rgba(89, 154, 196, .9);
 }
 
 div.field{

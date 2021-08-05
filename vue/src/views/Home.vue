@@ -9,9 +9,8 @@
         <input type="text" placeholder="What do you want to do?">
         <button type="submit">Search</button>
     </form>
-    
-    <form v-on:click.prevent="searchByCategory">
-        <button type="submit">Bars</button>
+    <form v-on:click.prevent="searchByCategories">
+        <button type="submit" v-on:click="searchByCategories">Bars</button>
     </form>
     </div>
     <!-- <div v-for='location in locations' v-bind:key="location.id">
@@ -28,24 +27,40 @@
 export default {
 // TODO: Reconsider whether we still need searchTerm, resetForm, rename submitSearch() since
 // filtering results will happen in JavaScript/front end
+components: {
+
+},
   name: "home",
+    props: ["categories"],
   data() {
     return {
+      filteredLocations: [],
     };
   },
+       computed: {
+        searchByCategories() {
+       let filteredLocations = this.$store.state.locations.filter(
+        location => { location.categories.includes(this.categories)
+        })
+        console.log(filteredLocations);
+        return filteredLocations;
+        }
+        
+     },
 };
 </script>
 
 <style scoped>
 
 h1{
-  font-size: 84px;
+  font-size: 100px;
   display: flex;
   justify-content: center;
   margin-top:250px;
   margin-bottom: 5px;
 }
 p{
+  font-size: 50px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -17,7 +17,6 @@ export default {
   methods: {
     loadMap() {
       let mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
- 
       mapboxgl.accessToken = 'pk.eyJ1IjoidG9tc2NvbnRlIiwiYSI6ImNrcnd4eG93eDBrenQybnFleHh6aXNhd3kifQ.tgzQgT1l3z4Bq7WpHQe3Wg';
       let map = new mapboxgl.Map({  
       container: 'map',
@@ -26,6 +25,17 @@ export default {
       attributionControl: false,
       style: 'mapbox://styles/mapbox/streets-v11'
       });
+
+//       map.addControl(
+//       new MapboxDirections({
+// accessToken: mapboxgl.accessToken
+//       }),
+//       'top-left'
+//         );    
+
+      
+      // const dir = new mapboxgl.MapboxDirections({accessToken: mapboxgl.accessToken, unit: 'metric', profile: 'mapbox/walking'});
+      // dir.addTo(map);
 
       const nav = new mapboxgl.NavigationControl();
       map.addControl(nav, "top-right");

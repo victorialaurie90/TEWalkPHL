@@ -7,7 +7,7 @@
       </div>
       <div class = "check-ins">
           <top-check-ins />
-          <check-in-history class = "single-check-in"/>
+          <check-in-history class = "single-check-in" v-bind:user-id="$route.params.id"/>
       </div>
   </div>
 </template>
@@ -23,7 +23,9 @@ export default {
       BadgeComponent, 
       CheckInHistory,
       TopCheckIns },
-
+    props: {
+      'userId': Number
+    },
 }
 </script>
 

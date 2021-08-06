@@ -1,6 +1,6 @@
 <template>
   <div class="profile_container">
-    <profile-details />
+    <profile-details v-bind:user-id="$route.params.id"/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: "profile",
   components: {
     ProfileDetails
-  }
+  },
 
 }
 </script>

@@ -1,14 +1,37 @@
 <template>
   <div class = "check-in">
-      <h3>Location Name</h3>
-      <p>Date:</p>
+    <div v-for="checkin in checkIns" v-bind:key="checkin.checkInId">
+      <h3>{{checkin.locationName}}</h3>
+      <p>Date and Time: {{checkin.dateTime}}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import checkInService from '../services/CheckInService'
+
 export default {
     name: "check-in-history",
-
+    data() {
+      return {
+        checkIns: [],
+        filteredCheckIns: []
+      };
+    },
+    props: {
+      'userId': Number
+    },
+    created() {
+      this.retrieveCheckIns();
+    },
+    methods: {
+      retrieveCheckIns() {
+        checkInService.getCheckIns(this.$store.state.user.id)
+        .then (response => {
+          this.checkIns = response.data;
+        });
+      }
+    }
 }
 </script>
 

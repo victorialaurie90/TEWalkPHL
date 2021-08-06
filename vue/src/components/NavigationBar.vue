@@ -9,7 +9,9 @@
                 </div>
                 <div id="myLinks" style="display: none;">
                     <router-link :to= " { name: 'home'} "><p @click="reset">Home</p></router-link>
-                    <router-link :to= " { name: 'profile'} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Profile</p></router-link>
+                    <div>
+                        <router-link :to=" { name: 'profile', params: { id: this.$store.state.user.id }} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Profile</p></router-link>
+                    </div>
                     <router-link :to= " { name: 'logout'} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Logout</p></router-link> 
                     <router-link :to= " { name: 'login'} "><p @click="reset" v-show="!this.$store.state.isLoggedIn">Login</p></router-link> 
                     <router-link :to= " { name: 'register'} "><p @click="reset" v-show="!this.$store.state.isLoggedIn">Register</p></router-link> 

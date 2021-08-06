@@ -30,11 +30,11 @@ public class JdbcCheckInDao implements CheckInDao {
     //will probably need to join tables and return location_name and date_time
     public List<CheckIn> getCheckInsByUserId(int userId) {
         List<CheckIn> checkIns = new ArrayList<>();
-        String sql = "SELECT c.check_in_id, c.date_time, l.location_name, l.categories" +
+        String sql = "SELECT c.check_in_id, c.date_time, c.user_id, l.location_name, l.categories" +
                 " FROM check_ins c" +
                 " JOIN locations l ON c.location_id = l.location_id" +
                 " WHERE user_id = ?;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
             checkIns.add(mapRowToCheckIns(results));
         }
@@ -45,6 +45,7 @@ public class JdbcCheckInDao implements CheckInDao {
         CheckIn checkIn = new CheckIn();
         checkIn.setCheckInId(results.getInt("check_in_id"));
         checkIn.setDateTime(results.getString("date_time"));
+        checkIn.setUserId(results.getInt("user_id"));
         checkIn.setLocationName(results.getString("location_name"));
         checkIn.setCategories(results.getString("categories"));
         return checkIn;

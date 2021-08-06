@@ -48,7 +48,7 @@ export default {
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    background: rgb(213, 223, 169);
+    background: #AACCE1;
     margin-top: 20px;
     width: 20%;
     margin-bottom: 25px;
@@ -58,10 +58,9 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(126, 104, 253, 0.438);
+    background-color: rgba(89, 154, 196);
     width: 33%;
     border-radius: 20px;
-
 }
 
 </style>

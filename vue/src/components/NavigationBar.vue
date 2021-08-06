@@ -75,6 +75,11 @@ export default {
     list-style: none;
 }
 
+p:hover {
+    background-color: #7C2D3E;
+    transition: background-color .5s;
+}
+
 .topnav a.a-active {
     color: white;
     text-decoration: none;

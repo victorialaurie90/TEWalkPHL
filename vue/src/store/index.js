@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import createPersistedState from "vuex-persistedstate";
 Vue.use(Vuex)
 /*
  * The authorization header is set for axios when you login but what happens when you come back or
@@ -13,6 +14,10 @@ if(currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
 }
 export default new Vuex.Store({
+  plugins: [createPersistedState({
+    storage: window.sessionStorage,
+    //sessionStorage.clear(); to clear the state on logout, etc.
+  })],
   state: {
     token: currentToken || '',
     user: currentUser || {},

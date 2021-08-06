@@ -10,8 +10,15 @@
         <button type="submit">Search</button>
     </form>
     <!-- Turn the button below into a simpler type button (not a form) -->
+        <button type="submit" v-on:click="applyNameToFilter('Restaurants')">Restaurants</button>
         <button type="submit" v-on:click="applyNameToFilter('Bars')">Bars</button>
         <button type="submit" v-on:click="applyNameToFilter('Sports')">Sports</button>
+        <button type="submit" v-on:click="applyNameToFilter('Fine Arts')">Fine Arts</button>
+        <button type="submit" v-on:click="applyNameToFilter('Historic Sites')">Historic Sites</button>
+        <button type="submit" v-on:click="applyNameToFilter('Parks')">Parks</button>
+        <button type="submit" v-on:click="applyNameToFilter('Indoor')">Indoor</button>
+        <button type="submit" v-on:click="applyNameToFilter('Outdoor')">Outdoor</button>
+        
     </div>
     <!-- <div v-for='location in locations' v-bind:key="location.id">
       <h3>{{location.name}}</h3>

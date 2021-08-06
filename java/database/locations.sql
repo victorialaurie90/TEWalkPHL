@@ -1,17 +1,16 @@
-
 -- ~*~*~*~*~*LOCATION INFORMATION!!!*~*~*~*~*~
 
 --LOVE PARK
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('Love Park', 'LOVE Park, officially known as John F. Kennedy Plaza, is a public park located in Center City.', 'Arch St, Philadelphia, PA 19102',  
-'7:00:00', '22:00:00', 'https://twitter.com/loveparkphilly', 'https://www.visitphilly.com/things-to-do/attractions/love-park/', 'https://www.facebook.com/LOVEParkPhilly/', 'placeholder.jpg', '39.9543', '-75.1657', 'Park, Outdoor');
+'7:00:00', '22:00:00', 'https://twitter.com/loveparkphilly', 'https://www.visitphilly.com/things-to-do/attractions/love-park/', 'https://www.facebook.com/LOVEParkPhilly/', 'placeholder.jpg', '39.9543', '-75.1657', 'Parks, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(1, 4);
 INSERT INTO locations_category (location_id, category_id) VALUES(1, 8);
 
 --PENNYPACK PARK
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('Pennypack Park', 'Pennypack Park is a municipal park, in Northeast Philadelphia in the U.S. state of Pennsylvania. Established in 1905 by the City of Philadelphia, it includes about 1,600 acres of woodlands, meadows and wetlands.', 'Pennypack Trail, Philadelphia, PA 19102',  
-'24:00:00', '00:00:00', '', 'https://www.visitphilly.com/things-to-do/attractions/pennypack-park/', '', 'placeholder.jpg', '40.0401', '-75.0300', 'Park, Outdoor');
+'24:00:00', '00:00:00', '', 'https://www.visitphilly.com/things-to-do/attractions/pennypack-park/', '', 'placeholder.jpg', '40.0401', '-75.0300', 'Parks, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(2, 4);
 INSERT INTO locations_category (location_id, category_id) VALUES(2, 8);
 
@@ -19,13 +18,13 @@ INSERT INTO locations_category (location_id, category_id) VALUES(2, 8);
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('FDR Park', 'Large urban park offering a golf course, sports fields, fishing lakes & the American Swedish Museum.', 
 '1500 Pattison Avenue &, S Broad St, Philadelphia, PA 19145', '21:00:00', '06:00:00', 'https://twitter.com/fdrpark', 'https://www.fdrparkphilly.org', 
-'https://www.facebook.com/fdrpark',  'placeholder.jpg', '39.9021', '-75.1838', 'Park, Outdoor');
+'https://www.facebook.com/fdrpark',  'placeholder.jpg', '39.9021', '-75.1838', 'Parks, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(3, 4);
 INSERT INTO locations_category (location_id, category_id) VALUES(3, 8);
 
 --Mutter Museum
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('The Mütter Museum', 'The Mütter Museum helps the public appreciate the mysteries and beauty of the human body while understanding the history of diagnosis and treatment of disease.', '19 S 22nd St, Philadelphia, PA 19103',  
+VALUES ('The Mutter Museum', 'The Mutter Museum helps the public appreciate the mysteries and beauty of the human body while understanding the history of diagnosis and treatment of disease.', '19 S 22nd St, Philadelphia, PA 19103',  
 '17:00:00', '10:00:00', 'https://twitter.com/muttermuseum', 'http://muttermuseum.org/', '', 'placeholder.jpg', '39.9532', '-75.1764', 'Historic Sites, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(4, 6);
 INSERT INTO locations_category (location_id, category_id) VALUES(4, 7);
@@ -39,7 +38,7 @@ INSERT INTO locations_category (location_id, category_id) VALUES(5, 7);
 
 --Franklin Institute
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('The Franklin Institute', 'Located in the heart of Philadelphia, The Franklin Institute is one of America''s most celebrated museums—a renowned leader in science and technology.', '222 N 20th St, Philadelphia, PA 19103',  
+VALUES ('The Franklin Institute', 'Located in the heart of Philadelphia, The Franklin Institute is one of America''s most celebrated museumsï¿½a renowned leader in science and technology.', '222 N 20th St, Philadelphia, PA 19103',  
 '18:00:00', '10:00:00', 'https://twitter.com/thefranklin', 'https://www.fi.edu/', 'https://www.facebook.com/TheFranklinInstitute/', 'placeholder.jpg', '39.9582', '-75.1731', 'Historic Sites, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(6, 6);
 INSERT INTO locations_category (location_id, category_id) VALUES(6, 7);
@@ -47,21 +46,21 @@ INSERT INTO locations_category (location_id, category_id) VALUES(6, 7);
 --Art Museum
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('Philadelphia Museum of Art', 'The Philadelphia Museum of Art is an art museum originally chartered in 1876 for the Centennial Exposition in Philadelphia.', '2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130',  
-'17:00:00', '10:00:00', 'https://twitter.com/philamuseum', 'https://philamuseum.org/visit', 'https://www.facebook.com/philamuseum/', 'placeholder.jpg', '39.9656', '-75.1810', 'Indoor, Arts');
+'17:00:00', '10:00:00', 'https://twitter.com/philamuseum', 'https://philamuseum.org/visit', 'https://www.facebook.com/philamuseum/', 'placeholder.jpg', '39.9656', '-75.1810', 'Indoor, Fine Arts');
 INSERT INTO locations_category (location_id, category_id) VALUES(7, 7);
 INSERT INTO locations_category (location_id, category_id) VALUES(7, 9);
 
 --Mann Center
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('The Mann Center', 'The Mann Center for the Performing Arts is a nonprofit performing arts center located in the Centennial District of Philadelphia''s West Fairmount Park, built in 1976 as the summer home for the Philadelphia Orchestra.', '5201 Parkside Ave, Philadelphia, PA 19131',  
-'24:00:00', '00:00:00', 'https://twitter.com/manncenter', 'https://manncenter.org/', 'https://www.facebook.com/themanncenter/', 'placeholder.jpg', '39.5859', '-75.1322', 'Outdoor, Arts');
+'24:00:00', '00:00:00', 'https://twitter.com/manncenter', 'https://manncenter.org/', 'https://www.facebook.com/themanncenter/', 'placeholder.jpg', '39.5859', '-75.1322', 'Outdoor, Fine Arts');
 INSERT INTO locations_category (location_id, category_id) VALUES(8, 8);
 INSERT INTO locations_category (location_id, category_id) VALUES(8, 9);
 
 --Kimmel Center
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('Kimmel Cultural Campus', 'The Kimmel Center for the Performing Arts is a large performing arts venue at 300 South Broad Street and the corner of Spruce Street, along the stretch known as the "Avenue of the Arts", in Center City, Philadelphia, Pennsylvania.', '300 S Broad St, Philadelphia, PA 19102',  
-'24:00:00', '00:00:00', 'https://twitter.com/kimmelcenter', 'https://www.kimmelculturalcampus.org/', 'https://www.facebook.com/KimmelCulturalCampus/', 'placeholder.jpg', '39.9467', '-75.1657', 'Indoor, Arts');
+'24:00:00', '00:00:00', 'https://twitter.com/kimmelcenter', 'https://www.kimmelculturalcampus.org/', 'https://www.facebook.com/KimmelCulturalCampus/', 'placeholder.jpg', '39.9467', '-75.1657', 'Indoor, Fine Arts');
 INSERT INTO locations_category (location_id, category_id) VALUES(9, 7);
 INSERT INTO locations_category (location_id, category_id) VALUES(9, 9);
 
@@ -161,14 +160,14 @@ INSERT INTO locations_category (location_id, category_id) VALUES(22, 7);
 --Rodin Museum
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('Rodin Museum', 'The Rodin Museum is an art museum located in Philadelphia, Pennsylvania that contains one of the largest collections of sculptor Auguste Rodin''s works outside Paris.', '2151 Benjamin Franklin Pkwy, Philadelphia, PA 19130',  
-'17:00:00', '10:00:00', '', 'https://www.rodinmuseum.org/', '', 'placeholder.jpg', '39.9619', '-75.1740', 'Indoor, Arts');
+'17:00:00', '10:00:00', '', 'https://www.rodinmuseum.org/', '', 'placeholder.jpg', '39.9619', '-75.1740', 'Indoor, Fine Arts');
 INSERT INTO locations_category (location_id, category_id) VALUES(23, 7);
 INSERT INTO locations_category (location_id, category_id) VALUES(23, 9);
 
 --Pennsylvania Academy of the Fine Arts
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('Pennsylvania Academy of the Fine Arts', 'Founded in 1805 as the first art school and museum in the United States, PAFA celebrates the transformative power of art and art-making.', '118-128 N Broad St, Philadelphia, PA 19102',  
-'16:00:00', '10:00:00', '', 'https://www.pafa.org/', 'https://www.facebook.com/PAFAcademy', 'placeholder.jpg', '39.5718', '-75.950', 'Indoor, Arts');
+'16:00:00', '10:00:00', '', 'https://www.pafa.org/', 'https://www.facebook.com/PAFAcademy', 'placeholder.jpg', '39.5718', '-75.950', 'Indoor, Fine Arts');
 INSERT INTO locations_category (location_id, category_id) VALUES(24, 7);
 INSERT INTO locations_category (location_id, category_id) VALUES(24, 9);
 

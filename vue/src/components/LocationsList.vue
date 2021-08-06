@@ -40,7 +40,11 @@ export default {
         const rawList = this.$store.state.locations;
         const filterCriteria = this.$store.state.searchText;
         return rawList.filter(loc => {
-          return loc.categories.includes(filterCriteria);
+           return filterCriteria.toLowerCase().split(' ').every(query => 
+                  loc.categories.toLowerCase().includes(query) || 
+                  loc.locationName.toLowerCase().includes(query) ||
+                  loc.description.toLowerCase().includes(query)
+                  );
         })
       }
 

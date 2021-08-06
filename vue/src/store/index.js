@@ -22,7 +22,8 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     isLoggedIn: false,
-    filterCriteria: '',
+    filterCriteria: null,
+    searchText: null,
     locations: [],
     location: {
       locationId: 0,

@@ -5,13 +5,13 @@
     <p>Find Your Next Favorite Jawn</p>
     <!-- <router-link :to= " { name: 'login'} "><button>Login</button></router-link> -->
     <div class="search-box">
-    <form v-on:submit.prevent="submitSearch">
-        <input type="text" placeholder="What do you want to do?">
+    <form v-on:submit.prevent="freeTextSearch">
+        <input type="text" id="filterText" placeholder="What do you want to do?">
         <button type="submit">Search</button>
     </form>
-    <form v-on:click.prevent="searchByCategories">
-        <button type="submit" v-on:click="searchByCategories">Bars</button>
-    </form>
+    <!-- Turn the button below into a simpler type button (not a form) -->
+        <button type="submit" v-on:click="applyNameToFilter('Bars')">Bars</button>
+        <button type="submit" v-on:click="applyNameToFilter('Sports')">Sports</button>
     </div>
     <!-- <div v-for='location in locations' v-bind:key="location.id">
       <h3>{{location.name}}</h3>
@@ -36,6 +36,22 @@ export default {
       filteredLocations: [],
     };
   },
+  methods: {
+
+    applyNameToFilter(category) {
+      this.$store.state.filterCriteria = category;
+      this.$router.push({name: 'search-result'});
+    },
+
+    freeTextSearch() {
+      this.$store.state.filterCriteria = null;
+      let filter = document.getElementById('filterText');
+      this.$store.state.searchText = filter.value;
+      this.$router.push({name: 'search-result'});
+    }
+
+
+  }
   // computed: { 
   // searchByCategories() {
   //   let filteredLocations = this.$store.state.locations.filter(

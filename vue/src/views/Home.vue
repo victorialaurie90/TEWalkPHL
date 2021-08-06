@@ -30,21 +30,21 @@ export default {
     
   },
   name: "home",
-  props: ["categories"],
+  // props: ["categories"],
   data() {
     return {
       filteredLocations: [],
     };
   },
-  computed: { 
-  searchByCategories() {
-    let filteredLocations = this.$store.state.locations.filter(
-    location => { location.categories.includes(this.categories)
-    })
-    console.log(filteredLocations);
-    return filteredLocations;
-  }
-  }
+  // computed: { 
+  // searchByCategories() {
+  //   let filteredLocations = this.$store.state.locations.filter(
+  //   location => { location.categories.includes(this.categories)
+  //   })
+  //   console.log(filteredLocations);
+  //   return filteredLocations;
+  // }
+  // }
 };
 </script>
 

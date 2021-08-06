@@ -1,10 +1,8 @@
 <template>
-  <div class="details">
-      <div
-        class="testing"
-        v-for="location in this.$store.state.locations"
-        v-bind:key="location.id"
-      >
+  <!-- <div class="list"> -->
+    <div class="details">
+        <!-- v-for="location in this.$store.state.locations"
+        v-bind:key="location.id" -->
       <h3 id="location_name">{{location.locationName}}</h3>
       <ul id="to_and_from">
         <li id="open_from">Open From: {{location.openFrom}}</li> 
@@ -18,13 +16,17 @@
           <li id="url">Website: {{location.Website}}</li>
           <li id="twitter">Twitter: {{location.twitter}}</li>
       </ul>
-      </div>
-  </div>
+    </div>
+  <!-- </div> -->
 </template>
 
 <script>
 export default {
+    name: "location-details",
+    props: ["location"],
+    methods: {
 
+    }
 }
 </script>
 
@@ -32,15 +34,15 @@ export default {
 /* STYLE HERE IS VERY TEMPORARY. USED TO UNDERSTAND FLEX WITHIN COMPONENTS. */
 
 
-div.details {
+/* div.list {
     width: 33%;
     height: 94.75vh;
     overflow-y: auto;
     position: relative;
     background:white;
     color: black;
-} 
-div.testing{
+}  */
+div.details{
     border-top: solid 1px;
     border-bottom: solid 1px;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class = "check-in">
-      <h3>Location Name</h3>
+      <h3>Top 3 Check-In Locations</h3>
       <p>Date:</p>
   </div>
 </template>

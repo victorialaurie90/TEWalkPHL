@@ -23,30 +23,28 @@
 </template>
 
 <script>
-
 export default {
 // TODO: Reconsider whether we still need searchTerm, resetForm, rename submitSearch() since
 // filtering results will happen in JavaScript/front end
-components: {
-
-},
+  components: {
+    
+  },
   name: "home",
-    props: ["categories"],
+  props: ["categories"],
   data() {
     return {
       filteredLocations: [],
     };
   },
-       computed: {
-        searchByCategories() {
-       let filteredLocations = this.$store.state.locations.filter(
-        location => { location.categories.includes(this.categories)
-        })
-        console.log(filteredLocations);
-        return filteredLocations;
-        }
-        
-     },
+  computed: { 
+  searchByCategories() {
+    let filteredLocations = this.$store.state.locations.filter(
+    location => { location.categories.includes(this.categories)
+    })
+    console.log(filteredLocations);
+    return filteredLocations;
+  }
+  }
 };
 </script>
 

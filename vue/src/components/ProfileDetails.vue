@@ -1,11 +1,12 @@
 <template>
   <div class = "profile-information">
       <div class = "information">
-          <h3>User Information</h3>
-          <p>Name:</p>
+          <img src="../assets/placeholder-200x200-300x300.png" alt="placeholder image" id="picture">
+          <h3>{{this.$store.state.user.username}}</h3>
           <badge-component class = "badge-component"/>
       </div>
       <div class = "check-ins">
+          <top-check-ins />
           <check-in-history class = "single-check-in"/>
       </div>
   </div>
@@ -14,12 +15,14 @@
 <script>
 import BadgeComponent from './BadgeComponent.vue'
 import CheckInHistory from './CheckInHistory.vue'
+import TopCheckIns from './TopCheckIns.vue'
 
 export default {
     name: "profile-details",
     components: { 
       BadgeComponent, 
-      CheckInHistory },
+      CheckInHistory,
+      TopCheckIns },
 
 }
 </script>
@@ -28,21 +31,37 @@ export default {
 
 .profile-information {
     display: flex;
+    flex-direction: column;
     width: 100%;
+    align-items: center;
 }
 
 #picture {
-
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    border-radius: 50%;
 }
 
 .information {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
     background: rgb(213, 223, 169);
+    margin-top: 20px;
+    width: 20%;
+    margin-bottom: 25px;
 }
 
 .check-ins {
-    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: rgba(126, 104, 253, 0.438);
+    width: 33%;
+    border-radius: 20px;
+
 }
 
 </style>

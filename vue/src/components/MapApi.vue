@@ -1,6 +1,8 @@
 <template>
 <div class="container">
-  <div id='map' style='width: 100%; height: 94.75vh;' >
+  <div id='map' style='width: 100%; height: 94.75vh;' 
+    v-for="location in this.$store.state.locations" 
+    v-bind:key="location.id">
   </div>
 </div>
 
@@ -21,6 +23,7 @@ export default {
   },
   methods: {
     loadMap() {
+
       let mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
       mapboxgl.accessToken = 'pk.eyJ1IjoidG9tc2NvbnRlIiwiYSI6ImNrcnd4eG93eDBrenQybnFleHh6aXNhd3kifQ.tgzQgT1l3z4Bq7WpHQe3Wg';
 

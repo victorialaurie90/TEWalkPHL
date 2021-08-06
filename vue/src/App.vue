@@ -12,10 +12,22 @@
 </template>
 
 <script>
+import searchService from '@/services/SearchService.js'
 import NavigationBar from '@/components/NavigationBar.vue'
 export default {
   components: {
     NavigationBar
+  },
+  created() {
+    this.retrieveLocations();
+  },
+  methods: {
+    retrieveLocations(){
+      searchService.getLocations()
+      .then(response => {
+        this.$store.commit("SET_LOCATIONS", response.data);
+        })
+      }
   }
 }
 </script>

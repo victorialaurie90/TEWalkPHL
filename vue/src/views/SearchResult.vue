@@ -14,11 +14,12 @@
 import MapApi from '../components/MapApi.vue'
 // import FooterBar from '../components/FooterBar.vue'
 import LocationsList from '../components/LocationsList.vue'
-import searchService from '../services/SearchService.js'
+// import searchService from '../services/SearchService.js'
 
 export default {
     name: 'search-result',
-  
+    props: ['locations']
+    ,
     data() {
         return {
             
@@ -30,16 +31,16 @@ export default {
         // FooterBar
     },
      created() {
-    this.retrieveLocations();
+    // this.retrieveLocations();
     },
     methods: {
-    retrieveLocations(){
-      searchService.getLocations()
-      .then(response => {
-        this.$store.commit("SET_LOCATIONS", response.data);
-        this.$router.push({name: "search-result"});
-        })
-      }
+    // retrieveLocations(){
+    //   searchService.getLocations()
+    //   .then(response => {
+    //     this.$store.commit("SET_LOCATIONS", response.data);
+    //     this.$router.push({name: "search-result"});
+    //     })
+    //   }
     },
 
     

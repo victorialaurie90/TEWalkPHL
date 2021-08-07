@@ -1,8 +1,11 @@
 <template>
   <div class = "check-in">
     <div v-for="checkin in checkIns" v-bind:key="checkin.checkInId">
-      <h3>{{checkin.locationName}}</h3>
-      <p>Date and Time: {{checkin.dateTime}}</p>
+      <div id="info">
+          <h3>{{checkin.locationName}}</h3>
+          <p>Date and Time: {{checkin.dateTime}}</p> 
+      </div>
+
     </div>
   </div>
 </template>
@@ -40,6 +43,29 @@ export default {
 .check-in {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: #9F6172;
+  border-radius: 20px;
+  border: solid #DBCFD6 2px;
+  transition: .2s;
+}
+
+#info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.check-in:hover {
+  background-color: #DBCFD6;
+  border: solid #9F6172 2px;
+  transition: .2s;
+  transform: scale(1.1)
+}
+
+div.check-in div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
 }
 

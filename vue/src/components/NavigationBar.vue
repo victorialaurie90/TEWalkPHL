@@ -3,10 +3,10 @@
         <!-- Simulate a smartphone / tablet -->
         <div class="mobile-container">
             <!-- Top Navigation Menu -->
-            <div class="topnav">
-                <div class="logo active">
-                    <img src="../assets/WP-logo-large.png" alt="BigLogo" @click="myFunction" style="width: 200px; margin: 0;">
-                </div>
+            <div class="topnav" @click="myFunction">
+
+                <img src="../assets/WP-logo-large.png" alt="BigLogo" id="image"  style="width: 200px; margin: 0;" >
+
                 <div id="myLinks" style="display: none;">
                     <router-link :to= " { name: 'home'} "><p @click="reset">Home<i class="fas fa-home"></i></p></router-link>
                     <div>
@@ -30,6 +30,7 @@ export default {
         var x = document.getElementById("myLinks");
         if (x.style.display === "none") {
             x.style.display = "block";
+
         } else {
             x.style.display = "none";
         }
@@ -46,29 +47,28 @@ export default {
 
  /* Style the navigation menu */
 .topnav {
+    background-color: #5C9CC4;
     overflow: hidden;
-    background-color: #9F6172;
     position: relative;
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
-}
-
-.logo {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;    
-}
-
-.logo img {
     padding-top: 5px;
-    padding-left: 0px;
+
+}
+
+#image {
     padding-bottom: 5px;
+}
+
+.topnav:hover {
     cursor: pointer;
 }
 
 /* Hide the links inside the navigation menu (except for logo/home) */
 #myLinks {
+    width: 100%;
+    background-color: #9F6172;
     list-style: none;
     height: 7%;
     color: white;
@@ -88,7 +88,6 @@ p:hover {
     font-size: 17px;
     display: block;
 }
-
 
 div#myLinks p {
     color: white;

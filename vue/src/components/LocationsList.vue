@@ -4,22 +4,25 @@
   <!-- From Tom: Changed search header to relative position in order to contain it in the list and not have it cover up items on the list. -->
   <!-- From Tom: Put in DIV container to flex everything. -->
   <div>
+    <div class="search-box">
+      <input type="text" id="searchTextBox" v-on:keyup="freeTextSearch" placeholder="What do you want to do?">
+    </div>
+    <div>
     <h2 class="search-header">
-      <span v-if="clickedSearchBox" v-once>Displaying results for: {{this.$store.state.searchText}}</span>
-      <span v-if="clickedCategory" v-once>Displaying results for: {{this.$store.state.filterCriteria}}</span>
+      <span v-if="clickedSearchBox">Displaying results for: {{this.$store.state.searchText}}</span>
+      <span v-if="clickedCategory">Displaying results for: {{this.$store.state.filterCriteria}}</span>
       <span v-if="clickedOpenNow">Current open locations:</span>
       <span v-if="searchedNearMe">Displaying Results for Lat/Long: {{this.$store.state.userLocation.lat}}, {{this.$store.state.userLocation.long}}</span>
     </h2>
+    </div>
   </div>
-
-  <location-details 
+  <location-details class="deets" 
       v-for="loc in searchList"
       v-bind:key="loc.locationId"
       v-bind:location="loc"
-    />
+  />
 </div>
 </template>
-
 <script>
 import LocationDetails from './LocationDetails.vue';
 
@@ -129,7 +132,6 @@ h2.search-header {
   position: relative;
   width: 100%;
 }
-
 div.list {
     width: 33%;
     height: 94.75vh;
@@ -140,4 +142,21 @@ div.list {
     display: flex;
     flex-direction: column;
 } 
+::-webkit-scrollbar {
+  background: white;
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: white;
+  width: 10px;
+  height: 200px
+}
+::-webkit-scrollbar-thumb:hover {
+  background: grey;
+}
+#searchTextBox{
+  width: 98%;
+  height: 30px;
+  font-size:25px
+}
 </style>

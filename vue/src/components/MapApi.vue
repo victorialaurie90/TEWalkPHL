@@ -1,10 +1,8 @@
 <template>
 <div class="container">
-  <div id='map' style='width: 100%; height: 94.75vh;' 
->
+  <div id='map' style='width: 100%; height: 94.75vh;'>
   </div>
 </div>
-
 </template>
 
 <script>

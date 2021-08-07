@@ -21,6 +21,10 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    userLocation: {
+      lat: 0,
+      long: 0
+    },
     isLoggedIn: false,
     filterCriteria: null,
     searchText: null,

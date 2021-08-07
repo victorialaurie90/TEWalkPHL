@@ -8,9 +8,9 @@
       <span v-if="clickedSearchBox" v-once>Displaying results for: {{this.$store.state.searchText}}</span>
       <span v-if="clickedCategory" v-once>Displaying results for: {{this.$store.state.filterCriteria}}</span>
       <span v-if="clickedOpenNow">Current open locations:</span>
+      <span v-if="searchedNearMe">Displaying Results for Lat/Long: {{this.$store.state.userLocation.lat}}, {{this.$store.state.userLocation.long}}</span>
     </h2>
   </div>
-
 
   <location-details 
       v-for="loc in searchList"
@@ -42,8 +42,12 @@ export default {
         return this.$store.state.timeNow;
       },
 
+    searchedNearMe() {
+        return this.$store.state.userLocation;
+      },
 
-   searchList() {
+
+      searchList() {
         if (this.$store.state.filterCriteria) {
            return this.filteredLocations;
         } else if (this.$store.state.searchText) {
@@ -85,7 +89,6 @@ export default {
       }
     }
 }
-
 </script>
 
 <style>

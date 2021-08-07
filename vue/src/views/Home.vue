@@ -21,6 +21,7 @@
           <button type="submit" class="grow" v-on:click="applyNameToFilter('Indoor')"><i class="fas fa-home fa-2x"></i>Indoor</button>
           <button type="submit" class="grow" v-on:click="applyNameToFilter('Outdoor')"><i class="fas fa-cloud-sun fa-2x"></i>Outdoor</button>
           <button type="submit" class="grow" v-on:click="searchByIsOpen()"><i class="fas fa-clock fa-2x"></i>Open Now</button>
+          <button type="submit" v-on:click="searchNearMe()">Near Me</button>
         </div>
       
       
@@ -47,32 +48,66 @@ export default {
       filteredLocations: [],
     };
   },
-  methods: {
-
+methods: {
     applyNameToFilter(category) {
-      this.$store.state.searchText = null;
-      this.$store.state.timeNow = null;
+      this.resetSearchText();
+      this.resetTimeNow();
+      this.resetUserLocation();
       this.$store.state.filterCriteria = category;
       this.$router.push({name: 'search-result'});
     },
 
     freeTextSearch() {
-      this.$store.state.filterCriteria = null;
-      this.$store.state.timeNow = null;
+      this.resetFilterCriteria();
+      this.resetTimeNow();
+      this.resetUserLocation();
       let filter = document.getElementById('filterText');
       this.$store.state.searchText = filter.value;
       this.$router.push({name: 'search-result'});
     },
 
     searchByIsOpen() {
-      this.$store.state.searchText = null;
-      this.$store.state.filterCriteria = null;
+      this.resetSearchText();
+      this.resetFilterCriteria();
+      this.resetUserLocation();
       let today = new Date();
       let userCurrentTime = today.getHours() + ":" + today.getMinutes();
       this.$store.state.timeNow = userCurrentTime;
       this.$router.push({name: 'search-result'})
-    }
+    },
 
+    searchNearMe() {
+      this.resetSearchText();
+      this.resetTimeNow();
+      this.resetFilterCriteria();
+      if (navigator.geolocation) {
+        //snapshot of this instance of the component captured in self variable
+        let self = this
+        navigator.geolocation.getCurrentPosition(function(position) {
+          let coordinates = [position.coords.latitude, position.coords.longitude];
+          
+           self.$store.state.userLocation.lat = coordinates[0];
+           self.$store.state.userLocation.long = coordinates[1];
+           self.$router.push({name: 'search-result'});
+        });
+      }
+},
+
+    resetTimeNow() {
+      this.$store.state.timeNow = null;
+    },
+
+    resetFilterCriteria() {
+      this.$store.state.filterCriteria = null;
+    },
+
+    resetSearchText() {
+      this.$store.state.searchText = null;
+    },
+
+    resetUserLocation() {
+      this.$store.state.userLocation = null;
+    }
   }
 };
 </script>

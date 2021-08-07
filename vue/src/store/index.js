@@ -29,7 +29,9 @@ export default new Vuex.Store({
     filterCriteria: null,
     searchText: null,
     timeNow: null,
-    locations: [],
+    locations: [
+      {distance: -1}
+    ],
     location: {
       locationId: 0,
       locationName: "",
@@ -43,7 +45,8 @@ export default new Vuex.Store({
       img: "",
       latitude: 0,
       longitude: 0,
-      categories: "" 
+      categories: "",
+      distance: -1, 
     }
   },
   mutations: {

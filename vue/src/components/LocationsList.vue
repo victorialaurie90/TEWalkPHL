@@ -28,8 +28,8 @@ export default {
     components: {
         LocationDetails
     },
-    computed: {
 
+    computed: {
       clickedSearchBox() {
         return this.$store.state.searchText;
       },
@@ -54,6 +54,8 @@ export default {
           return this.textSearchLocations;
         } else if (this.$store.state.timeNow) {
           return this.openNowLocations;
+        } else if (this.$store.state.userLocation.lat) {
+          return this.nearbyLocations;
         } else {
           return this.$store.state.locations;
         }
@@ -86,7 +88,35 @@ export default {
         return rawList.filter(loc => {
             return (loc.openFrom <= timeNow && loc.openTo >= timeNow) || (loc.openFrom == "00:00:00" && loc.openTo == "00:00:00");
         });   
-      }
+      },
+
+      nearbyLocations() {
+          const rawList = this.$store.state.locations;
+          const userLoc = this.$store.state.userLocation;
+
+              let filteredList = [];
+
+              rawList.forEach(loc => {  
+              var radlat1 = Math.PI * userLoc.lat / 180;
+              var radlat2 = Math.PI * loc.latitude / 180;
+              var theta = userLoc.long - loc.longitude;
+              var radtheta = Math.PI * theta/180;
+              var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+              if (dist > 1) {
+                 dist = 1;
+               }
+              dist = Math.acos(dist);
+              dist = dist * 180/Math.PI;
+              dist = dist * 60 * 1.1515;
+              dist = dist * 1.609344;
+              loc.distance = dist;
+
+              if (loc.distance <=2) {
+                filteredList.push(loc);
+              }});
+
+              return filteredList;
+        }
     }
 }
 </script>

@@ -80,6 +80,7 @@ methods: {
       this.resetSearchText();
       this.resetTimeNow();
       this.resetFilterCriteria();
+      this.$router.push({name: 'search-result'});
       if (navigator.geolocation) {
         //snapshot of this instance of the component captured in self variable
         let self = this
@@ -88,7 +89,7 @@ methods: {
           
            self.$store.state.userLocation.lat = coordinates[0];
            self.$store.state.userLocation.long = coordinates[1];
-           self.$router.push({name: 'search-result'});
+           self.$router.push({name: 'search-result'});  
         });
       }
 },

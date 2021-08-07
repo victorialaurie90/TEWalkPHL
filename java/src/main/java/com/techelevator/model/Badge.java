@@ -3,6 +3,7 @@ package com.techelevator.model;
 public class Badge {
 
     private int badgeId;
+    private int userId;
     private String badgeName;
     private String description;
 
@@ -30,4 +31,10 @@ public class Badge {
         this.description = description;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 }

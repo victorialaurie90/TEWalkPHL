@@ -18,14 +18,17 @@ public class ProfileController {
         this.profileDao = profileDao;
     }
 
-    public ProfileController() {
-        this.profileDao = profileDao;
-    }
 
     @RequestMapping(path = "/profile/{id}/badges", method = RequestMethod.GET)
     public List<Badge> getAllBadges(@PathVariable int id) {
         List<Badge> badges = profileDao.getBadgesIdByUserId(id);
         return badges;
+    }
+
+    @RequestMapping(path = "/profile/{id}/badges", method = RequestMethod.POST)
+    public void awardBadge (@RequestBody @PathVariable int id) {
+        profileDao.checkForBadgeAward(id);
+
     }
 
 

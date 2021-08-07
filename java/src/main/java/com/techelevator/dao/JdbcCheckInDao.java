@@ -40,6 +40,19 @@ public class JdbcCheckInDao implements CheckInDao {
         }
         return checkIns;
     }
+    public List<CheckIn> getCheckInsByUserIdAndCategory(int userId, int categoryId) {
+        List<CheckIn> checkIns = new ArrayList<>();
+        String sql = "SELECT c.check_in_id, c.date_time, c.user_id, l.location_name, l.categories" +
+                " FROM check_ins c" +
+                " JOIN locations l ON c.location_id = l.location_id" +
+                " WHERE user_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, categoryId);
+        while (results.next()) {
+            checkIns.add(mapRowToCheckIns(results));
+        }
+        return checkIns;
+    }
+
 
     private CheckIn mapRowToCheckIns(SqlRowSet results) {
         CheckIn checkIn = new CheckIn();
@@ -50,6 +63,6 @@ public class JdbcCheckInDao implements CheckInDao {
         checkIn.setCategories(results.getString("categories"));
         return checkIn;
     }
-    }
+}
 
 

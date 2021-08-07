@@ -5,8 +5,8 @@
   <!-- From Tom: Put in DIV container to flex everything. -->
   <div>
     <h2 class="search-header">
-      <span v-if="clickedSearchBox">Displaying results for: {{this.$store.state.searchText}}</span>
-      <span v-if="clickedCategory">Displaying results for: {{this.$store.state.filterCriteria}}</span>
+      <span v-if="clickedSearchBox" v-once>Displaying results for: {{this.$store.state.searchText}}</span>
+      <span v-if="clickedCategory" v-once>Displaying results for: {{this.$store.state.filterCriteria}}</span>
       <span v-if="clickedOpenNow">Current open locations:</span>
     </h2>
   </div>

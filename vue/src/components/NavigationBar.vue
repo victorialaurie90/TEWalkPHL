@@ -5,17 +5,17 @@
             <!-- Top Navigation Menu -->
             <div class="topnav">
                 <div class="logo active">
-                    <img src="../assets/WP-logo-large.png" alt="BigLogo" @click="myFunction" style="width: 150px; margin: 0;">
+                    <img src="../assets/WP-logo-large.png" alt="BigLogo" @click="myFunction" style="width: 200px; margin: 0;">
                 </div>
                 <div id="myLinks" style="display: none;">
-                    <router-link :to= " { name: 'home'} "><p @click="reset">Home</p></router-link>
+                    <router-link :to= " { name: 'home'} "><p @click="reset">Home<i class="fas fa-home"></i></p></router-link>
                     <div>
-                        <router-link :to=" { name: 'profile', params: { id: this.$store.state.user.id }} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Profile</p></router-link>
+                        <router-link :to=" { name: 'profile', params: { id: this.$store.state.user.id }} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Profile<i class="fas fa-user"></i></p></router-link>
                     </div>
-                    <router-link :to= " { name: 'logout'} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Logout</p></router-link> 
-                    <router-link :to= " { name: 'login'} "><p @click="reset" v-show="!this.$store.state.isLoggedIn">Login</p></router-link> 
-                    <router-link :to= " { name: 'register'} "><p @click="reset" v-show="!this.$store.state.isLoggedIn">Register</p></router-link> 
-                    <router-link :to= " { name: 'search-result'} "><p @click="reset">Search (TEST TO BE DELETED)</p></router-link>
+                    <router-link :to= " { name: 'logout'} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Logout<i class="fas fa-sign-out-alt"></i></p></router-link> 
+                    <router-link :to= " { name: 'login'} "><p @click="reset" v-show="!this.$store.state.isLoggedIn">Login<i class="fas fa-sign-in-alt"></i></p></router-link> 
+                    <router-link :to= " { name: 'register'} "><p @click="reset" v-show="!this.$store.state.isLoggedIn">Register<i class="fas fa-user-plus"></i></p></router-link> 
+                    <router-link :to= " { name: 'search-result'} "><p @click="reset">Search (TEST TO BE DELETED)<i class="fas fa-search"></i></p></router-link>
                 </div>
             </div>
         </div>
@@ -101,7 +101,7 @@ div#myLinks p {
     display: block;
     list-style: none;
     font-weight: bolder;
-    border-bottom: solid white 2px;
+    border-bottom: solid white 1px;
 }
 
 /* Style the hamburger menu */
@@ -119,5 +119,11 @@ div#myLinks p {
     background-color: #5C9CC4;
     color: white;
 } 
+
+i {
+  color: #AACCE1;
+  margin-left: 5px;
+}
+
 
 </style>

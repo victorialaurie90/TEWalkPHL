@@ -9,7 +9,4 @@ export default {
         return http.get(`/profile/${id}`)
     },
 
-    getAllCheckIns() {
-        return http.get('/profile')
-    }
 }

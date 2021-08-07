@@ -1,10 +1,16 @@
 <template>
 <div class="list">
-  <h2 class="search-header">
-    <span v-if="clickedSearchBox">Displaying results for: {{this.$store.state.searchText}}</span>
-    <span v-if="clickedCategory">Displaying results for: {{this.$store.state.filterCriteria}}</span>
-    <span v-if="clickedOpenNow">Current open locations:</span>
-  </h2>
+  <!-- From Tom: When page is reloaded, this is not staying updated. Potential bug. -->
+  <!-- From Tom: Changed search header to relative position in order to contain it in the list and not have it cover up items on the list. -->
+  <!-- From Tom: Put in DIV container to flex everything. -->
+  <div>
+    <h2 class="search-header">
+      <span v-if="clickedSearchBox">Displaying results for: {{this.$store.state.searchText}}</span>
+      <span v-if="clickedCategory">Displaying results for: {{this.$store.state.filterCriteria}}</span>
+      <span v-if="clickedOpenNow">Current open locations:</span>
+    </h2>
+  </div>
+
 
   <location-details 
       v-for="loc in searchList"
@@ -85,7 +91,7 @@ h2.search-header {
   background: #7C2D3E;
   color: white;
   margin: 0;
-  position: fixed;
+  position: relative;
   width: 100%;
 }
 
@@ -96,5 +102,7 @@ div.list {
     position: relative;
     background:white;
     color: black;
+    display: flex;
+    flex-direction: column;
 } 
 </style>

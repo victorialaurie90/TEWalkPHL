@@ -16,14 +16,20 @@
           <li id="url">Website: {{location.Website}}</li>
           <li id="twitter">Twitter: {{location.twitter}}</li>
       </ul>
+      <create-check-in />
     </div>
   <!-- </div> -->
 </template>
 
 <script>
+import CreateCheckIn from '../components/CreateCheckIn.vue'
+
 export default {
     name: "location-details",
     props: ["location"],
+    components: {
+      CreateCheckIn
+    },
     methods: {
 
     }

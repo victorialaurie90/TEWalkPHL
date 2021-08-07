@@ -43,13 +43,15 @@ export default {
       },
 
 
-      searchList() {
+   searchList() {
         if (this.$store.state.filterCriteria) {
            return this.filteredLocations;
         } else if (this.$store.state.searchText) {
           return this.textSearchLocations;
-        } else {
+        } else if (this.$store.state.timeNow) {
           return this.openNowLocations;
+        } else {
+          return this.$store.state.locations;
         }
       },
 

@@ -9,4 +9,8 @@ export default {
         return http.get(`/profile/${id}`)
     },
 
+    createCheckIn(checkIn) {
+      return http.post(`/results/checkIn`, checkIn)
+    }
+
 }

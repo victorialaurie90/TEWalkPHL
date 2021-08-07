@@ -16,22 +16,34 @@
           <li id="url">Website: {{location.Website}}</li>
           <li id="twitter">Twitter: {{location.twitter}}</li>
       </ul>
-      <create-check-in />
+      <button v-on:click="create">{{location.locationId}}</button>
     </div>
   <!-- </div> -->
 </template>
 
 <script>
-import CreateCheckIn from '../components/CreateCheckIn.vue'
+import checkInService from '../services/CheckInService.js'
 
 export default {
+    data() {
+    return{
+      checkIn: {
+        locationId: 0,
+        userId: 0,
+      }
+    }
+  },
     name: "location-details",
-    props: ["location"],
-    components: {
-      CreateCheckIn
+    props: {
+      ["location"]: Object,
+    'userId': Number
     },
     methods: {
-
+         create(){
+        this.checkIn.locationId = this.location.locationId;
+        this.checkIn.userId = this.$store.state.user.id;
+        checkInService.createCheckIn(this.checkIn)
+      }
     }
 }
 </script>

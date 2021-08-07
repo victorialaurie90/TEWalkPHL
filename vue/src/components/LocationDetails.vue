@@ -16,7 +16,7 @@
           <li id="url">Website: {{location.Website}}</li>
           <li id="twitter">Twitter: {{location.twitter}}</li>
       </ul>
-      <button v-on:click="create">{{location.locationId}}</button>
+      <button v-on:click="create" v-show="this.$store.state.isLoggedIn">{{location.locationId}}</button>
     </div>
   <!-- </div> -->
 </template>

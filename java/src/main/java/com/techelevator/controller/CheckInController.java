@@ -28,7 +28,7 @@ public class CheckInController {
 
     //Maybe need an Id Path Variable
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/results/checkins", method = RequestMethod.POST)
+    @RequestMapping(path = "/results/checkIn", method = RequestMethod.POST)
     public void postCheckIn(@RequestBody CheckIn checkIn) {
         try {
             checkInDao.createCheckIn(checkIn);

@@ -1,5 +1,11 @@
 <template>
 <div class="list">
+  <h2 class="search-header">
+    <span v-if="clickedSearchBox">Displaying results for: {{this.$store.state.searchText}}</span>
+    <span v-if="clickedCategory">Displaying results for: {{this.$store.state.filterCriteria}}</span>
+    <span v-if="clickedOpenNow">Current open locations:</span>
+  </h2>
+
   <location-details 
       v-for="loc in searchList"
       v-bind:key="loc.locationId"
@@ -18,16 +24,30 @@ export default {
     },
     computed: {
 
-      searchList() {
-        if (this.$store.state.filterCriteria) {
-           return this.filteredLocations;
-        } else {
-          return this.textSearchLocations;
-        }
+      clickedSearchBox() {
+        return this.$store.state.searchText;
+      },
+
+      clickedCategory() {
+        return this.$store.state.filterCriteria;
+      },
+
+    clickedOpenNow() {
+        return this.$store.state.timeNow;
       },
 
 
-      //if they clicked the categoy button do this: 
+      searchList() {
+        if (this.$store.state.filterCriteria) {
+           return this.filteredLocations;
+        } else if (this.$store.state.searchText) {
+          return this.textSearchLocations;
+        } else {
+          return this.openNowLocations;
+        }
+      },
+
+      //if they clicked the category button do this: 
       filteredLocations() {
         const rawList = this.$store.state.locations;
         const filterCriteria = this.$store.state.filterCriteria;
@@ -46,16 +66,29 @@ export default {
                   loc.description.toLowerCase().includes(query)
                   );
         })
+      },
+
+      openNowLocations() {
+        const rawList = this.$store.state.locations;
+        const timeNow = this.$store.state.timeNow;
+        return rawList.filter(loc => {
+            return (loc.openFrom <= timeNow && loc.openTo >= timeNow) || (loc.openFrom == "00:00:00" && loc.openTo == "00:00:00");
+        });   
       }
-
-      //if free text search, do this:
-
     }
 }
 
 </script>
 
 <style>
+h2.search-header {
+  background: #7C2D3E;
+  color: white;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+}
+
 div.list {
     width: 33%;
     height: 94.75vh;

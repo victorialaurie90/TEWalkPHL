@@ -24,6 +24,7 @@ export default new Vuex.Store({
     isLoggedIn: false,
     filterCriteria: null,
     searchText: null,
+    timeNow: null,
     locations: [],
     location: {
       locationId: 0,

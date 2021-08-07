@@ -19,6 +19,8 @@
         <button type="submit" v-on:click="applyNameToFilter('Indoor')">Indoor</button>
         <button type="submit" v-on:click="applyNameToFilter('Outdoor')">Outdoor</button>
         
+        <button type="submit" v-on:click="searchByIsOpen()">Locations Open Now</button>
+        
     </div>
     <!-- <div v-for='location in locations' v-bind:key="location.id">
       <h3>{{location.name}}</h3>
@@ -46,28 +48,30 @@ export default {
   methods: {
 
     applyNameToFilter(category) {
+      this.$store.state.searchText = null;
+      this.$store.state.timeNow = null;
       this.$store.state.filterCriteria = category;
       this.$router.push({name: 'search-result'});
     },
 
     freeTextSearch() {
       this.$store.state.filterCriteria = null;
+      this.$store.state.timeNow = null;
       let filter = document.getElementById('filterText');
       this.$store.state.searchText = filter.value;
       this.$router.push({name: 'search-result'});
+    },
+
+    searchByIsOpen() {
+      this.$store.state.searchText = null;
+      this.$store.state.filterCriteria = null;
+      let today = new Date();
+      let userCurrentTime = today.getHours() + ":" + today.getMinutes();
+      this.$store.state.timeNow = userCurrentTime;
+      this.$router.push({name: 'search-result'})
     }
 
-
   }
-  // computed: { 
-  // searchByCategories() {
-  //   let filteredLocations = this.$store.state.locations.filter(
-  //   location => { location.categories.includes(this.categories)
-  //   })
-  //   console.log(filteredLocations);
-  //   return filteredLocations;
-  // }
-  // }
 };
 </script>
 

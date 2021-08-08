@@ -37,9 +37,9 @@ export default {
           this.$store.commit("SET_BADGES", response.data);
         });
       }
-     
   }
 }
+
 </script>
 
 <style>

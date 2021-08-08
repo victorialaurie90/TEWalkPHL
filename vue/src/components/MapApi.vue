@@ -13,6 +13,7 @@ export default {
   props: ['locations'],
   data() {
     return {
+      map: {}
     }
   },
   mounted() {
@@ -24,7 +25,9 @@ export default {
       let mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
       mapboxgl.accessToken = 'pk.eyJ1IjoidG9tc2NvbnRlIiwiYSI6ImNrcnd4eG93eDBrenQybnFleHh6aXNhd3kifQ.tgzQgT1l3z4Bq7WpHQe3Wg';
 
-      let map = new mapboxgl.Map({  
+      let map = this.map;
+
+      map = new mapboxgl.Map({  
         container: 'map',
         center: [-75.1652, 39.9526],
         zoom: 11.15,
@@ -35,8 +38,17 @@ export default {
       const nav = new mapboxgl.NavigationControl();
       map.addControl(nav, "top-right");
 
-      this.$store.state.locations.forEach(location => {
-        const marker = new mapboxgl.Marker().setLngLat([location.longitude, location.latitude]);
+      this.$store.state.filterLocation.forEach(location => {
+        let time;
+          if (location.openFrom == "00:00:00" && location.openTo == "00:00:00") {
+            time = "Always Open";
+          } else {
+            time = "<p>Open from " + location.openFrom + " until " + location.openTo + "</p>"
+          }
+        const marker = new mapboxgl.Marker()
+        .setLngLat([location.longitude, location.latitude])
+        .setPopup(new mapboxgl.Popup({ offset: 25 })
+          .setHTML('<h3>' + location.locationName + '</h3>' + time + '<p>' + location.description + '</p>'));
         marker.addTo(map);
       });
 
@@ -53,8 +65,6 @@ export default {
       });
 
       map.addControl(directions, "bottom-right")
-
-      return map;
     }
   }
 }

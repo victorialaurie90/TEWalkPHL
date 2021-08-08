@@ -23,6 +23,7 @@
 
 <script>
 import checkInService from '../services/CheckInService.js'
+import badgeService from '../services/BadgeService.js'
 
 export default {
     data() {
@@ -39,9 +40,10 @@ export default {
     'userId': Number
     },
     methods: {
-         create(){
+      create(){
         this.checkIn.locationId = this.location.locationId;
         this.checkIn.userId = this.$store.state.user.id;
+        badgeService.awardBadge(this.$store.state.user.id);
         checkInService.createCheckIn(this.checkIn)
       }
     }

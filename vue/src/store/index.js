@@ -32,6 +32,7 @@ export default new Vuex.Store({
     locations: [
       {distance: -1}
     ],
+    filterLocation: [],
     location: {
       locationId: 0,
       locationName: "",
@@ -52,6 +53,7 @@ export default new Vuex.Store({
     badge: {
       badgeId: 0,
       badgeName: "",
+      image: "",
       badgeDescription: "",
     },
 
@@ -80,6 +82,9 @@ export default new Vuex.Store({
     },
     SET_BADGES(state, data){
       state.allBadges = data;
+    },
+    SET_FILTERLOCATIONS(state, data) {
+      state.filterLocation = data;
     }
   }
 })

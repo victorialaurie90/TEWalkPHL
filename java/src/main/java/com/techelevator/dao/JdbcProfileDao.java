@@ -38,7 +38,7 @@ public class JdbcProfileDao implements ProfileDao {
     public List<Badge> getBadgesIdByUserId(int userId) {
         List<Badge> badges = new ArrayList<>();
         String sql =
-                "SELECT b.badge_id, b.badge_description, u.user_id, b.badge_name "
+                "SELECT b.badge_id, b.badge_description, u.user_id, b.badge_name, b.badge_url "
                         + "FROM badges b "
                         + "JOIN user_badge u ON b.badge_id = u.badge_id "
                         + "WHERE u.user_id = ?;";
@@ -69,7 +69,7 @@ public class JdbcProfileDao implements ProfileDao {
         while (results.next()) {
             count.put(results.getInt("category_id"), results.getInt("count"));
             for(Map.Entry<Integer, Integer> item : count.entrySet()) {
-                if (item.getValue() == 5) {
+                if (item.getValue() == 4) {
                     createUserBadge(userId, (results.getInt("badge_id")));
                 }
             }
@@ -77,22 +77,14 @@ public class JdbcProfileDao implements ProfileDao {
     }
 
 
-    private Profile mapRowToProfile(SqlRowSet results) {
-        Profile profile = new Profile();
-        profile.setBadgeId(results.getInt("badge_id"));
-        profile.setCheckInId(results.getInt("check_in_id"));
-        profile.setUserId(results.getInt("user_id"));
-        return profile;
-    }
-
     private Badge mapRowToBadgeList(SqlRowSet results) {
         Badge badge = new Badge();
         badge.setBadgeId(results.getInt("badge_id"));
         badge.setBadgeName(results.getString("badge_name"));
         badge.setDescription(results.getString("badge_description"));
+        badge.setImage(results.getString("badge_url"));
         return badge;
     }
-
 
 
     private Badge mapRowToBadge(SqlRowSet results) {
@@ -101,6 +93,7 @@ public class JdbcProfileDao implements ProfileDao {
         badge.setUserId(results.getInt("user_id"));
         badge.setBadgeName(results.getString("badge_name"));
         badge.setDescription(results.getString("badge_description"));
+        badge.setImage(results.getString("badge_url"));
         return badge;
     }
 }

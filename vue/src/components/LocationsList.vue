@@ -6,23 +6,24 @@
   <div>
     <div class="search-box">
       <input type="text" id="searchTextBox" v-on:keyup="freeTextSearch" placeholder="What do you want to do?">
+      <button type="submit" class="grow" v-on:click="applyNameToFilter('Restaurants')"><i class="fas fa-utensils fa-2x"></i>Restaurants</button>
     </div>
     <div>
-    <h2 class="search-header">
-      <span v-if="clickedSearchBox">Displaying results for: {{this.$store.state.searchText}}</span>
-      <span v-if="clickedCategory">Displaying results for: {{this.$store.state.filterCriteria}}</span>
-      <span v-if="clickedOpenNow">Current open locations:</span>
-      <span v-if="searchedNearMe">Displaying Results for Lat/Long: {{this.$store.state.userLocation.lat}}, {{this.$store.state.userLocation.long}} (TO BE REPLACED BY 'LOCATIONS NEAR YOU')</span>
-    </h2>
+      <h2 class="search-header">
+        <span v-if="clickedSearchBox">Displaying results for: {{this.$store.state.searchText}}</span>
+        <span v-if="clickedCategory">Displaying results for: {{this.$store.state.filterCriteria}}</span>
+        <span v-if="clickedOpenNow">Current open locations:</span>
+        <span v-if="searchedNearMe">Displaying Results for Lat/Long: {{this.$store.state.userLocation.lat}}, {{this.$store.state.userLocation.long}} (TO BE REPLACED BY 'LOCATIONS NEAR YOU')</span>
+      </h2>
     </div>
   </div>
-  <location-details class="deets" 
-      v-for="loc in searchList"
-      v-bind:key="loc.locationId"
-      v-bind:location="loc"
-  />
+    <location-details class="deets" 
+        v-for="loc in searchList"
+        v-bind:key="loc.locationId"
+        v-bind:location="loc" />
 </div>
 </template>
+
 <script>
 import LocationDetails from './LocationDetails.vue';
 
@@ -33,15 +34,48 @@ export default {
     },
     methods: {
       freeTextSearch() {
-      this.$store.state.filterCriteria = null;
+        this.$store.state.filterCriteria = null;
+        this.$store.state.timeNow = null;
+        this.$store.state.userLocation.lat = 0;
+        this.$store.state.userLocation.long = 0;
+        let filter = document.getElementById('searchTextBox');
+        this.$store.state.searchText = filter.value;
+        this.$router.push({name:'search-result'})
+      },
+      applyNameToFilter(category) {
+        this.resetSearchText();
+        this.resetTimeNow();
+        this.resetUserLocation();
+        this.$store.state.filterCriteria = category;
+        this.$store.state.filterLocation = [];
+        this.$store.state.locations.forEach((loc) => {
+          if (loc.categories.includes(category)) {
+            this.$store.state.filterLocation.push(loc);
+      }
+      });
+      this.$router.push({name: 'search-result'});
+    },
+      addFilteredLocation() {
+        this.$store.commit('SET_FILTERLOCATIONS', this.searchList());
+      }, 
+      resetTimeNow() {
       this.$store.state.timeNow = null;
+    },
+
+    resetFilterCriteria() {
+      this.$store.state.filterCriteria = null;
+    },
+
+    resetSearchText() {
+      this.$store.state.searchText = null;
+    },
+
+    resetUserLocation() {
       this.$store.state.userLocation.lat = 0;
       this.$store.state.userLocation.long = 0;
-      let filter = document.getElementById('searchTextBox');
-      this.$store.state.searchText = filter.value;
-      this.$router.push({name:'search-result'})
-      } 
+    }
     },
+    
     computed: {
       clickedSearchBox() {
         return this.$store.state.searchText;

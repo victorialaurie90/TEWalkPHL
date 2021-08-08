@@ -37,18 +37,19 @@ CREATE TABLE badges (
 badge_id SERIAL NOT NULL,
 badge_name VARCHAR,
 badge_description VARCHAR(255),
+badge_url VARCHAR(255),
 CONSTRAINT PK_badges PRIMARY KEY (badge_id) 
 );
 
 --INSERT BADGES
-INSERT INTO badges (badge_id, badge_name, badge_description) 
-VALUES (1, 'Defender of the Land', 'Check in at every location in WalkPHL'), 
-(2, 'Bar Hopper', 'Check in at 5 bars'), 
-(3, 'Sports Enthusiast', 'Check in at 5 sports arenas'), 
-(4, 'Tree Hugger', 'Check in at 5 parks'), 
-(5, 'Jeet Yet?', 'Check in at 5 restaurants'), 
-(6, 'You Know, I''m Something of a Historian Myself', 'Check in at 5 historic sites'),
-(7, 'City of Brotherly Love', 'Check in at 5 locations with another user');
+INSERT INTO badges (badge_id, badge_name, badge_description, badge_url)
+VALUES (1, 'Defender of the Land', 'Check in at every location in WalkPHL', 'map.png'),
+(2, 'Bar Hopper', 'Check in at 5 bars', 'drink.png'),
+(3, 'Sports Enthusiast', 'Check in at 5 sports arenas', 'stadium.png'),
+(4, 'Tree Hugger', 'Check in at 5 parks', 'trees.png'),
+(5, 'Jeet Yet?', 'Check in at 5 restaurants', 'pancakes.png'),
+(6, 'You Know, I''m Something of a Historian Myself', 'Check in at 5 historic sites', 'museum.png'),
+(7, 'City of Brotherly Love', 'Check in at 5 locations with another user', 'family.png');
 
 CREATE TABLE category (
 category_id SERIAL NOT NULL,

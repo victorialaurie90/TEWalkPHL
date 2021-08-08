@@ -54,6 +54,12 @@ methods: {
       this.resetTimeNow();
       this.resetUserLocation();
       this.$store.state.filterCriteria = category;
+      this.$store.state.filterLocation = [];
+      this.$store.state.locations.forEach((loc) => {
+        if (loc.categories.includes(category)) {
+          this.$store.state.filterLocation.push(loc);
+        }
+      });
       this.$router.push({name: 'search-result'});
     },
 
@@ -63,6 +69,11 @@ methods: {
       this.resetUserLocation();
       let filter = document.getElementById('filterText');
       this.$store.state.searchText = filter.value;
+      this.$store.state.locations.forEach((loc) => {
+        if ((loc.categories.includes(filter.value)) || (loc.locationName.includes(filter.value)) || (loc.description.includes(filter.value))) {
+          this.$store.state.filterLocation.push(loc);
+        }
+      });
       this.$router.push({name: 'search-result'});
     },
 
@@ -73,6 +84,11 @@ methods: {
       let today = new Date();
       let userCurrentTime = today.getHours() + ":" + today.getMinutes();
       this.$store.state.timeNow = userCurrentTime;
+      this.$store.state.locations.forEach((loc) => {
+        if ((loc.openFrom <= userCurrentTime && loc.openTo >= userCurrentTime) || (loc.openFrom == "00:00:00" && loc.openTo == "00:00:00")) {
+          this.$store.state.filterLocation.push(loc);
+        }
+      });
       this.$router.push({name: 'search-result'})
     },
 
@@ -89,6 +105,12 @@ methods: {
           
            self.$store.state.userLocation.lat = coordinates[0];
            self.$store.state.userLocation.long = coordinates[1];
+
+           self.$store.state.locations.forEach((loc) => {
+             if (loc.distance <= 2) {
+              this.$store.state.filterLocation.push(loc);
+              }
+            });
            self.$router.push({name: 'search-result'});  
         });
       }

@@ -6,6 +6,7 @@ public class Badge {
     private int userId;
     private String badgeName;
     private String description;
+    private String image;
 
     public int getBadgeId() {
         return badgeId;
@@ -36,5 +37,13 @@ public class Badge {
     }
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

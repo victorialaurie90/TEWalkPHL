@@ -122,7 +122,7 @@ INSERT INTO category_badge (category_id, badge_id) VALUES (2, 2), (3,3), (4,4), 
 --LOVE PARK
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('Love Park', 'LOVE Park, officially known as John F. Kennedy Plaza, is a public park located in Center City.', 'Arch St, Philadelphia, PA 19102',  
-'7:00:00', '22:00:00', 'https://twitter.com/loveparkphilly', 'https://www.visitphilly.com/things-to-do/attractions/love-park/', 'https://www.facebook.com/LOVEParkPhilly/', '../assets/locationPictures/love_park.jpg', '39.9543', '-75.1657', 'Parks, Outdoor');
+'7:00:00', '22:00:00', 'https://twitter.com/loveparkphilly', 'https://www.visitphilly.com/things-to-do/attractions/love-park/', 'https://www.facebook.com/LOVEParkPhilly/', 'love_park', '39.9543', '-75.1657', 'Parks, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(1, 4);
 INSERT INTO locations_category (location_id, category_id) VALUES(1, 8);
 
@@ -338,6 +338,10 @@ INSERT INTO check_ins (date_time, location_id, user_id) VALUES
 (CURRENT_TIMESTAMP, 6, 3), (CURRENT_TIMESTAMP, 30, 3), (CURRENT_TIMESTAMP, 14, 3),
 (CURRENT_TIMESTAMP, 8, 4), (CURRENT_TIMESTAMP, 12, 4), (CURRENT_TIMESTAMP, 28, 4),
 (CURRENT_TIMESTAMP, 15, 5), (CURRENT_TIMESTAMP, 15, 5), (CURRENT_TIMESTAMP, 15, 5), (CURRENT_TIMESTAMP, 15, 5), (CURRENT_TIMESTAMP, 15, 5);
+
+--Insert test badges
+INSERT INTO user_badge (badge_id, user_id) VALUES
+(1,1), (2,1), (4,1);
 
 
 COMMIT TRANSACTION;

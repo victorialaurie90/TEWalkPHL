@@ -10,6 +10,8 @@ import java.util.List;
 @Component
 public interface ProfileDao {
 
+    List<Badge> getAllBadges();
+
     List<Badge> getBadgesIdByUserId(int userId);
 
     void createUserBadge(int userId, int badgeId);

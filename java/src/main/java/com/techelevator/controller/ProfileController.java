@@ -18,6 +18,11 @@ public class ProfileController {
         this.profileDao = profileDao;
     }
 
+    @RequestMapping(path = "/badges", method = RequestMethod.GET)
+    public List<Badge> fullListBadges() {
+        List<Badge> badges = profileDao.getAllBadges();
+        return badges;
+    }
 
     @RequestMapping(path = "/profile/{id}/badges", method = RequestMethod.GET)
     public List<Badge> getAllBadges(@PathVariable int id) {

@@ -23,6 +23,18 @@ public class JdbcProfileDao implements ProfileDao {
     }
 
     @Override
+    public List<Badge> getAllBadges() {
+        List<Badge> badges = new ArrayList<>();
+        String sql = "SELECT * FROM badges;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            badges.add(mapRowToBadgeList(results));
+        }
+        return badges;
+    }
+
+
+    @Override
     public List<Badge> getBadgesIdByUserId(int userId) {
         List<Badge> badges = new ArrayList<>();
         String sql =
@@ -71,6 +83,14 @@ public class JdbcProfileDao implements ProfileDao {
         profile.setCheckInId(results.getInt("check_in_id"));
         profile.setUserId(results.getInt("user_id"));
         return profile;
+    }
+
+    private Badge mapRowToBadgeList(SqlRowSet results) {
+        Badge badge = new Badge();
+        badge.setBadgeId(results.getInt("badge_id"));
+        badge.setBadgeName(results.getString("badge_name"));
+        badge.setDescription(results.getString("badge_description"));
+        return badge;
     }
 
 

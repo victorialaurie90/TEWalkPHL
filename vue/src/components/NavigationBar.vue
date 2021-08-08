@@ -35,7 +35,7 @@ export default {
     },
     reset() {
             var x = document.getElementById("myLinks");
-            x.style.display = "none"; 
+            x.style.display = "hidden"; 
     } 
     }
 }
@@ -79,6 +79,7 @@ export default {
     text-decoration: none;
     font-size: 17px;
     list-style: none;
+    display: hidden;
 }
 
 p:hover {
@@ -101,7 +102,15 @@ div#myLinks p {
 }
 
 /* Style the active link (or home/logo) */
+.active {
+    background-color: #5C9CC4;
+    color: white;
+} 
 
+i {
+  color: #AACCE1;
+  margin-left: 5px;
+}
 
 
 </style>

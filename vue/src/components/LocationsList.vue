@@ -31,7 +31,15 @@ export default {
     components: {
         LocationDetails
     },
-
+    methods: {
+      freeTextSearch() {
+      this.$store.state.filterCriteria = null;
+      this.$store.state.timeNow = null;
+      let filter = document.getElementById('searchTextBox');
+      this.$store.state.searchText = filter.value;
+      this.$router.push({name:'search-result'})
+      } 
+    },
     computed: {
       clickedSearchBox() {
         return this.$store.state.searchText;

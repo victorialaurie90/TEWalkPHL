@@ -1,25 +1,23 @@
 <template>
-    <div class="navigation">
-        <!-- Simulate a smartphone / tablet -->
-        <div class="mobile-container">
-            <!-- Top Navigation Menu -->
-            <div class="topnav" @click="myFunction">
-
-                <img src="../assets/WP-logo-large.png" alt="BigLogo" id="image"  style="width: 200px; margin: 0;" >
-
-                <div id="myLinks" style="display: none;">
-                    <router-link :to= " { name: 'home'} "><p @click="reset">Home<i class="fas fa-home"></i></p></router-link>
-                    <div>
-                        <router-link :to=" { name: 'profile', params: { id: this.$store.state.user.id }} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Profile<i class="fas fa-user"></i></p></router-link>
-                    </div>
-                    <router-link :to= " { name: 'logout'} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Logout<i class="fas fa-sign-out-alt"></i></p></router-link> 
-                    <router-link :to= " { name: 'login'} "><p @click="reset" v-show="!this.$store.state.isLoggedIn">Login<i class="fas fa-sign-in-alt"></i></p></router-link> 
-                    <router-link :to= " { name: 'register'} "><p @click="reset" v-show="!this.$store.state.isLoggedIn">Register<i class="fas fa-user-plus"></i></p></router-link> 
-                    <router-link :to= " { name: 'search-result'} "><p @click="reset">Search (TEST TO BE DELETED)<i class="fas fa-search"></i></p></router-link>
-                </div>
+  <div class="navigation">
+    <!-- Simulate a smartphone / tablet -->
+    <div class="mobile-container">
+      <!-- Top Navigation Menu -->
+      <div class="topnav" @click="myFunction">
+        <img src="../assets/WP-logo-large.png" alt="BigLogo" id="image"  style="width: 200px; margin: 0;" >  
+          <div id="myLinks" style="display: none;">
+            <router-link :to= " { name: 'home'} "><p @click="reset">Home<i class="fas fa-home"></i></p></router-link>
+            <div>
+                <router-link :to=" { name: 'profile', params: { id: this.$store.state.user.id }} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Profile<i class="fas fa-user"></i></p></router-link>
             </div>
-        </div>
+            <router-link :to= " { name: 'logout'} "><p @click="reset" v-show="this.$store.state.isLoggedIn">Logout<i class="fas fa-sign-out-alt"></i></p></router-link> 
+            <router-link :to= " { name: 'login'} "><p @click="reset" v-show="!this.$store.state.isLoggedIn">Login<i class="fas fa-sign-in-alt"></i></p></router-link> 
+            <router-link :to= " { name: 'register'} "><p @click="reset" v-show="!this.$store.state.isLoggedIn">Register<i class="fas fa-user-plus"></i></p></router-link> 
+            <router-link :to= " { name: 'search-result'} "><p @click="reset">Search (TEST TO BE DELETED)<i class="fas fa-search"></i></p></router-link>
+          </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -57,14 +55,20 @@ export default {
 
 }
 
-#image {
-    padding-bottom: 5px;
-}
-
 .topnav:hover {
     cursor: pointer;
 }
 
+.topnav a.a-active {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+
+#image {
+    padding-bottom: 5px;
+}
 /* Hide the links inside the navigation menu (except for logo/home) */
 #myLinks {
     width: 100%;
@@ -82,13 +86,6 @@ p:hover {
     transition: background-color .5s;
 }
 
-.topnav a.a-active {
-    color: white;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-}
-
 div#myLinks p {
     color: white;
     text-align: center;
@@ -103,26 +100,8 @@ div#myLinks p {
     border-bottom: solid white 1px;
 }
 
-/* Style the hamburger menu */
-.topnav a.icon {
-    background: none;
-    display: block;
-    position: absolute;
-    padding:0;
-    right: 0;
-    top: 0;
-}
-
 /* Style the active link (or home/logo) */
-.active {
-    background-color: #5C9CC4;
-    color: white;
-} 
 
-i {
-  color: #AACCE1;
-  margin-left: 5px;
-}
 
 
 </style>

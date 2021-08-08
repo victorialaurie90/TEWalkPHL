@@ -6,7 +6,7 @@
     
       <div class="search-box">
       <form v-on:submit.prevent="freeTextSearch">
-          <input type="text" id="filterText" placeholder="What do you want to do?">
+          <input type="text" required="required" id="filterText" placeholder="What do you want to do?">
           <button type="submit">Search</button>
       </form>
       </div>
@@ -80,7 +80,7 @@ methods: {
       this.resetSearchText();
       this.resetTimeNow();
       this.resetFilterCriteria();
-      this.$router.push({name: 'search-result'});
+     // this.$router.push({name: 'search-result'});
       if (navigator.geolocation) {
         //snapshot of this instance of the component captured in self variable
         let self = this
@@ -107,7 +107,8 @@ methods: {
     },
 
     resetUserLocation() {
-      this.$store.state.userLocation = null;
+      this.$store.state.userLocation.lat = 0;
+      this.$store.state.userLocation.long = 0;
     }
   }
 };
@@ -181,4 +182,15 @@ i {
 
 
 </style>
+
+
+
+
+
+
+
+
+
+
+
 

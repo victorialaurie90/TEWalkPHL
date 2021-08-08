@@ -47,7 +47,14 @@ export default new Vuex.Store({
       longitude: 0,
       categories: "",
       distance: -1, 
-    }
+    },
+    allBadges: [],
+    badge: {
+      badgeId: 0,
+      badgeName: "",
+      badgeDescription: "",
+    },
+
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -70,6 +77,9 @@ export default new Vuex.Store({
     },
     SET_LOCATIONS(state, data){
       state.locations = data;
+    },
+    SET_BADGES(state, data){
+      state.allBadges = data;
     }
   }
 })

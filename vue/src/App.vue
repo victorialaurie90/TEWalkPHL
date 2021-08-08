@@ -14,12 +14,15 @@
 <script>
 import searchService from '@/services/SearchService.js'
 import NavigationBar from '@/components/NavigationBar.vue'
+import badgeService from '@/services/BadgeService.js'
+
 export default {
   components: {
     NavigationBar
   },
   created() {
     this.retrieveLocations();
+    this.populateBadgeList();
   },
   methods: {
     retrieveLocations(){
@@ -27,7 +30,14 @@ export default {
       .then(response => {
         this.$store.commit("SET_LOCATIONS", response.data);
         })
+      },
+        populateBadgeList(){
+        badgeService.getAllBadges()
+        .then(response => {
+          this.$store.commit("SET_BADGES", response.data);
+        });
       }
+     
   }
 }
 </script>

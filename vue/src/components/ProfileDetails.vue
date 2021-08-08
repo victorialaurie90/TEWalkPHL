@@ -5,14 +5,17 @@
             <img src="../assets/placeholder-200x200-300x300.png" alt="placeholder image" id="picture">
             <h3>{{this.$store.state.user.username}}</h3>
         </div>
-        <div>
-            <badge-component class = "badge-component"/>
-        </div>
       </div>
+      <div class="history">
       <div class = "check-ins">
           <h3>Recent Check-Ins</h3>
           <check-in-history class = "single-check-in" v-bind:user-id="$route.params.id"/>
       </div>
+         <div class = "badges">
+            <h3> Badges </h3>
+            <badge-component v-bind:user-id="$route.params.id"/>
+            </div>
+        </div>
   </div>
 </template>
 
@@ -20,15 +23,15 @@
 import BadgeComponent from './BadgeComponent.vue'
 import CheckInHistory from './CheckInHistory.vue'
 
+
 export default {
     name: "profile-details",
     components: { 
       BadgeComponent, 
       CheckInHistory,
     },
-    props: {
-      'userId': Number
-    },
+    props: ["badge"],
+
 }
 </script>
 
@@ -63,13 +66,29 @@ export default {
     margin-bottom: 25px;
 }
 
+.history {
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
 .check-ins {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     background-color: rgba(89, 154, 196);
-    width: 33%;
+    width: 50%;
+    border-radius: 20px;
+    padding-bottom: 20px;
+}
+.badges {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(89, 154, 196);
+    width: 50%;
     border-radius: 20px;
     padding-bottom: 20px;
 }

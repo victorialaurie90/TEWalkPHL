@@ -12,7 +12,7 @@
       <span v-if="clickedSearchBox">Displaying results for: {{this.$store.state.searchText}}</span>
       <span v-if="clickedCategory">Displaying results for: {{this.$store.state.filterCriteria}}</span>
       <span v-if="clickedOpenNow">Current open locations:</span>
-      <span v-if="searchedNearMe">Displaying Results for Lat/Long: {{this.$store.state.userLocation.lat}}, {{this.$store.state.userLocation.long}}</span>
+      <span v-if="searchedNearMe">Displaying Results for Lat/Long: {{this.$store.state.userLocation.lat}}, {{this.$store.state.userLocation.long}} (TO BE REPLACED BY 'LOCATIONS NEAR YOU')</span>
     </h2>
     </div>
   </div>
@@ -35,6 +35,8 @@ export default {
       freeTextSearch() {
       this.$store.state.filterCriteria = null;
       this.$store.state.timeNow = null;
+      this.$store.state.userLocation.lat = 0;
+      this.$store.state.userLocation.long = 0;
       let filter = document.getElementById('searchTextBox');
       this.$store.state.searchText = filter.value;
       this.$router.push({name:'search-result'})
@@ -49,13 +51,14 @@ export default {
         return this.$store.state.filterCriteria;
       },
 
-    clickedOpenNow() {
+      clickedOpenNow() {
         return this.$store.state.timeNow;
       },
 
-    searchedNearMe() {
-        return this.$store.state.userLocation;
+      searchedNearMe() {
+        return this.$store.state.userLocation.lat !== 0 && this.$store.state.userLocation.long !== 0;
       },
+    
 
 
       searchList() {

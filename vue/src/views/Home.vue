@@ -47,11 +47,11 @@
             <div class="imageText">Outdoor</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/open-now.jpg" v-on:click="applyNameToFilter('Open Now')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/open-now.jpg" v-on:click="searchByIsOpen()" style="width: 200px; margin: 0">
             <div class="imageText">Open</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/near-me.jpg" v-on:click="applyNameToFilter('Near Me')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/near-me.jpg" v-on:click="searchNearMe()" style="width: 200px; margin: 0">
             <div class="imageText">Nearby</div>
           </div>
       </div>
@@ -86,6 +86,23 @@ export default {
   },
 
 methods: {
+    freeTextSearch() {
+      this.resetFilterCriteria();
+      this.resetTimeNow();
+      this.resetUserLocation();
+
+      this.$store.state.filterLocation = [];
+
+      let filter = document.getElementById('filterText');
+      this.$store.state.searchText = filter.value;
+      this.$store.state.locations.forEach((loc) => {
+        if ((loc.categories.toLowerCase().includes(filter.value.toLowerCase())) || (loc.locationName.toLowerCase().includes(filter.value.toLowerCase())) || (loc.description.toLowerCase().includes(filter.value.toLowerCase()))) {
+          this.$store.state.filterLocation.push(loc);
+        }
+      });
+      this.$router.push({name: 'search-result'});
+    },
+
     applyNameToFilter(category) {
       this.resetSearchText();
       this.resetTimeNow();
@@ -100,20 +117,6 @@ methods: {
       this.$router.push({name: 'search-result'});
     },
 
-    freeTextSearch() {
-      this.resetFilterCriteria();
-      this.resetTimeNow();
-      this.resetUserLocation();
-      let filter = document.getElementById('filterText');
-      this.$store.state.searchText = filter.value;
-      this.$store.state.locations.forEach((loc) => {
-        if ((loc.categories.includes(filter.value)) || (loc.locationName.includes(filter.value)) || (loc.description.includes(filter.value))) {
-          this.$store.state.filterLocation.push(loc);
-        }
-      });
-      this.$router.push({name: 'search-result'});
-    },
-
     searchByIsOpen() {
       this.resetSearchText();
       this.resetFilterCriteria();
@@ -121,6 +124,9 @@ methods: {
       let today = new Date();
       let userCurrentTime = today.getHours() + ":" + today.getMinutes();
       this.$store.state.timeNow = userCurrentTime;
+
+     this.$store.state.filterLocation = [];
+
       this.$store.state.locations.forEach((loc) => {
         if ((loc.openFrom <= userCurrentTime && loc.openTo >= userCurrentTime) || (loc.openFrom == "00:00:00" && loc.openTo == "00:00:00")) {
           this.$store.state.filterLocation.push(loc);
@@ -133,6 +139,9 @@ methods: {
       this.resetSearchText();
       this.resetTimeNow();
       this.resetFilterCriteria();
+
+    this.$store.state.filterLocation = [];
+
       if (navigator.geolocation) {
         let self = this
         navigator.geolocation.getCurrentPosition(function(position) {

@@ -21,6 +21,14 @@ watch: {
 filterCriteria: 
 function() { 
 this.loadMap();
+},
+timeNow:
+function() { 
+this.loadMap();
+},
+userLocation:
+function() { 
+this.loadMap();
 }
 },
 
@@ -78,6 +86,14 @@ this.loadMap();
   computed: {
 filterCriteria() {
   return this.$store.state.filterCriteria;
+},
+
+timeNow() {
+  return this.$store.state.timeNow;
+},
+
+userLocation() {
+  return this.$store.state.userLocation;
 }
   }
 }

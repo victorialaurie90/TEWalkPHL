@@ -57,15 +57,16 @@ export default {
         this.$router.push({name:'home'})
       },
 
-      freeTextSearch() {
-        this.$store.state.filterCriteria = null;
-        this.$store.state.timeNow = null;
-        this.$store.state.userLocation.lat = 0;
-        this.$store.state.userLocation.long = 0;
-        let filter = document.getElementById('searchTextBox');
-        this.$store.state.searchText = filter.value;
-        this.$router.push({name:'search-result'})
-      },
+      // Currently do not need this method because we do not have a search bar on the results page
+      // freeTextSearch() {
+      //   this.$store.state.filterCriteria = null;
+      //   this.$store.state.timeNow = null;
+      //   this.$store.state.userLocation.lat = 0;
+      //   this.$store.state.userLocation.long = 0;
+      //   let filter = document.getElementById('searchTextBox');
+      //   this.$store.state.searchText = filter.value;
+      //   this.$router.push({name:'search-result'})
+      // },
 
       applyNameToFilter(category) {
         this.resetSearchText();
@@ -85,6 +86,9 @@ export default {
         this.resetSearchText();
         this.resetFilterCriteria();
         this.resetUserLocation();
+
+        this.$store.state.filterLocation = [];
+
         let today = new Date();
         let userCurrentTime = today.getHours() + ":" + today.getMinutes();
         this.$store.state.timeNow = userCurrentTime;
@@ -100,6 +104,9 @@ export default {
         this.resetSearchText();
         this.resetTimeNow();
         this.resetFilterCriteria();
+
+        this.$store.state.filterLocation = [];
+
       if (navigator.geolocation) {
         // Snapshot of this instance of the component captured in self variable
         let self = this

@@ -122,6 +122,10 @@ div.border {
   padding-left: 20px;
   padding-right: 20px;
   background-color: rgba(89, 154, 196, .9);
+  background: linear-gradient(to bottom, #5C9CC4 0%, #64749C 100%);
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+     -moz-box-shadow: 0 10px 6px -6px #777;
+          box-shadow: 0 10px 6px -6px #777;
 }
 
 div.field{

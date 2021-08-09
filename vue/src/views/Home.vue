@@ -1,9 +1,69 @@
 <template>
   <div class="home">
-    <h1><em>wlk</em>PHL</h1>
-    <p>Find Your Next Favorite Jawn</p>
-    <!-- <router-link :to= " { name: 'login'} "><button>Login</button></router-link> -->
+    <div class = "mainImage">
+          <img src="../assets/locationPictures/kelly-drive.jpg" style="margin-top: 10px; margin-bottom: 0px; padding-bottom: 0px">
+          <div class="imageText"><h1><em>wlk</em>PHL</h1></div>
+    </div>
+    <div class="search-box">
+      <form v-on:submit.prevent="freeTextSearch">
+          <input type="text" required="required" id="filterText" placeholder="What do you want to do?">
+          <button type="submit">Search</button>
+      </form>
+    </div>
+    <div class="imageContainer">
+      <div class="imageContainerFirstRow">
+          <div class = "categoryImage grow">
+            <img src="../assets/locationPictures/oysterHouse.jpg" v-on:click="applyNameToFilter('Restaurants')" style="width: 200px; margin: 0">
+            <div class="imageText">Restaurants</div>
+          </div>
+          <div class = "categoryImage grow">
+            <img src="../assets/locationPictures/oscars.jpg" v-on:click="applyNameToFilter('Bars')" style="width: 200px; margin: 0">
+            <div class="imageText">Bars</div>
+          </div>
+          <div class = "categoryImage grow">
+            <img src="../assets/locationPictures/citBank.jpg" v-on:click="applyNameToFilter('Sports')" style="width: 200px; margin: 0">
+            <div class="imageText">Sports</div>
+          </div>
+          <div class = "categoryImage grow">
+            <img src="../assets/locationPictures/artMuseum.jpg" v-on:click="applyNameToFilter('Fine Arts')" style="width: 200px; margin: 0">
+            <div class="imageText">Art</div>
+          </div>
+          <div class = "categoryImage grow">
+            <img src="../assets/locationPictures/libertyBell.jpg" v-on:click="applyNameToFilter('Historic Sites')" style="width: 200px; margin: 0">
+            <div class="imageText">History</div>
+          </div>
+      </div>
+      <div class="imageContainerSecondRow">
+        <div class = "categoryImage grow">
+            <img src="../assets/locationPictures/fdr.jpg" v-on:click="applyNameToFilter('Parks')" style="width: 200px; margin: 0">
+            <div class="imageText">Parks</div>
+          </div>
+          <div class = "categoryImage grow">
+            <img src="../assets/locationPictures/indoor-golf.jpg" v-on:click="applyNameToFilter('Indoor')" style="width: 200px; margin: 0">
+            <div class="imageText">Indoor</div>
+          </div>
+          <div class = "categoryImage grow">
+            <img src="../assets/locationPictures/longwood.jpg" v-on:click="applyNameToFilter('Outdoor')" style="width: 200px; margin: 0">
+            <div class="imageText">Outdoor</div>
+          </div>
+          <div class = "categoryImage grow">
+            <img src="../assets/locationPictures/open-now.jpg" v-on:click="applyNameToFilter('Open Now')" style="width: 200px; margin: 0">
+            <div class="imageText">Open</div>
+          </div>
+          <div class = "categoryImage grow">
+            <img src="../assets/locationPictures/near-me.jpg" v-on:click="applyNameToFilter('Near Me')" style="width: 200px; margin: 0">
+            <div class="imageText">Nearby</div>
+          </div>
+      </div>
+    </div>  
 
+      <!-- <div class="category-buttons">
+          <button type="submit" class="grow" v-on:click="applyNameToFilter('Indoor')"><i class="fas fa-home fa-2x"></i>Indoor</button>
+          <button type="submit" class="grow" v-on:click="applyNameToFilter('Outdoor')"><i class="fas fa-cloud-sun fa-2x"></i>Outdoor</button>
+          <button type="submit" class="grow" v-on:click="searchByIsOpen()"><i class="fas fa-clock fa-2x"></i>Open Now</button>
+          <button type="submit" v-on:click="searchNearMe()"><i class="fas fa-street-view fa-2x"></i>Near Me</button>
+      </div> -->
+ 
     <!-- Maybe have a little welcome message and info about wlkPHL -->
     <ul class="home-info">
       <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
@@ -12,50 +72,19 @@
       <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
     </ul>
 
-      <div class="search-box">
-      <form v-on:submit.prevent="freeTextSearch">
-          <input type="text" required="required" id="filterText" placeholder="What do you want to do?">
-          <button type="submit">Search</button>
-      </form>
-      </div>
-      <!-- Turn the button below into a simpler type button (not a form) -->
-        <div class="category-buttons">
-          <button type="submit" class="grow" v-on:click="applyNameToFilter('Restaurants')"><i class="fas fa-utensils fa-2x"></i>Restaurants</button>
-          <button type="submit" class="grow" v-on:click="applyNameToFilter('Bars')"><i class="fas fa-beer fa-2x"></i>Bars</button>
-          <button type="submit" class="grow" v-on:click="applyNameToFilter('Sports')"><i class="fas fa-baseball-ball fa-2x"></i>Sports</button>
-          <button type="submit" class="grow" v-on:click="applyNameToFilter('Fine Arts')"><i class="fas fa-theater-masks fa-2x"></i>Fine Arts</button>
-          <button type="submit" class="grow" v-on:click="applyNameToFilter('Historic Sites')"><i class="fas fa-landmark fa-2x"></i>Historic Sites</button>
-          <button type="submit" class="grow" v-on:click="applyNameToFilter('Parks')"><i class="fas fa-tree fa-2x"></i>Parks</button>
-          <button type="submit" class="grow" v-on:click="applyNameToFilter('Indoor')"><i class="fas fa-home fa-2x"></i>Indoor</button>
-          <button type="submit" class="grow" v-on:click="applyNameToFilter('Outdoor')"><i class="fas fa-cloud-sun fa-2x"></i>Outdoor</button>
-          <button type="submit" class="grow" v-on:click="searchByIsOpen()"><i class="fas fa-clock fa-2x"></i>Open Now</button>
-          <button type="submit" v-on:click="searchNearMe()"><i class="fas fa-street-view fa-2x"></i>Near Me</button>
-        </div>
-      
-      
-    <!-- <div v-for='location in locations' v-bind:key="location.id">
-      <h3>{{location.name}}</h3>
-    </div> -->
-    <!-- <div class="categories">
-
-    </div> -->
   </div>
 </template>
 
 <script>
 export default {
-// TODO: Reconsider whether we still need searchTerm, resetForm, rename submitSearch() since
-// filtering results will happen in JavaScript/front end
-  components: {
-    
-  },
   name: "home",
-  // props: ["categories"],
+
   data() {
     return {
       filteredLocations: [],
     };
   },
+
 methods: {
     applyNameToFilter(category) {
       this.resetSearchText();
@@ -104,16 +133,12 @@ methods: {
       this.resetSearchText();
       this.resetTimeNow();
       this.resetFilterCriteria();
-     // this.$router.push({name: 'search-result'});
       if (navigator.geolocation) {
-        //snapshot of this instance of the component captured in self variable
         let self = this
         navigator.geolocation.getCurrentPosition(function(position) {
           let coordinates = [position.coords.latitude, position.coords.longitude];
-          
            self.$store.state.userLocation.lat = coordinates[0];
            self.$store.state.userLocation.long = coordinates[1];
-
            self.$store.state.locations.forEach((loc) => {
              if (loc.distance <= 2) {
               this.$store.state.filterLocation.push(loc);
@@ -122,7 +147,7 @@ methods: {
            self.$router.push({name: 'search-result'});  
         });
       }
-},
+    },
 
     resetTimeNow() {
       this.$store.state.timeNow = null;
@@ -146,12 +171,58 @@ methods: {
 
 <style scoped>
 
+div.mainImage{
+  display: flex;
+  justify-content: center;
+}
+
+div.imageContainerFirstRow {
+  display: flex;
+  justify-content: center;
+ 
+
+}
+
+div.imageContainerSecondRow {
+  display: flex;
+  justify-content: center;
+}
+
+.categoryImage {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 5px;
+}
+
+.mainImage {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.categoryImage:hover {
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+
+.imageText {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  font-weight:bolder;
+  /* text-shadow: 2px 2px black; */
+}
+
 h1{
   font-size: 100px;
   display: flex;
   justify-content: center;
   margin-top:200px;
-  margin-bottom: 5px;
+  margin-bottom: 250px;
+  text-shadow: 2px 2px black;
 }
 p{
   font-size: 50px;
@@ -160,6 +231,7 @@ p{
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 ul{
@@ -179,7 +251,7 @@ div.search-box{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 20px;
   transform: scale(1.50)
 }
@@ -188,27 +260,8 @@ div.category-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 25px;
-}
-
-div.category-buttons>button {
-  margin-right: 5px;
-  border-radius: 5px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: white;
-  font-weight: bold;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-}
-
-div.category-buttons>button:hover {
-  background-color: #9ed7fa ;
-  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 
 .grow { 
@@ -219,16 +272,10 @@ div.category-buttons>button:hover {
   transform: scale(1.1);
 }
 
-i {
-  color: #7C2D3E;
-}
+@media(max-width: 1248px) {
 
-@media(max-width: 1366px) {
-
-  div.category-buttons {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+  .mainImage {
+    transform: scale(.8);
   }
 }
 
@@ -237,11 +284,18 @@ i {
     transform: scale(.8);
     }
 
-  h1 {
-    display: none;
+    .mainImage {
+    transform: scale(.6);
   }
 
-  p {
+  div.imageContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+   p {
     font-style: italic;
   }
 
@@ -250,6 +304,7 @@ i {
     flex-wrap: wrap;
     align-items: center;
 }
+
 
   div.category-buttons>button {
     width: fit-content;
@@ -264,9 +319,21 @@ i {
 
 }
 
-  
+@media(max-width: 946) {
+ div.imageContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+}
 
 @media(max-width: 768px) {
+
+  .mainImage {
+    transform: scale(.4);
+  }
   .home {
     transform: scale(.8);
     }
@@ -318,13 +385,13 @@ i {
     display: none;
   }
 
-  div.category-buttons {
+  div.imageContainer {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
 }
 
-  div.category-buttons>button {
+  div.imageContainer>img {
     font-size: 0px;
     max-width: 100%;
     margin: 5px;
@@ -339,15 +406,3 @@ i {
 }
 
 </style>
-
-
-
-
-
-
-
-
-
-
-
-

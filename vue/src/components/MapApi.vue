@@ -22,9 +22,6 @@ filterCriteria:
 function() { 
 this.loadMap();
 }
-
-// Replicated in watch and computed for searchbytext, opennow, and nearme
-
 },
 
   mounted() {
@@ -119,9 +116,4 @@ filterCriteria() {
   } 
 
 }
-
-/* div#map {
-    background: coral;
-} */
-
 </style>

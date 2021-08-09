@@ -10,7 +10,7 @@ import java.util.List;
 @Component
 public interface ProfileDao {
 
-    List<Badge> getAllBadges();
+    List<Badge> getUnclaimedBadges(int userId);
 
     List<Badge> getBadgesIdByUserId(int userId);
 

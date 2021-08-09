@@ -11,8 +11,7 @@ export default {
     awardBadge(id) {
         return http.post(`/profile/${id}/badges`)
     },
-    getAllBadges() {
-        return http.get(`/badges`)
+    getAllBadges(id) {
+        return http.get(`/badges/${id}`)
     }
-
 }

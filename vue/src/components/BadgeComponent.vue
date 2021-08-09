@@ -31,7 +31,7 @@ export default {
     data() {
       return {
         userBadges: [],
-        allBadges : this.$store.state.allBadges,
+        allBadges : [],
       }
       },
     props: {
@@ -39,6 +39,7 @@ export default {
     },
     created() {
         this.retrieveBadges();
+        this.populateBadgeList();
     },
     methods: {
         retrieveBadges() {
@@ -47,16 +48,16 @@ export default {
           this.userBadges = response.data;
          })
         },
-        //getElementById targets first array element only
-        //style.display = "none" removes element from view
-         myFunction(){
-         const element = document.querySelectorAll('#grr');
-           element.display = "none";
-         }
-         }
+        populateBadgeList(){
+        badgeService.getAllBadges(this.$store.state.user.id)
+        .then(response => {
+          this.allBadges = response.data;
+        });
+      }
     }
-          //element.classList.remove("unobtained");
+}
 </script>
+
 <style>
  .badge {
    display: flex;

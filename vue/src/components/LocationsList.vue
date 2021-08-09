@@ -4,11 +4,11 @@
   <!-- From Tom: Changed search header to relative position in order to contain it in the list and not have it cover up items on the list. -->
   <!-- From Tom: Put in DIV container to flex everything. -->
   <div>
-    <div class="search-box">
+    <!-- Dyanmic search bar on search result pages is bugged; removed for now -->
+    <!-- <div class="search-box">
         <i id="search-icon" class="fas fa-search"></i>
         <input type="text" id="searchTextBox" style="border-style: none" v-on:keyup="freeTextSearch" placeholder="What do you want to do?">
-    </div>
-        <!-- Optional route we may want to explore -->
+    </div> -->
         <div class="search-buttons">
           <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('Restaurants')"><i class="fas fa-utensils fa-2x"></i></button>
           <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('Bars')"><i class="fas fa-beer fa-2x"></i></button>
@@ -21,13 +21,17 @@
           <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="searchByIsOpen()"><i class="fas fa-clock fa-2x"></i></button>
           <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="searchNearMe()"><i class="fas fa-street-view fa-2x"></i></button>
         </div>
+
+        <div class="return-search-menu" style="width: 100%; display: flex">
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="returnHome()"><i class="fas fa-home fa-2x"> Return to Search Home</i></button>
+        </div>
     
     <div>
       <h2 class="search-header">
         <span v-if="clickedSearchBox">Displaying results for: {{this.$store.state.searchText}}</span>
         <span v-if="clickedCategory">Displaying results for: {{this.$store.state.filterCriteria}}</span>
         <span v-if="clickedOpenNow">Current open locations:</span>
-        <span v-if="searchedNearMe">Displaying Results for Lat/Long: {{this.$store.state.userLocation.lat}}, {{this.$store.state.userLocation.long}} (TO BE REPLACED BY 'LOCATIONS NEAR YOU')</span>
+        <span v-if="searchedNearMe">Locations near you:</span>
       </h2>
     </div>
   </div>
@@ -43,10 +47,16 @@ import LocationDetails from './LocationDetails.vue';
 
 export default {
     name: "locations-list",
+
     components: {
         LocationDetails
     },
+
     methods: {
+      returnHome() {
+        this.$router.push({name:'home'})
+      },
+
       freeTextSearch() {
         this.$store.state.filterCriteria = null;
         this.$store.state.timeNow = null;
@@ -56,6 +66,7 @@ export default {
         this.$store.state.searchText = filter.value;
         this.$router.push({name:'search-result'})
       },
+
       applyNameToFilter(category) {
         this.resetSearchText();
         this.resetTimeNow();
@@ -68,27 +79,61 @@ export default {
       }
       });
       this.$router.push({name: 'search-result'});
-    },
-      // addFilteredLocation() {
-      //   this.$store.commit('SET_FILTERLOCATIONS', this.searchList());
-      // }, 
+      },
+
+      searchByIsOpen() {
+        this.resetSearchText();
+        this.resetFilterCriteria();
+        this.resetUserLocation();
+        let today = new Date();
+        let userCurrentTime = today.getHours() + ":" + today.getMinutes();
+        this.$store.state.timeNow = userCurrentTime;
+        this.$store.state.locations.forEach((loc) => {
+          if ((loc.openFrom <= userCurrentTime && loc.openTo >= userCurrentTime) || (loc.openFrom == "00:00:00" && loc.openTo == "00:00:00")) {
+            this.$store.state.filterLocation.push(loc);
+          }
+        });
+        this.$router.push({name: 'search-result'})
+      },
+
+      searchNearMe() {
+        this.resetSearchText();
+        this.resetTimeNow();
+        this.resetFilterCriteria();
+      if (navigator.geolocation) {
+        // Snapshot of this instance of the component captured in self variable
+        let self = this
+        navigator.geolocation.getCurrentPosition(function(position) {
+          let coordinates = [position.coords.latitude, position.coords.longitude];
+           self.$store.state.userLocation.lat = coordinates[0];
+           self.$store.state.userLocation.long = coordinates[1];
+           self.$store.state.locations.forEach((loc) => {
+             if (loc.distance <= 2) {
+              this.$store.state.filterLocation.push(loc);
+              }
+            });
+           self.$router.push({name: 'search-result'});  
+        });
+      }
+  },
+
       resetTimeNow() {
-      this.$store.state.timeNow = null;
-    },
+        this.$store.state.timeNow = null;
+      },
 
-    resetFilterCriteria() {
-      this.$store.state.filterCriteria = null;
-    },
+      resetFilterCriteria() {
+        this.$store.state.filterCriteria = null;
+      },
 
-    resetSearchText() {
-      this.$store.state.searchText = null;
-    },
+      resetSearchText() {
+        this.$store.state.searchText = null;
+      },
 
-    resetUserLocation() {
-      this.$store.state.userLocation.lat = 0;
-      this.$store.state.userLocation.long = 0;
-    }
-    },
+      resetUserLocation() {
+        this.$store.state.userLocation.lat = 0;
+        this.$store.state.userLocation.long = 0;
+      }
+      },
     
     computed: {
       clickedSearchBox() {
@@ -103,12 +148,10 @@ export default {
         return this.$store.state.timeNow;
       },
 
-      searchedNearMe() {
+        searchedNearMe() {
         return this.$store.state.userLocation.lat !== 0 && this.$store.state.userLocation.long !== 0;
       },
-    
-
-
+  
       searchList() {
         if (this.$store.state.filterCriteria) {
            return this.filteredLocations;
@@ -123,7 +166,6 @@ export default {
         }
       },
 
-      //if they clicked the category button do this: 
       filteredLocations() {
         const rawList = this.$store.state.locations;
         const filterCriteria = this.$store.state.filterCriteria;
@@ -191,6 +233,7 @@ h2.search-header {
   position: relative;
   width: 100%;
 }
+
 div.list {
     width: 33%;
     height: 94.75vh;
@@ -206,6 +249,7 @@ div.search-buttons {
   display:flex;
   flex-grow: 2;
 }
+
 div.locationListButtons {
   display: flex;
   font-size: 30px;
@@ -251,7 +295,6 @@ div.search-box {
   padding: 0px;
   height: 30px;
   font-size:25px;
+  }
 }
-}
-
 </style>

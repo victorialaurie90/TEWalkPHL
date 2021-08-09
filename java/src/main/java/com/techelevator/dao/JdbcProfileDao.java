@@ -23,16 +23,19 @@ public class JdbcProfileDao implements ProfileDao {
     }
 
     @Override
-    public List<Badge> getAllBadges() {
+    public List<Badge> getUnclaimedBadges(int userId) {
         List<Badge> badges = new ArrayList<>();
-        String sql = "SELECT * FROM badges;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        String sql =
+                "SELECT badge_id, badge_name, badge_description, badge_url FROM badges "
+                        + "EXCEPT "
+                        + "SELECT b.badge_id, b.badge_name, b.badge_description, b.badge_url FROM badges b "
+                        + "JOIN user_badge u ON u.badge_id = b.badge_id WHERE u.user_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
             badges.add(mapRowToBadgeList(results));
         }
         return badges;
     }
-
 
     @Override
     public List<Badge> getBadgesIdByUserId(int userId) {

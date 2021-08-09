@@ -72,6 +72,38 @@ export default {
 
 <style>
 
+@media(max-width: 768px) {
+  
+
+  div.container {
+    background-color: #AACCE1;
+    height: 300px;
+    }
+  
+  /* Temporary, need to display directions properply */
+    div.mapbox-directions-component-keyline {
+    display: none;
+    /* transform: scale(.66); */
+  
+  }
+
+}
+
+@media(max-width: 375px) {
+  
+
+  div.container {
+    background-color: #AACCE1;
+    height: 300px;
+    }
+  
+  /* Temporary, removing directions to reduce screen clutter */
+    div.mapbox-directions-component-keyline {
+    display: none;
+  } 
+
+}
+
 /* div#map {
     background: coral;
 } */

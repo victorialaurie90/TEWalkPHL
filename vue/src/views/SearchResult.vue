@@ -53,7 +53,6 @@ export default {
 </script>
 
 <style>
-/* STYLE HERE IS VERY TEMPORARY. STYLE WAS USED TO UNDERSTAND WIDTH OF DIVS.  */
 
 body {
     margin: 0;
@@ -83,6 +82,26 @@ div.locations-list-and-map {
 .map-api {
     flex-grow: 2;
     background-color: teal;
+}
+
+@media(max-width: 768px) {
+  div.locations-list-and-map {
+    display: flex;
+    flex-direction: column-reverse;
+    }
+
+    .map-api {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transform: scale(1);
+    }
+
+    .locations-list {
+    width: 100%;
+    background-color: lightskyblue;
+}
+
 }
 
 </style>

@@ -3,7 +3,15 @@
     <h1><em>wlk</em>PHL</h1>
     <p>Find Your Next Favorite Jawn</p>
     <!-- <router-link :to= " { name: 'login'} "><button>Login</button></router-link> -->
-    
+
+    <!-- Maybe have a little welcome message and info about wlkPHL -->
+    <ul class="home-info">
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+      <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+      <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+      <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+    </ul>
+
       <div class="search-box">
       <form v-on:submit.prevent="freeTextSearch">
           <input type="text" required="required" id="filterText" placeholder="What do you want to do?">
@@ -21,7 +29,7 @@
           <button type="submit" class="grow" v-on:click="applyNameToFilter('Indoor')"><i class="fas fa-home fa-2x"></i>Indoor</button>
           <button type="submit" class="grow" v-on:click="applyNameToFilter('Outdoor')"><i class="fas fa-cloud-sun fa-2x"></i>Outdoor</button>
           <button type="submit" class="grow" v-on:click="searchByIsOpen()"><i class="fas fa-clock fa-2x"></i>Open Now</button>
-          <button type="submit" v-on:click="searchNearMe()">Near Me</button>
+          <button type="submit" v-on:click="searchNearMe()"><i class="fas fa-street-view fa-2x"></i>Near Me</button>
         </div>
       
       
@@ -154,6 +162,19 @@ p{
   align-items: center;
 }
 
+ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+li {
+  font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
 div.search-box{
   display: flex;
   justify-content: center;
@@ -202,6 +223,120 @@ i {
   color: #7C2D3E;
 }
 
+@media(max-width: 1366px) {
+
+  div.category-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+@media(max-width: 1024px) {
+  .home {
+    transform: scale(.8);
+    }
+
+  h1 {
+    display: none;
+  }
+
+  p {
+    font-style: italic;
+  }
+
+  div.category-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+  div.category-buttons>button {
+    width: fit-content;
+    margin: 5px;
+    flex-direction: row;
+}
+
+  div.category-buttons>button>i {
+    font-size: 30px;
+    padding-right: 5px;
+  }
+
+}
+
+  
+
+@media(max-width: 768px) {
+  .home {
+    transform: scale(.8);
+    }
+
+  h1 {
+    display: none;
+  }
+
+  div.search-box {
+    padding-top: 30px;
+  }
+
+  p {
+    font-style: italic;
+    font-size: 28px;
+  }
+
+  div.category-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+  div.category-buttons>button {
+    font-size: 0px;
+    max-width: 100px;
+    margin: 5px;
+  
+}
+
+  div.category-buttons>button>i {
+    font-size: 30px;
+    justify-content: center;
+    padding-right: 0px;
+  }
+
+}
+
+@media(max-width: 375px) {
+  .home {
+    transform: scale(.8);
+    }
+
+  h1 {
+    display: none;
+  }
+
+  p {
+    display: none;
+  }
+
+  div.category-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+  div.category-buttons>button {
+    font-size: 0px;
+    max-width: 100%;
+    margin: 5px;
+    align-items: flex-start;
+  
+}
+
+  div.category-buttons>button>i {
+    font-size: 30px;
+  }
+
+}
 
 </style>
 

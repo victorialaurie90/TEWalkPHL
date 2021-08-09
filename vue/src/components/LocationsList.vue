@@ -5,9 +5,23 @@
   <!-- From Tom: Put in DIV container to flex everything. -->
   <div>
     <div class="search-box">
-      <input type="text" id="searchTextBox" v-on:keyup="freeTextSearch" placeholder="What do you want to do?">
-      <button type="submit" class="grow" v-on:click="applyNameToFilter('Restaurants')"><i class="fas fa-utensils fa-2x"></i>Restaurants</button>
+        <i id="search-icon" class="fas fa-search"></i>
+        <input type="text" id="searchTextBox" style="border-style: none" v-on:keyup="freeTextSearch" placeholder="What do you want to do?">
     </div>
+        <!-- Optional route we may want to explore -->
+        <div class="search-buttons">
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('Restaurants')"><i class="fas fa-utensils fa-2x"></i></button>
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('Bars')"><i class="fas fa-beer fa-2x"></i></button>
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('Sports')"><i class="fas fa-baseball-ball fa-2x"></i></button>
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('Fine Arts')"><i class="fas fa-theater-masks fa-2x"></i></button>
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('Historic Sites')"><i class="fas fa-landmark fa-2x"></i></button>
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('Parks')"><i class="fas fa-tree fa-2x"></i></button>
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('Indoor')"><i class="fas fa-home fa-2x"></i></button>
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('Outdoor')"><i class="fas fa-cloud-sun fa-2x"></i></button>
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="searchByIsOpen()"><i class="fas fa-clock fa-2x"></i></button>
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="searchNearMe()"><i class="fas fa-street-view fa-2x"></i></button>
+        </div>
+    
     <div>
       <h2 class="search-header">
         <span v-if="clickedSearchBox">Displaying results for: {{this.$store.state.searchText}}</span>
@@ -186,22 +200,58 @@ div.list {
     color: black;
     display: flex;
     flex-direction: column;
-} 
+}
+
+div.search-buttons {
+  display:flex;
+  flex-grow: 2;
+}
+div.locationListButtons {
+  display: flex;
+  font-size: 30px;
+  flex-grow: 2;
+  
+}
 ::-webkit-scrollbar {
   background: white;
   width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background: white;
+  background: grey;;
   width: 10px;
   height: 200px
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: grey;
+  background: black;
+}
+div.search-box {
+  display: flex;
+  align-items: center;
 }
 #searchTextBox{
+  flex-grow: 1;
   width: 98%;
   height: 30px;
-  font-size:25px
+  font-size:20px;
 }
+#search-icon{
+  width: 15px;
+  padding-right: 5px;
+  padding-left: 2px;
+  color: grey;
+}
+
+@media(max-width: 768px) {
+  div.list {
+    width: 100%;
+    padding-left: 0;
+  }
+  #searchTextBox{
+  width: 100%;
+  padding: 0px;
+  height: 30px;
+  font-size:25px;
+}
+}
+
 </style>

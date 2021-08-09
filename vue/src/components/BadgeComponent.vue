@@ -18,7 +18,6 @@
           <div class="info">
             <h3>{{badge.badgeName}}</h3>
             <h4>{{badge.description}}</h4>
-            <button v-on:click="myFunction">click</button>
           </div>
         </div>
       </div>
@@ -67,7 +66,7 @@ export default {
    display: flex;
    flex-direction: column;
  }
- img {
+ #bdgImg {
    border-radius: 50%;
    background: white;
    height: 150px;
@@ -76,7 +75,13 @@ export default {
    margin: 10px;
  }
  .unobtained {
-   filter: grayscale(100%)
+   filter: grayscale(100%);
+   border-radius: 50%;
+   background: white;
+   height: 150px;
+   width: 150px;
+   padding: 5px;
+   margin: 10px;
  }
  .badgeContainer {
    display: flex;

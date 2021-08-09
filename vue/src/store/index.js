@@ -83,8 +83,8 @@ export default new Vuex.Store({
     SET_BADGES(state, data){
       state.allBadges = data;
     },
-    SET_FILTERLOCATIONS(state, data) {
-      state.filterLocation = data;
+    SET_FILTER_CRITERIA(state, data) {
+      state.filterCriteria = data;
     }
   }
 })

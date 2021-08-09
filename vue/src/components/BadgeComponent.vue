@@ -5,8 +5,8 @@
       <div class = "badgeContainer">
         <img id = "bdgImg" :src="require(`../assets/badges/${userBadge.image}`)" >
         <div class="info">
-          <h4>{{userBadge.badgeName}}</h4>
-          <h4>{{userBadge.description}}</h4>
+          <h3>{{userBadge.badgeName}}</h3>
+          <h3>{{userBadge.description}}</h3>
         </div>
       </div>
     </div>
@@ -67,12 +67,21 @@ export default {
    flex-direction: column;
  }
  #bdgImg {
+     display: flex;
+  justify-content: flex-start;
    border-radius: 50%;
    background: white;
    height: 150px;
    width: 150px;
    padding: 5px;
    margin: 10px;
+  /* box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12),  */
  }
  .unobtained {
    filter: grayscale(100%);
@@ -87,12 +96,26 @@ export default {
    display: flex;
    flex-direction: row;
    justify-content: flex-start;
-   align-content: center;
+   align-content: center; 
+  border-radius: 20px;
+  
+  /* transition: .2s; */
  }
+
+.badgeContainer:hover {
+  background-color: #866A83;
+  color: #DBCFD6;
+  border: solid #9F6172 2px;
+  border: solid #DBCFD6 2px;
+  transition: .2s;
+  transform: scale(1.1)
+}
+
   .info {
    display: flex;
    flex-direction: column;
    margin-left: 20px;
+   align-content: flex-end;
  }
  h3{
    margin-bottom: 0;

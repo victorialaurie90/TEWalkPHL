@@ -44,7 +44,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #9F6172;
+  background-color: #866A83;
   border-radius: 20px;
   border: solid #DBCFD6 2px;
   transition: .2s;

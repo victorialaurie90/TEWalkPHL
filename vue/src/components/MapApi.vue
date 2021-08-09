@@ -7,7 +7,7 @@
 
 <script>
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
-
+          
 export default {
   name: "map-api",
   props: ['locations'],
@@ -16,12 +16,22 @@ export default {
       map: {}
     }
   },
+
+watch: {
+filterCriteria: 
+function() { 
+this.loadMap();
+}
+
+// Replicated in watch and computed for searchbytext, opennow, and nearme
+
+},
+
   mounted() {
     this.loadMap();
   },
   methods: {
     loadMap() {
-
       let mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
       mapboxgl.accessToken = 'pk.eyJ1IjoidG9tc2NvbnRlIiwiYSI6ImNrcnd4eG93eDBrenQybnFleHh6aXNhd3kifQ.tgzQgT1l3z4Bq7WpHQe3Wg';
 
@@ -66,6 +76,12 @@ export default {
 
       map.addControl(directions, "bottom-right")
     }
+  },
+
+  computed: {
+filterCriteria() {
+  return this.$store.state.filterCriteria;
+}
   }
 }
 </script>

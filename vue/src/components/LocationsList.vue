@@ -60,7 +60,7 @@ export default {
         this.resetSearchText();
         this.resetTimeNow();
         this.resetUserLocation();
-        this.$store.state.filterCriteria = category;
+        this.$store.commit('SET_FILTER_CRITERIA', category);
         this.$store.state.filterLocation = [];
         this.$store.state.locations.forEach((loc) => {
           if (loc.categories.includes(category)) {
@@ -69,9 +69,9 @@ export default {
       });
       this.$router.push({name: 'search-result'});
     },
-      addFilteredLocation() {
-        this.$store.commit('SET_FILTERLOCATIONS', this.searchList());
-      }, 
+      // addFilteredLocation() {
+      //   this.$store.commit('SET_FILTERLOCATIONS', this.searchList());
+      // }, 
       resetTimeNow() {
       this.$store.state.timeNow = null;
     },

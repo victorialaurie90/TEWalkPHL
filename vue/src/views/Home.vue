@@ -81,14 +81,26 @@
 <script>
 export default {
   name: "home",
-
   data() {
     return {
       filteredLocations: [],
     };
   },
-
 methods: {
+    freeTextSearch() {
+      this.resetFilterCriteria();
+      this.resetTimeNow();
+      this.resetUserLocation();
+      this.$store.state.filterLocation = [];
+      let filter = document.getElementById('filterText');
+      this.$store.state.searchText = filter.value;
+      this.$store.state.locations.forEach((loc) => {
+        if ((loc.categories.toLowerCase().includes(filter.value.toLowerCase())) || (loc.locationName.toLowerCase().includes(filter.value.toLowerCase())) || (loc.description.toLowerCase().includes(filter.value.toLowerCase()))) {
+          this.$store.state.filterLocation.push(loc);
+        }
+      });
+      this.$router.push({name: 'search-result'});
+    },
     applyNameToFilter(category) {
       this.resetSearchText();
       this.resetTimeNow();
@@ -102,21 +114,6 @@ methods: {
       });
       this.$router.push({name: 'search-result'});
     },
-
-    freeTextSearch() {
-      this.resetFilterCriteria();
-      this.resetTimeNow();
-      this.resetUserLocation();
-      let filter = document.getElementById('filterText');
-      this.$store.state.searchText = filter.value;
-      this.$store.state.locations.forEach((loc) => {
-        if ((loc.categories.includes(filter.value)) || (loc.locationName.includes(filter.value)) || (loc.description.includes(filter.value))) {
-          this.$store.state.filterLocation.push(loc);
-        }
-      });
-      this.$router.push({name: 'search-result'});
-    },
-
     searchByIsOpen() {
       this.resetSearchText();
       this.resetFilterCriteria();
@@ -124,6 +121,7 @@ methods: {
       let today = new Date();
       let userCurrentTime = today.getHours() + ":" + today.getMinutes();
       this.$store.state.timeNow = userCurrentTime;
+     this.$store.state.filterLocation = [];
       this.$store.state.locations.forEach((loc) => {
         if ((loc.openFrom <= userCurrentTime && loc.openTo >= userCurrentTime) || (loc.openFrom == "00:00:00" && loc.openTo == "00:00:00")) {
           this.$store.state.filterLocation.push(loc);
@@ -131,11 +129,11 @@ methods: {
       });
       this.$router.push({name: 'search-result'})
     },
-
     searchNearMe() {
       this.resetSearchText();
       this.resetTimeNow();
       this.resetFilterCriteria();
+    this.$store.state.filterLocation = [];
       if (navigator.geolocation) {
         let self = this
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -151,19 +149,15 @@ methods: {
         });
       }
     },
-
     resetTimeNow() {
       this.$store.state.timeNow = null;
     },
-
     resetFilterCriteria() {
       this.$store.state.filterCriteria = null;
     },
-
     resetSearchText() {
       this.$store.state.searchText = null;
     },
-
     resetUserLocation() {
       this.$store.state.userLocation.lat = 0;
       this.$store.state.userLocation.long = 0;

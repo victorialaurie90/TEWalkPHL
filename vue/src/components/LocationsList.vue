@@ -260,9 +260,9 @@ div.search-buttons {
 div.locationListButtons {
   display: flex;
   font-size: 30px;
-  flex-grow: 2;
-  
+  flex-grow: 2;  
 }
+
 ::-webkit-scrollbar {
   background: white;
   width: 5px;

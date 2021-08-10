@@ -16,7 +16,7 @@
           <li id="url">Website: {{location.Website}}</li>
           <li id="twitter">Twitter: {{location.twitter}}</li>
       </ul>
-      <button v-on:click="create" v-show="this.$store.state.isLoggedIn">{{location.locationId}}</button>
+      <button v-on:click="create" v-show="this.$store.state.isLoggedIn">Click here to check in!</button>
     </div>
   <!-- </div> -->
 </template>
@@ -43,8 +43,9 @@ export default {
       create(){
         this.checkIn.locationId = this.location.locationId;
         this.checkIn.userId = this.$store.state.user.id;
+        checkInService.createCheckIn(this.checkIn);
         badgeService.awardBadge(this.$store.state.user.id);
-        checkInService.createCheckIn(this.checkIn)
+        
       }
     }
 }

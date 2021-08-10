@@ -5,7 +5,7 @@
         <div class="badge-and-profile">
     
             <div class = "information">
-                <img src="https://images.squarespace-cdn.com/content/v1/55ef2da9e4b03f6e1ef0cd28/1578939384628-3X4UKTV4YQ8E4Z850J68/Rich_Seeds_Bevel%400.5x.png?format=750w" alt="placeholder image" id="picture">
+                <img src="https://cdn10.phillymag.com/wp-content/uploads/sites/3/2019/07/gritty-as-rocky-bossypants-838x1024.jpg" alt="placeholder image" id="picture">
                 <h2 style="color: white;">Welcome back, {{this.$store.state.user.username}}!</h2>
             </div>
     

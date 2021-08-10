@@ -2,7 +2,7 @@
   <div class="home">
     <div class="img-search-container">
       <div class = "mainImage">
-            <img src="../assets/locationPictures/kelly-drive.jpg" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px">
+            <img src="../assets/hero-image.jpg" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px">
       </div>
       <div class="search-box">
         <form v-on:submit.prevent="freeTextSearch">
@@ -49,11 +49,11 @@
             <div class="imageText">Outdoor</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/open-now.jpg" v-on:click="applyNameToFilter('Open Now')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/open-now.jpg" v-on:click="searchByIsOpen()" style="width: 200px; margin: 0">
             <div class="imageText">Open</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/near-me.jpg" v-on:click="applyNameToFilter('Near Me')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/near-me.jpg" v-on:click="searchNearMe()" style="width: 200px; margin: 0">
             <div class="imageText">Nearby</div>
           </div>
       <!-- </div> -->
@@ -203,6 +203,9 @@ div.imageContainer { /* centered this using margin left/right auto and scaling (
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.img-search-container {
@@ -271,7 +274,6 @@ div.search-box{
   justify-content: center;
   align-items: center;
   margin-top: -35px;
-  margin-right: -835px;
   padding-bottom: 20px;
   transform: scale(1.50);
   z-index: 1;

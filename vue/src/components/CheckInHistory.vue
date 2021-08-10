@@ -44,7 +44,9 @@ export default {
 <style scoped>
 
 div.check-in {
-  width: 75%;
+  width: 90%;
+  overflow-x: auto;
+  margin-bottom: 30px;
 }
 
 #info {
@@ -55,9 +57,10 @@ div.check-in {
   border-radius: 20px;
   border: solid #DBCFD6 2px;
   transition: .2s;
-  width: 100%;
+  width: 85%;
   flex-wrap: wrap;
   margin-bottom: 20px;
+
 }
 
 #info:hover {

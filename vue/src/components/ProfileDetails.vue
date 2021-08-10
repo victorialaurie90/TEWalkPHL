@@ -92,7 +92,7 @@ div.badges { /* Badge component container */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
+    width: 70%;
     align-items: center;
     margin-left: 0px;
     background: linear-gradient(to bottom, #5C9CC4 0%, #64749C 100%);
@@ -107,8 +107,11 @@ div.history { /* Container for the check-in information */
     justify-content: flex-start;
     align-items: center;
     width: 70vw;
+    height: 35vh;
     background: linear-gradient(to bottom, #5C9CC4 0%, #64749C 100%);
     border-radius: 25px;
+    margin-top: -20px;
+    margin-bottom: 20px;
     
 }
 
@@ -136,11 +139,17 @@ h2 {
 
 /* @Media Screen Section */
 
-@media screen and (max-width: 412) {
+@media screen and (max-width: 550px) {
 
-    div.information, div.history, div.badges { /* Targeting the image specifically in div with class .information */
+    div.information, div.badges { /* Targeting the image specifically in div with class .information */
 
-    width: 100vw;
+        width: 100vw;
+
+    }
+
+    div.history {
+
+        width: 90vw;
 
     }
 

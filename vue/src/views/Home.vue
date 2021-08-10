@@ -2,7 +2,7 @@
   <div class="home">
     <div class="img-search-container">
       <div class = "mainImage">
-            <img src="../assets/hero-image.jpg" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px">
+            <img src="../assets/locationPictures/kelly-drive.jpg" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px">
       </div>
       <div class="search-box">
         <form v-on:submit.prevent="freeTextSearch">
@@ -199,7 +199,7 @@ div.mainImage{
   justify-content: center;
 }
 
-div.imageContainer {
+div.imageContainer { /* centered this using margin left/right auto and scaling (didn't look great at worad the lower range) */
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;

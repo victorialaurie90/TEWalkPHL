@@ -81,7 +81,7 @@ export default {
 
       display: flex;
       flex-direction: row;
-      overflow-y: scroll;
+      overflow-y: auto;
       width: 100%;
       padding-right: 20px;
       margin-right: 20px;
@@ -186,10 +186,10 @@ export default {
 
     /* creating a more dynamic webpage with the max width and @media*/
 
-    @media screen and (max-width: 412) {
+    @media(max-width: 412px) {
 
       .all-badge, .badgeContainer {
-        width: 100vw;
+        width: 90vw;
       }
       
     }

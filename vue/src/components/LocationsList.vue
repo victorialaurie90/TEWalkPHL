@@ -23,7 +23,7 @@
         </div>
 
         <div class="return-search-menu" style="width: 100%; display: flex">
-          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="returnHome()"><i class="fas fa-home fa-2x"> Return to Search Home</i></button>
+          <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="returnHome()"><i class="fas fa-search-location fa-2x"> Return to Search Home</i></button>
         </div>
     
     <div>

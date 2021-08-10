@@ -2,7 +2,7 @@
   <div class="home">
     <div class="img-search-container">
       <div class = "mainImage">
-            <img src="../assets/hero-image.jpg" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px">
+            <img src="../assets/locationPictures/kelly-drive.jpg" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px">
       </div>
       <div class="search-box">
         <form v-on:submit.prevent="freeTextSearch">
@@ -15,45 +15,45 @@
     <div class="imageContainer">
       <!-- <div class="imageContainerFirstRow"> -->
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/oysterHouse.jpg" v-on:click="applyNameToFilter('Restaurants')" style="width: 200px; margin: 0">
-            <div class="imageText">Restaurants</div>
+            <img src="../assets/locationPictures/oysterHouse.jpg" v-on:click="applyNameToFilter('Restaurants')">
+            <div class="imageText">Dining</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/oscars.jpg" v-on:click="applyNameToFilter('Bars')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/oscars.jpg" v-on:click="applyNameToFilter('Bars')">
             <div class="imageText">Bars</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/citBank.jpg" v-on:click="applyNameToFilter('Sports')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/citBank.jpg" v-on:click="applyNameToFilter('Sports')">
             <div class="imageText">Sports</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/artMuseum.jpg" v-on:click="applyNameToFilter('Fine Arts')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/artMuseum.jpg" v-on:click="applyNameToFilter('Fine Arts')">
             <div class="imageText">Art</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/libertyBell.jpg" v-on:click="applyNameToFilter('Historic Sites')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/libertyBell.jpg" v-on:click="applyNameToFilter('Historic Sites')">
             <div class="imageText">History</div>
           </div>
       <!-- </div> -->
       <!-- <div class="imageContainerSecondRow"> -->
         <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/fdr.jpg" v-on:click="applyNameToFilter('Parks')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/fdr.jpg" v-on:click="applyNameToFilter('Parks')">
             <div class="imageText">Parks</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/indoor-golf.jpg" v-on:click="applyNameToFilter('Indoor')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/indoor-golf.jpg" v-on:click="applyNameToFilter('Indoor')">
             <div class="imageText">Indoor</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/longwood.jpg" v-on:click="applyNameToFilter('Outdoor')" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/longwood.jpg" v-on:click="applyNameToFilter('Outdoor')">
             <div class="imageText">Outdoor</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/open-now.jpg" v-on:click="searchByIsOpen()" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/open-now.jpg" v-on:click="searchByIsOpen()">
             <div class="imageText">Open</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/near-me.jpg" v-on:click="searchNearMe()" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/near-me.jpg" v-on:click="searchNearMe()">
             <div class="imageText">Nearby</div>
           </div>
       <!-- </div> -->
@@ -68,11 +68,15 @@
       </div> -->
  
     <!-- Maybe have a little welcome message and info about wlkPHL -->
-    <ul class="home-info">
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-      <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-      <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-      <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+    <div class="home-info">
+      <h2>WELCOME TO WALKPHL!</h2>
+      <p><a href ="/register">Register</a> or <a href ="/login">Login</a> to check in to locations!</p>
+      <p>Check in at enough locations and earn badges to be eligible for special deals and events with our ever-growing list of partners! Think you can visit them all?</p>
+    </div>
+    <ul class="social-icons">
+        <li><a href="#"><i class="fab fa-facebook fa-2x"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram fa-2x"></i></a></li>
+        <li><a href="#"><i class="fab fa-twitter fa-2x"></i></a></li>
     </ul>
 
   </div>
@@ -221,79 +225,152 @@ methods: {
 div.mainImage{
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
-div.imageContainer { /* centered this using margin left/right auto and scaling (didn't look great at worad the lower range) */
+
+div.mainImage>img{
+  position: relative;
+  overflow-x: hidden;
+}
+
+div.img-search-container {
+  height: 100%;
+  width: auto;
+}
+
+  /* div.imageContainer { 
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}  */
+
+/* div.imageContainerFirstRow {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+  
+  }
+ 
+ div.imageContainerSecondRow {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+ } */
+ 
+  .categoryImage {
+   position: relative;
+   text-align: center;
+   color: white;
+   padding-right: 5px;  
+ }
+
+/* For scroll-bar */
+
+/* div.imageContainer { 
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-}
-
-div.img-search-container {
-  position: relative;
-}
-
-/* Currently not using seperate rows for category images */
-/* div.imageContainerFirstRow {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap; 
-  }*/
- 
-/* div.imageContainerSecondRow {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
 } */
 
-.categoryImage {
+/* .categoryImage {
   display: inline-block;
   color: white;
   padding: 5px;
   
-}
-
-.mainImage {
-  position: relative;
-  text-align: center;
-  color: white;
-}
+} */
 
 /* Need to fix display on text for images */
 
-/* .categoryImage:hover {
+   .categoryImage:hover {
   cursor: pointer;
-  text-shadow: 2px 2px black;
-} */
+  opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
 
-  /* .imageText {
+.home-info {
+  display: flex;
+  margin-top: 5px;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1200px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #AACCE1;
+    font-family: 'Oswald', sans-serifl
+  
+}
+
+/* Temporary effect on category images */
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+  
+
+
+   .imageText {
   position: absolute;
   top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 32px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight:bolder;
-  text-shadow: 2px 2px black;
-}  */
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+}  
 
-ul{
+ul.social-icons {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  list-style-type: none;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-li {
-  font-size: 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+/* not currently using */
+
+/* .grow { 
+  transition: all .2s ease-in-out; 
 }
 
-div.search-box{
+.grow:hover { 
+  transform: scale(1.1);
+} */
+
+
+
+@media(min-width: 821px){
+  .categoryImage>img {
+    width: 200px;
+  }
+
+  div.search-box{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -302,31 +379,75 @@ div.search-box{
   transform: scale(1.50);
   z-index: 1;
 }
-
-.grow { 
-  transition: all .2s ease-in-out; 
 }
 
-.grow:hover { 
-  transform: scale(1.1);
+@media(max-width: 820px){
+  .categoryImage>img {
+    width: 150px;
+  }
+
+  div.search-box {
+    justify-content: center;
+    width: 100vw;
+    margin-bottom: 10px;
+    }
+
+  input {
+  width: 78vw;
+  }
 }
 
-@media(max-width: 400px) {
+@media(min-width: 576px){
+  div.imageContainer { 
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  } 
+}
+
+
+@media(max-width: 575px) {
   
   div.image-search-container {
     display: flex;
+    justify-content: center;
   }
   div.mainImage {
-    background-color: #AACCE1;
-    height: 300px;
+    width: 100vw;
     }
 
   div.search-box {
-    margin-left: auto;
-    margin-right: auto;
-    
-    
+    justify-content: center;
+    margin: 0;
+    }
+
+  div.imageContainer { 
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    max-width: 100vw;
+  } 
+
+  .categoryImage {
+    display: inline-block;
+    color: white;
+    padding: 5px;
   }
+
+  div.search-box{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3px;
+}
+
+  input {
+    width: 78vw;
+  }
+
+
 }
 
 </style>

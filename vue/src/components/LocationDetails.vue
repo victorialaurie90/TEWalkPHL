@@ -5,18 +5,18 @@
         v-bind:key="location.id" -->
       <h3 id="location_name">{{location.locationName}}</h3>
       <ul id="to_and_from">
-        <li id="open_from">Open From: {{location.openFrom}}</li> 
-        <li id="open_to">Open To: {{location.openTo}}</li>
+        <li id="open_from"><span class="bold">Open From:</span><span class="space">{{location.openFrom}}</span></li> 
+        <li id="open_to"><span class="bold">Open To:  </span><span class="space">{{location.openTo}}</span></li>
       </ul>
-      <p id="category">Category: {{location.categories}}</p>
-      <p id="address">Address: {{location.address}}</p>
-      <p id="description">Description: {{location.description}}</p>
-      <ul id="social_media">
-          <li id="facebook">Facebook: {{location.facebook}}</li>
-          <li id="url">Website: {{location.Website}}</li>
-          <li id="twitter">Twitter: {{location.twitter}}</li>
-      </ul>
-      <button v-on:click="create" v-show="this.$store.state.isLoggedIn">Click here to check in!</button>
+      <p id="category"><span class="bold">Category: </span> {{location.categories}}</p>
+      <p id="address"><span class="bold">Address: </span> {{location.address}}</p>
+      <p id="description"><span class="bold">Description: </span> {{location.description}}</p>
+    <p id="social_media"> 
+          <span id="facebook"><a v-bind:href="location.facebook"><i class="fab fa-facebook-square fa-2x"></i></a></span>
+          <span id="twitter"><a v-bind:href="location.twitter"><i class="fab fa-twitter fa-2x"></i></a></span>
+          <span id="url"><a v-bind:href="location.url"><i class="fas fa-globe fa-2x"></i></a></span>
+      </p>
+      <button class="check" v-on:click="create" v-show="this.$store.state.isLoggedIn">Click here to check in!</button>
     </div>
   <!-- </div> -->
 </template>
@@ -80,5 +80,51 @@ ul#to_and_from {
     display: flex;
     padding-right: 15px; 
 }
+#location_name{
+  margin: 10px;
+}
+#to_and_from{
+  margin: 10px;
+}
+#category{
+  margin: 10px;
+}
+#address{
+  margin: 10px;
+}
+#description{
+  margin: 10px;
+}
+#social_media{
+ 
+}
+#facebook{
+  padding-left:10px;
+}
+#url{
+  padding-left:10px;
+}
+#twitter{
+  padding-left:10px;
+}
+.bold{
+  font-weight: bold;
+}
+.space{
+  text-indent: 5px;
+}
+
+a{
+  color: #1D3557;
+  text-decoration: none;
+}
+.check {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+
 
 </style>

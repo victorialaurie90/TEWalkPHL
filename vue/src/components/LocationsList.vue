@@ -47,7 +47,7 @@ import LocationDetails from './LocationDetails.vue';
 
 export default {
     name: "locations-list",
-
+  
     components: {
         LocationDetails
     },
@@ -116,7 +116,7 @@ export default {
            self.$store.state.userLocation.long = coordinates[1];
            self.$store.state.locations.forEach((loc) => {
              if (loc.distance <= 2) {
-              this.$store.state.filterLocation.push(loc);
+              self.$store.state.filterLocation.push(loc);
               }
             });
            self.$router.push({name: 'search-result'});  

@@ -133,6 +133,7 @@ methods: {
       this.resetSearchText();
       this.resetTimeNow();
       this.resetFilterCriteria();
+      this.nearbyLocations;
     this.$store.state.filterLocation = [];
       if (navigator.geolocation) {
         let self = this
@@ -142,7 +143,7 @@ methods: {
            self.$store.state.userLocation.long = coordinates[1];
            self.$store.state.locations.forEach((loc) => {
              if (loc.distance <= 2) {
-              this.$store.state.filterLocation.push(loc);
+              self.$store.state.filterLocation.push(loc);
               }
             });
            self.$router.push({name: 'search-result'});  
@@ -162,6 +163,35 @@ methods: {
       this.$store.state.userLocation.lat = 0;
       this.$store.state.userLocation.long = 0;
     }
+  },
+  computed: {
+              nearbyLocations() {
+          const rawList = this.$store.state.locations;
+          const userLoc = this.$store.state.userLocation;
+
+              let filteredList = [];
+
+              rawList.forEach(loc => {  
+              var radlat1 = Math.PI * userLoc.lat / 180;
+              var radlat2 = Math.PI * loc.latitude / 180;
+              var theta = userLoc.long - loc.longitude;
+              var radtheta = Math.PI * theta/180;
+              var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+              if (dist > 1) {
+                 dist = 1;
+               }
+              dist = Math.acos(dist);
+              dist = dist * 180/Math.PI;
+              dist = dist * 60 * 1.1515;
+              dist = dist * 1.609344;
+              loc.distance = dist;
+
+              if (loc.distance <=2) {
+                filteredList.push(loc);
+              }});
+
+              return filteredList;
+        },
   }
 };
 </script>

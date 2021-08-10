@@ -18,15 +18,15 @@ export default {
   },
 
 watch: {
-filterCriteria: 
-function() { 
-this.loadMap();
-},
-timeNow:
-function() { 
-this.loadMap();
-},
-userLocation:
+// filterCriteria: 
+// function() { 
+// this.loadMap();
+// },
+// timeNow:
+// function() { 
+// this.loadMap();
+// },
+filterLocation:
 function() { 
 this.loadMap();
 }
@@ -84,15 +84,15 @@ this.loadMap();
   },
 
   computed: {
-filterCriteria() {
-  return this.$store.state.filterCriteria;
-},
+// filterCriteria() {
+//   return this.$store.state.filterCriteria;
+// },
 
-timeNow() {
-  return this.$store.state.timeNow;
-},
+// timeNow() {
+//   return this.$store.state.timeNow;
+// },
 
-userLocation() {
+filterLocation() {
   return this.$store.state.filterLocation;
 }
   }

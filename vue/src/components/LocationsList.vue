@@ -57,17 +57,6 @@ export default {
         this.$router.push({name:'home'})
       },
 
-      // Currently do not need this method because we do not have a search bar on the results page
-      // freeTextSearch() {
-      //   this.$store.state.filterCriteria = null;
-      //   this.$store.state.timeNow = null;
-      //   this.$store.state.userLocation.lat = 0;
-      //   this.$store.state.userLocation.long = 0;
-      //   let filter = document.getElementById('searchTextBox');
-      //   this.$store.state.searchText = filter.value;
-      //   this.$router.push({name:'search-result'})
-      // },
-
       applyNameToFilter(category) {
         this.resetSearchText();
         this.resetTimeNow();
@@ -101,7 +90,6 @@ export default {
       },
 
       searchNearMe() {
-        window.alert("searching near you");
         this.resetSearchText();
         this.resetTimeNow();
         this.resetFilterCriteria();
@@ -116,9 +104,7 @@ export default {
            self.$store.state.userLocation.lat = coordinates[0];
            self.$store.state.userLocation.long = coordinates[1];
            self.$store.state.locations.forEach((loc) => {
-            // window.alert(loc.distance);
              if (loc.distance <= 2) {
-              // window.alert(loc.locationName + "is near you");
               self.$store.state.filterLocation.push(loc);
               }
             });

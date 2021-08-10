@@ -129,14 +129,14 @@ INSERT INTO locations_category (location_id, category_id) VALUES(1, 8);
 
 --PENNYPACK PARK
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Pennypack Park', 'Pennypack Park is a municipal park, in Northeast Philadelphia in the U.S. state of Pennsylvania. Established in 1905 by the City of Philadelphia, it includes about 1,600 acres of woodlands, meadows and wetlands.', 'Pennypack Trail, Philadelphia, PA 19102',  
+VALUES ('Pennypack Park', 'Pennypack Park is a municipal park, in Northeast Philadelphia. Established in 1905, it includes about 1,600 acres of woodlands, meadows and wetlands.', 'Pennypack Trail, Philadelphia, PA 19102',  
 '24:00:00', '00:00:00', '', 'https://www.visitphilly.com/things-to-do/attractions/pennypack-park/', '', '../assets/locationPictures/pennypack.jpg', '40.0401', '-75.0300', 'Parks, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(2, 4);
 INSERT INTO locations_category (location_id, category_id) VALUES(2, 8);
 
 --FDR PARK
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('FDR Park', 'Large urban park offering a golf course, sports fields, fishing lakes & the American Swedish Museum.', 
+VALUES ('FDR Park', 'Large urban park offering a golf course, sports fields, fishing lakes, and the American Swedish Museum.', 
 '1500 Pattison Avenue &, S Broad St, Philadelphia, PA 19145', '21:00:00', '06:00:00', 'https://twitter.com/fdrpark', 'https://www.fdrparkphilly.org', 
 'https://www.facebook.com/fdrpark',  '../assets/locationPictures/fdr.jpg', '39.9021', '-75.1838', 'Parks, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(3, 4);
@@ -151,14 +151,14 @@ INSERT INTO locations_category (location_id, category_id) VALUES(4, 7);
 
 --Eastern State
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Eastern State Penitentiary', 'Eastern State Penitentiary was once the most famous prisonS in the world, but stands today in ruin, a haunting world of crumbling cellblocks and empty guard towers.', 
+VALUES ('Eastern State Penitentiary', 'Eastern State Penitentiary was once the most famous prisons in the world, but stands today in ruin, a haunting world of crumbling cellblocks and empty guard towers.', 
 '2027 Fairmount Ave, Philadelphia, PA 19130', '22:30:00', '10:00:00', 'https://twitter.com/easternstate', 'https://www.easternstate.org/', 'https://www.facebook.com/Eastern-State-Penitentiary-125028907507788/', '../assets/locationPictures/easternState.jpg', '39.9683', '-75.1727', 'Historic Sites, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(5, 6);
 INSERT INTO locations_category (location_id, category_id) VALUES(5, 7);
 
 --Franklin Institute
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('The Franklin Institute', 'Located in the heart of Philadelphia, The Franklin Institute is one of America''s most celebrated museums�a renowned leader in science and technology.', '222 N 20th St, Philadelphia, PA 19103',  
+VALUES ('The Franklin Institute', 'Located in the heart of Philadelphia, The Franklin Institute is one of America''s most celebrated museums and is a renowned leader in science and technology.', '222 N 20th St, Philadelphia, PA 19103',  
 '18:00:00', '10:00:00', 'https://twitter.com/thefranklin', 'https://www.fi.edu/', 'https://www.facebook.com/TheFranklinInstitute/', '../assets/locationPictures/franklinInstitute.jpg', '39.9582', '-75.1731', 'Historic Sites, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(6, 6);
 INSERT INTO locations_category (location_id, category_id) VALUES(6, 7);
@@ -172,14 +172,14 @@ INSERT INTO locations_category (location_id, category_id) VALUES(7, 9);
 
 --Mann Center
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('The Mann Center', 'The Mann Center for the Performing Arts is a nonprofit performing arts center located in the Centennial District of Philadelphia''s West Fairmount Park, built in 1976 as the summer home for the Philadelphia Orchestra.', '5201 Parkside Ave, Philadelphia, PA 19131',  
-'24:00:00', '00:00:00', 'https://twitter.com/manncenter', 'https://manncenter.org/', 'https://www.facebook.com/themanncenter/', '../assets/locationPictures/mann_centerjpg.jpg', '39.5859', '-75.1322', 'Outdoor, Fine Arts');
+VALUES ('The Mann Center', 'The Mann Center for the Performing Arts is a nonprofit performing arts center located in West Fairmount Park, built in 1976 as the summer home for the Philadelphia Orchestra.', '5201 Parkside Ave, Philadelphia, PA 19131',  
+'24:00:00', '00:00:00', 'https://twitter.com/manncenter', 'https://manncenter.org/', 'https://www.facebook.com/themanncenter/', '../assets/locationPictures/mann_centerjpg.jpg', '39.98061', '-75.221069', 'Outdoor, Fine Arts');
 INSERT INTO locations_category (location_id, category_id) VALUES(8, 8);
 INSERT INTO locations_category (location_id, category_id) VALUES(8, 9);
 
 --Kimmel Center
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Kimmel Cultural Campus', 'The Kimmel Center for the Performing Arts is a large performing arts venue at 300 South Broad Street and the corner of Spruce Street, along the stretch known as the "Avenue of the Arts", in Center City, Philadelphia, Pennsylvania.', '300 S Broad St, Philadelphia, PA 19102',  
+VALUES ('Kimmel Cultural Campus', 'The Kimmel Center for the Performing Arts is a large performing arts venue located along the stretch known as the "Avenue of the Arts" in Center City.', '300 S Broad St, Philadelphia, PA 19102',  
 '24:00:00', '00:00:00', 'https://twitter.com/kimmelcenter', 'https://www.kimmelculturalcampus.org/', 'https://www.facebook.com/KimmelCulturalCampus/', '../assets/locationPictures/kimmel.jpg', '39.9467', '-75.1657', 'Indoor, Fine Arts');
 INSERT INTO locations_category (location_id, category_id) VALUES(9, 7);
 INSERT INTO locations_category (location_id, category_id) VALUES(9, 9);
@@ -193,56 +193,56 @@ INSERT INTO locations_category (location_id, category_id) VALUES(10, 7);
 
 --Oscar's Tavern
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Oscar''s Tavern', 'Old-school haunt dishing up pub grub & cocktails amid red booths, wood-paneled walls & a jukebox.', '1524 Sansom St, Philadelphia, PA 19102',  
+VALUES ('Oscar''s Tavern', 'Old-school haunt dishing up pub grub and cocktails amid red booths, wood-paneled walls, and a jukebox.', '1524 Sansom St, Philadelphia, PA 19102',  
 '2:00:00', '11:00:00', '', '', 'https://www.facebook.com/pages/category/Dive-Bar/Oscars-Tavern-187176721252/', '../assets/locationPictures/oscars.jpg', '39.9504', '-75.1668', 'Indoor, Bars');
 INSERT INTO locations_category (location_id, category_id) VALUES(11, 2);
 INSERT INTO locations_category (location_id, category_id) VALUES(11, 7);
 
 --Kosta's
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Kosta''s Bar and Restaurant', 'Casual, contemporary Greek restaurant & bar featuring TVs, pool tables & a back patio.', '15 W Girard Ave, Philadelphia, PA 19123',  
+VALUES ('Kosta''s Bar and Restaurant', 'Casual, contemporary Greek restaurant and bar featuring TVs, pool tables, and a back patio.', '15 W Girard Ave, Philadelphia, PA 19123',  
 '2:00:00', '15:00:00', '', 'https://kostasfishtown.com', 'https://www.facebook.com/KostasPhilly', '../assets/locationPictures/kostas.jpeg', '39.9504', '-75.1349', 'Indoor, Bars');
 INSERT INTO locations_category (location_id, category_id) VALUES(12, 2);
 INSERT INTO locations_category (location_id, category_id) VALUES(12, 7);
 
 --Citizens Bank
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Citizens Bank Park', 'Citizens Bank Park is a baseball park located in Philadelphia, Pennsylvania, within the city''s South Philadelphia Sports Complex. It is the home of the Philadelphia Phillies, the city''s Major League Baseball franchise.', '1 Citizens Bank Way, Philadelphia, PA 19148',  
+VALUES ('Citizens Bank Park', 'Citizens Bank Park is a baseball park located in the South Philadelphia Sports Complex. It is the home of the Philadelphia Phillies, the city''s Major League Baseball franchise.', '1 Citizens Bank Way, Philadelphia, PA 19148',  
 '12:00:00', '09:00:00', 'https://twitter.com/philliescbp', 'https://www.mlb.com/phillies/ballpark', 'https://www.facebook.com/CitizensBankPark', '../assets/locationPictures/citBank.jpg', '39.9061', '-75.1665', 'Sports, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(13, 3);
 INSERT INTO locations_category (location_id, category_id) VALUES(13, 8);
 
 --Lincoln Financial Field
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Lincoln Financial Field', 'This outdoor football stadium seats over 67,000 people & is home field for the Philadelphia Eagles.', 'One Lincoln Financial Field Way, Philadelphia, PA 19148',
+VALUES ('Lincoln Financial Field', 'Lincoln Financial Field is an outdoor football stadium located in the South Philadelphia Sports Complex. It seats over 67,000 people and is home field for the Philadelphia Eagles.', 'One Lincoln Financial Field Way, Philadelphia, PA 19148',
 '12:00:00', '09:00:00', 'https://twitter.com/LFFStadium', 'https://www.lincolnfinancialfield.com', 'https://www.facebook.com/lincolnfinancialfield/', '../assets/locationPictures/linc.jpg', '39.90140', '-75.16794', 'Sports, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(14, 3);
 INSERT INTO locations_category (location_id, category_id) VALUES(14, 8);
 
 --Wells Fargo Center
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Wells Fargo Center', 'The Wells Fargo Center is a multi-purpose arena located in Philadelphia. It serves as the home of the Philadelphia Flyers, the Philadelphia 76ers, and the Philadelphia Wings.', '3601 S Broad St, Philadelphia, PA 19148',
+VALUES ('Wells Fargo Center', 'The Wells Fargo Center is a multi-purpose arena located in the South Philadelphia Sports Complex. It serves as the home of the Philadelphia Flyers, the Philadelphia 76ers, and the Philadelphia Wings.', '3601 S Broad St, Philadelphia, PA 19148',
 '12:00:00', '09:00:00', 'https://twitter.com/WellsFargo', 'https://www.wellsfargocenterphilly.com', 'https://www.facebook.com/wellsfargocenter/', '../assets/locationPictures/wellsFargo.jpg', '39.9012', '-75.1720', 'Sports, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(15, 3);
 INSERT INTO locations_category (location_id, category_id) VALUES(15, 7);
 
 --2300 Arena
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('2300 Arena', '2300 Arena is a multipurpose indoor arena in Philadelphia, Pennsylvania used primarily for professional wrestling, boxing, mixed martial arts, and concert events.', '2300 S Swanson St, Philadelphia, PA 19148',
-'12:00:00', '09:00:00', 'https://twitter.com/WellsFargo', 'https://www.wellsfargocenterphilly.com', 'https://www.facebook.com/wellsfargocenter/', '../assets/locationPictures/2300_Arena.jpg', '39.9012', '-75.1720', 'Sports, Outdoor');
+VALUES ('2300 Arena', '2300 Arena is a multipurpose indoor arena used primarily for professional wrestling, boxing, mixed martial arts, and concert events.', '2300 S Swanson St, Philadelphia, PA 19148',
+'12:00:00', '09:00:00', 'https://twitter.com/WellsFargo', 'https://www.wellsfargocenterphilly.com', 'https://www.facebook.com/wellsfargocenter/', '../assets/locationPictures/2300_Arena.jpg', '39.91816', '-75.14730', 'Sports, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(16, 3);
 INSERT INTO locations_category (location_id, category_id) VALUES(16, 8);
 
 --Dahlak
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Dahlak', 'Exotic Ethiopian & Eritrean specialties are served family-style & washed down with wine & beer.', '4708 Baltimore Ave, Philadelphia, PA 19143',  
+VALUES ('Dahlak', 'Exotic Ethiopian and Eritrean specialties are served family-style and washed down with wine and beer.', '4708 Baltimore Ave, Philadelphia, PA 19143',  
 '9:00:00', '16:00:00', 'https://twitter.com/dahlak_paradise', 'https://www.dahlakrestaurant.com', 'https://www.facebook.com/DahlakParadise', '../assets/locationPictures/dahlak.jpg', '39.94849', '-75.21728', 'Restaurants, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(17, 5);
 INSERT INTO locations_category (location_id, category_id) VALUES(17, 7);
 
 --Dolphin Tavern
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Dolphin Tavern', 'Hip club with a throwback vibe offering craft beer, glowing walls (& murals), go-go dancers & DJs.', '1539 S Broad St, Philadelphia, PA 19147',  
+VALUES ('Dolphin Tavern', 'Hip club with a throwback vibe offering craft beer, glowing walls and murals, go-go dancers, and DJs.', '1539 S Broad St, Philadelphia, PA 19147',  
 '2:00:00', '16:00:00', 'https://twitter.com/dolphinphilly?lang=en', 'http://www.dolphinphilly.com', 'https://www.facebook.com/DolphinPhilly', '../assets/locationPictures/dolphin.jpg', '39.93080', '-75.16797', 'Bars, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(18, 2);
 INSERT INTO locations_category (location_id, category_id) VALUES(18, 7);
@@ -257,7 +257,7 @@ INSERT INTO locations_category (location_id, category_id) VALUES(19, 8);
 
 --Malcolm X Park
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Malcolm X Park', 'Tree-shaded city park featuring a playground, covered benches & paved walking paths.', 
+VALUES ('Malcolm X Park', 'Tree-shaded city park featuring a playground, covered benches, and paved walking paths.', 
 '5100 Pine St, Philadelphia, PA 19143', '22:00:00', '05:00:00', '', 'https://www.visitphilly.com/things-to-do/attractions/clark-park/', 
 'https://www.facebook.com/malcolmxpark/',  '../assets/locationPictures/malcomX.jpg', '39.9526639', '-75.225427', 'Parks, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(20, 4);
@@ -279,7 +279,7 @@ INSERT INTO locations_category (location_id, category_id) VALUES(22, 7);
 
 --Rodin Museum
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Rodin Museum', 'The Rodin Museum is an art museum located in Philadelphia, Pennsylvania that contains one of the largest collections of sculptor Auguste Rodin''s works outside Paris.', '2151 Benjamin Franklin Pkwy, Philadelphia, PA 19130',  
+VALUES ('Rodin Museum', 'The Rodin Museum is an art museum that contains one of the largest collections of sculptor Auguste Rodin''s works outside Paris.', '2151 Benjamin Franklin Pkwy, Philadelphia, PA 19130',  
 '17:00:00', '10:00:00', '', 'https://www.rodinmuseum.org/', '', '../assets/locationPictures/rodin.jpg', '39.9619', '-75.1740', 'Indoor, Fine Arts');
 INSERT INTO locations_category (location_id, category_id) VALUES(23, 7);
 INSERT INTO locations_category (location_id, category_id) VALUES(23, 9);
@@ -287,34 +287,34 @@ INSERT INTO locations_category (location_id, category_id) VALUES(23, 9);
 --Pennsylvania Academy of the Fine Arts
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('Pennsylvania Academy of the Fine Arts', 'Founded in 1805 as the first art school and museum in the United States, PAFA celebrates the transformative power of art and art-making.', '118-128 N Broad St, Philadelphia, PA 19102',  
-'16:00:00', '10:00:00', '', 'https://www.pafa.org/', 'https://www.facebook.com/PAFAcademy', '../assets/locationPictures/pafa.jpg', '39.5718', '-75.950', 'Indoor, Fine Arts');
+'16:00:00', '10:00:00', '', 'https://www.pafa.org/', 'https://www.facebook.com/PAFAcademy', '../assets/locationPictures/pafa.jpg', '39.9552373', '-75.1636673', 'Indoor, Fine Arts');
 INSERT INTO locations_category (location_id, category_id) VALUES(24, 7);
 INSERT INTO locations_category (location_id, category_id) VALUES(24, 9);
 
 --Three Monkeys Cafe
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Three Monkeys Cafe', 'Monkey-themed restaurant serving American food & drinks in vintage rooms & on the spacious outdoor patio.', '9645 James St, Philadelphia, PA 19114',  
+VALUES ('Three Monkeys Cafe', 'Monkey-themed restaurant serving American food & drinks in vintage rooms and on a spacious outdoor patio.', '9645 James St, Philadelphia, PA 19114',  
 '22:00:00', '11:00:00', '', '3monkeyscafe.com', 'https://www.facebook.com/3monkeyscafephilly/', '../assets/locationPictures/threeMonkey.jpg', '40.053799', '-74.983940', 'Restaurants, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(25, 5);
 INSERT INTO locations_category (location_id, category_id) VALUES(25, 7);
 
 --Tattooed Mom
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Tattooed Mom', 'Relaxed hipster bar with food & drink specials, pool tables plus toys & candy on the bar.', '530 South St, Philadelphia, PA 19147',  
+VALUES ('Tattooed Mom', 'Relaxed hipster bar with food and drink specials, pool tables, plus toys and candy on the bar.', '530 South St, Philadelphia, PA 19147',  
 '21:00:00', '16:00:00', '', 'https://www.tattooedmomphilly.com/', 'https://www.facebook.com/tattooedmomphilly/', '../assets/locationPictures/tattooedMom.jpg', '39.941938', '-75.151813', 'Bars, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(26, 2);
 INSERT INTO locations_category (location_id, category_id) VALUES(26, 7);
 
 --Vedge
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Vedge', 'Restaurant serving inventive vegan & vegetarian small plates in a charming old mansion.', '1221 Locust St, Philadelphia, PA 19107',  
+VALUES ('Vedge', 'Restaurant serving inventive vegan and vegetarian small plates in a charming old mansion.', '1221 Locust St, Philadelphia, PA 19107',  
 '21:00:00', '17:00:00', '', 'https://www.vedgerestaurant.com/', 'https://www.facebook.com/vedgerestaurant/', '../assets/locationPictures/vedge.jpg', '39.9479', '-75.1614', 'Restaurants, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(27, 5);
 INSERT INTO locations_category (location_id, category_id) VALUES(27, 7);
 
 --Sazon
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Sazon', 'Arepas & other traditional Venezuelan fare, including several gluten-free options. Cash only.', '941 Spring Garden St, Philadelphia, PA 19123',  
+VALUES ('Sazon', 'Arepas and other traditional Venezuelan fare, including several gluten-free options. Cash only.', '941 Spring Garden St, Philadelphia, PA 19123',  
 '21:00:00', '17:00:00', '', '', 'https://www.facebook.com/Sazon-Restaurant-Caf%C3%A9-333060150261/', '../assets/locationPictures/sazon.jpg', '39.961849', '-75.154375', 'Restaurants, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(28, 5);
 INSERT INTO locations_category (location_id, category_id) VALUES(28, 7);
@@ -328,9 +328,15 @@ INSERT INTO locations_category (location_id, category_id) VALUES(29, 7);
 
 --Fusion Arena
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
-VALUES ('Fusion Arena', 'Esports arena home to the Overwatch team competitive team Philadelphia Fusion.', '3300 S 7th St STE 1, Philadelphia, PA 19148',
-'24:00:00', '00:00:00', 'https://twitter.com/Fusion', 'https://fusionarenaphilly.com/', 'https://www.facebook.com/PhiladelphiaFusion/', '../assets/locationPictures/fusionArena.jpg', '39.5413', '-75.10596', 'Sports, Indoor');
+VALUES ('Fusion Arena', 'Esports arena home to the Overwatch competitive team Philadelphia Fusion.', '3300 S 7th St STE 1, Philadelphia, PA 19148',
+'24:00:00', '00:00:00', 'https://twitter.com/Fusion', 'https://fusionarenaphilly.com/', 'https://www.facebook.com/PhiladelphiaFusion/', '../assets/locationPictures/fusionArena.jpg', '39.906750', '-75.162920', 'Sports, Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(30, 3);
+INSERT INTO locations_category (location_id, category_id) VALUES(30, 7);
+
+--TEST Tori's House
+INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
+VALUES ('TEST Tori''s House', 'Outside of Philly test location.', '55 N 3rd St, Coplay, PA 18037',
+'24:00:00', '00:00:00', '', '', '', '', '40.673599', '-75.493538', 'Indoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(30, 7);
 
 --Insert test check ins to locations

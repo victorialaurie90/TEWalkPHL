@@ -1,17 +1,19 @@
 <template>
   <div class="home">
-    <div class = "mainImage">
-          <img src="../assets/locationPictures/kelly-drive.jpg" style="margin-top: 10px; margin-bottom: 0px; padding-bottom: 0px">
-          <div class="imageText"><h1><em>wlk</em>PHL</h1></div>
+    <div class="img-search-container">
+      <div class = "mainImage">
+            <img src="../assets/hero-image.jpg" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px">
+      </div>
+      <div class="search-box">
+        <form v-on:submit.prevent="freeTextSearch">
+            <input type="text" required="required" id="filterText" placeholder="What do you want to do?">
+            <button type="submit">Search</button>
+        </form>
+      </div>
     </div>
-    <div class="search-box">
-      <form v-on:submit.prevent="freeTextSearch">
-          <input type="text" required="required" id="filterText" placeholder="What do you want to do?">
-          <button type="submit">Search</button>
-      </form>
-    </div>
+
     <div class="imageContainer">
-      <div class="imageContainerFirstRow">
+      <!-- <div class="imageContainerFirstRow"> -->
           <div class = "categoryImage grow">
             <img src="../assets/locationPictures/oysterHouse.jpg" v-on:click="applyNameToFilter('Restaurants')" style="width: 200px; margin: 0">
             <div class="imageText">Restaurants</div>
@@ -32,8 +34,8 @@
             <img src="../assets/locationPictures/libertyBell.jpg" v-on:click="applyNameToFilter('Historic Sites')" style="width: 200px; margin: 0">
             <div class="imageText">History</div>
           </div>
-      </div>
-      <div class="imageContainerSecondRow">
+      <!-- </div> -->
+      <!-- <div class="imageContainerSecondRow"> -->
         <div class = "categoryImage grow">
             <img src="../assets/locationPictures/fdr.jpg" v-on:click="applyNameToFilter('Parks')" style="width: 200px; margin: 0">
             <div class="imageText">Parks</div>
@@ -47,15 +49,16 @@
             <div class="imageText">Outdoor</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/open-now.jpg" v-on:click="searchByIsOpen()" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/open-now.jpg" v-on:click="applyNameToFilter('Open Now')" style="width: 200px; margin: 0">
             <div class="imageText">Open</div>
           </div>
           <div class = "categoryImage grow">
-            <img src="../assets/locationPictures/near-me.jpg" v-on:click="searchNearMe()" style="width: 200px; margin: 0">
+            <img src="../assets/locationPictures/near-me.jpg" v-on:click="applyNameToFilter('Near Me')" style="width: 200px; margin: 0">
             <div class="imageText">Nearby</div>
           </div>
+      <!-- </div> -->
       </div>
-    </div>  
+      
 
       <!-- <div class="category-buttons">
           <button type="submit" class="grow" v-on:click="applyNameToFilter('Indoor')"><i class="fas fa-home fa-2x"></i>Indoor</button>
@@ -86,23 +89,6 @@ export default {
   },
 
 methods: {
-    freeTextSearch() {
-      this.resetFilterCriteria();
-      this.resetTimeNow();
-      this.resetUserLocation();
-
-      this.$store.state.filterLocation = [];
-
-      let filter = document.getElementById('filterText');
-      this.$store.state.searchText = filter.value;
-      this.$store.state.locations.forEach((loc) => {
-        if ((loc.categories.toLowerCase().includes(filter.value.toLowerCase())) || (loc.locationName.toLowerCase().includes(filter.value.toLowerCase())) || (loc.description.toLowerCase().includes(filter.value.toLowerCase()))) {
-          this.$store.state.filterLocation.push(loc);
-        }
-      });
-      this.$router.push({name: 'search-result'});
-    },
-
     applyNameToFilter(category) {
       this.resetSearchText();
       this.resetTimeNow();
@@ -117,6 +103,20 @@ methods: {
       this.$router.push({name: 'search-result'});
     },
 
+    freeTextSearch() {
+      this.resetFilterCriteria();
+      this.resetTimeNow();
+      this.resetUserLocation();
+      let filter = document.getElementById('filterText');
+      this.$store.state.searchText = filter.value;
+      this.$store.state.locations.forEach((loc) => {
+        if ((loc.categories.includes(filter.value)) || (loc.locationName.includes(filter.value)) || (loc.description.includes(filter.value))) {
+          this.$store.state.filterLocation.push(loc);
+        }
+      });
+      this.$router.push({name: 'search-result'});
+    },
+
     searchByIsOpen() {
       this.resetSearchText();
       this.resetFilterCriteria();
@@ -124,9 +124,6 @@ methods: {
       let today = new Date();
       let userCurrentTime = today.getHours() + ":" + today.getMinutes();
       this.$store.state.timeNow = userCurrentTime;
-
-     this.$store.state.filterLocation = [];
-
       this.$store.state.locations.forEach((loc) => {
         if ((loc.openFrom <= userCurrentTime && loc.openTo >= userCurrentTime) || (loc.openFrom == "00:00:00" && loc.openTo == "00:00:00")) {
           this.$store.state.filterLocation.push(loc);
@@ -139,9 +136,6 @@ methods: {
       this.resetSearchText();
       this.resetTimeNow();
       this.resetFilterCriteria();
-
-    this.$store.state.filterLocation = [];
-
       if (navigator.geolocation) {
         let self = this
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -180,28 +174,59 @@ methods: {
 
 <style scoped>
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 div.mainImage{
   display: flex;
   justify-content: center;
 }
 
-div.imageContainerFirstRow {
-  display: flex;
-  justify-content: center;
+div.imageContainer {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+div.img-search-container {
+  position: relative;
+}
+
+/* Currently not using seperate rows for category images */
+/* div.imageContainerFirstRow {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap; 
+  }*/
  
-
-}
-
-div.imageContainerSecondRow {
-  display: flex;
-  justify-content: center;
-}
+/* div.imageContainerSecondRow {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+} */
 
 .categoryImage {
-  position: relative;
-  text-align: center;
+  display: inline-block;
   color: white;
   padding: 5px;
+  
 }
 
 .mainImage {
@@ -210,38 +235,22 @@ div.imageContainerSecondRow {
   color: white;
 }
 
-.categoryImage:hover {
+/* Need to fix display on text for images */
+
+/* .categoryImage:hover {
   cursor: pointer;
   text-shadow: 2px 2px black;
-}
+} */
 
-.imageText {
+  /* .imageText {
   position: absolute;
   top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 32px;
   font-weight:bolder;
-  /* text-shadow: 2px 2px black; */
-}
-
-h1{
-  font-size: 100px;
-  display: flex;
-  justify-content: center;
-  margin-top:200px;
-  margin-bottom: 250px;
   text-shadow: 2px 2px black;
-}
-p{
-  font-size: 50px;
-  margin-top: 0px;
-  margin-bottom: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
+}  */
 
 ul{
   display: flex;
@@ -256,21 +265,16 @@ li {
     'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
 div.search-box{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
+  margin-top: -35px;
+  margin-right: -835px;
   padding-bottom: 20px;
-  transform: scale(1.50)
-}
-
-div.category-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 5px;
-  padding-bottom: 10px;
+  transform: scale(1.50);
+  z-index: 1;
 }
 
 .grow { 
@@ -281,137 +285,22 @@ div.category-buttons {
   transform: scale(1.1);
 }
 
-@media(max-width: 1248px) {
-
-  .mainImage {
-    transform: scale(.8);
-  }
-}
-
-@media(max-width: 1024px) {
-  .home {
-    transform: scale(.8);
-    }
-
-    .mainImage {
-    transform: scale(.6);
-  }
-
-  div.imageContainer {
+@media(max-width: 400px) {
+  
+  div.image-search-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
   }
-
-   p {
-    font-style: italic;
-  }
-
-  div.category-buttons {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-
-  div.category-buttons>button {
-    width: fit-content;
-    margin: 5px;
-    flex-direction: row;
-}
-
-  div.category-buttons>button>i {
-    font-size: 30px;
-    padding-right: 5px;
-  }
-
-}
-
-@media(max-width: 946) {
- div.imageContainer {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-}
-
-@media(max-width: 768px) {
-
-  .mainImage {
-    transform: scale(.4);
-  }
-  .home {
-    transform: scale(.8);
+  div.mainImage {
+    background-color: #AACCE1;
+    height: 300px;
     }
-
-  h1 {
-    display: none;
-  }
 
   div.search-box {
-    padding-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
   }
-
-  p {
-    font-style: italic;
-    font-size: 28px;
-  }
-
-  div.category-buttons {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-  div.category-buttons>button {
-    font-size: 0px;
-    max-width: 100px;
-    margin: 5px;
-  
-}
-
-  div.category-buttons>button>i {
-    font-size: 30px;
-    justify-content: center;
-    padding-right: 0px;
-  }
-
-}
-
-@media(max-width: 375px) {
-  .home {
-    transform: scale(.8);
-    }
-
-  h1 {
-    display: none;
-  }
-
-  p {
-    display: none;
-  }
-
-  div.imageContainer {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-  div.imageContainer>img {
-    font-size: 0px;
-    max-width: 100%;
-    margin: 5px;
-    align-items: flex-start;
-  
-}
-
-  div.category-buttons>button>i {
-    font-size: 30px;
-  }
-
 }
 
 </style>

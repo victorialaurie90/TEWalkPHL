@@ -1,12 +1,15 @@
 <template>
   <div class = "check-in">
+    
     <div v-for="checkin in checkIns" v-bind:key="checkin.checkInId">
+      
       <div id="info">
           <h3>{{checkin.locationName}}</h3>
           <p>Date and Time: {{checkin.dateTime}}</p> 
       </div>
 
     </div>
+  
   </div>
 </template>
 
@@ -14,33 +17,37 @@
 import checkInService from '../services/CheckInService'
 
 export default {
-    name: "check-in-history",
-    data() {
-      return {
-        checkIns: [],
-        filteredCheckIns: []
-      };
-    },
-    props: {
-      'userId': Number
-    },
-    created() {
-      this.retrieveCheckIns();
-    },
-    methods: {
-      retrieveCheckIns() {
-        checkInService.getCheckIns(this.$store.state.user.id)
-        .then (response => {
-          this.checkIns = response.data;
-        });
-      }
+  name: "check-in-history",
+  data() {
+    return {
+      checkIns: [],
+      filteredCheckIns: []
+    };
+  },
+  props: {
+    'userId': Number
+  },
+  created() {
+    this.retrieveCheckIns();
+  },
+  methods: {
+    retrieveCheckIns() {
+      checkInService.getCheckIns(this.$store.state.user.id)
+      .then (response => {
+        this.checkIns = response.data;
+      });
     }
+  }
 }
 </script>
 
 <style scoped>
 
-.check-in {
+div.check-in {
+  width: 75%;
+}
+
+#info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,14 +55,12 @@ export default {
   border-radius: 20px;
   border: solid #DBCFD6 2px;
   transition: .2s;
-}
-
-#info {
-  display: flex;
+  width: 100%;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
-.check-in:hover {
+#info:hover {
   background-color: #DBCFD6;
   border: solid #9F6172 2px;
   transition: .2s;

@@ -79,7 +79,7 @@ export default {
             this.$store.state.filterLocation.push(loc);
       }
       });
-      this.$router.push({name: 'search-result'});
+      //this.$router.push({name: 'search-result'});
       },
 
       searchByIsOpen() {
@@ -97,10 +97,11 @@ export default {
             this.$store.state.filterLocation.push(loc);
           }
         });
-        this.$router.push({name: 'search-result'})
+        //this.$router.push({name: 'search-result'})
       },
 
       searchNearMe() {
+        window.alert("searching near you");
         this.resetSearchText();
         this.resetTimeNow();
         this.resetFilterCriteria();
@@ -115,11 +116,13 @@ export default {
            self.$store.state.userLocation.lat = coordinates[0];
            self.$store.state.userLocation.long = coordinates[1];
            self.$store.state.locations.forEach((loc) => {
+            // window.alert(loc.distance);
              if (loc.distance <= 2) {
+              // window.alert(loc.locationName + "is near you");
               self.$store.state.filterLocation.push(loc);
               }
             });
-           self.$router.push({name: 'search-result'});  
+           //this.$router.push({name: 'search-result'});  
         });
       }
   },

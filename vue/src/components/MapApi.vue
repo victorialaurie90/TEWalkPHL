@@ -93,7 +93,7 @@ timeNow() {
 },
 
 userLocation() {
-  return this.$store.state.userLocation;
+  return this.$store.state.filterLocation;
 }
   }
 }

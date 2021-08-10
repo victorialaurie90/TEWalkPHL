@@ -60,4 +60,13 @@ body {
   width: 100%;
 }
 
+button {
+  background-color:#9F6172;
+  color:white;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
 </style>

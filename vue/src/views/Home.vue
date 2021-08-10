@@ -133,7 +133,7 @@ methods: {
       this.resetSearchText();
       this.resetTimeNow();
       this.resetFilterCriteria();
-      this.nearbyLocations;
+     
     this.$store.state.filterLocation = [];
       if (navigator.geolocation) {
         let self = this

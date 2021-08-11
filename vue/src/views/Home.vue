@@ -345,14 +345,13 @@ div.img-search-container {
 
    .imageText {
   position: absolute;
-  top: 80%;
+  top: 83%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 32px;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-weight:bolder;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  font-size: 28px;
+  color: white;
+  font-family: 'Signika', sans-serif;
+  text-shadow: -2px 2px 1px black;
 }  
 
 ul.social-icons {

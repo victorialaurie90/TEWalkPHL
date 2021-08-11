@@ -1,7 +1,7 @@
 <template>
   <div class = "check-in">
     
-    <div v-for="checkin in checkIns" v-bind:key="checkin.checkInId">
+    <div v-for="checkin in checkIns" v-bind:key="checkin.checkInId" id="check-in-for-loop">
       
       <div id="info">
           <h3>{{checkin.locationName}}</h3>
@@ -43,13 +43,16 @@ export default {
 
 <style scoped>
 
-div.check-in {
+div.check-in { /* This is the div that controls all of the check-ins that end up getting generated */
+
   width: 90%;
   overflow-x: auto;
   margin-bottom: 30px;
+
 }
 
-#info {
+#info { /* ID of the div that houses the check-in name and date/time visited */
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,18 +66,22 @@ div.check-in {
 
 }
 
-#info:hover {
+#info:hover { /* This is the hover psuedo-attribute for the check-in information div */
+  
   background-color: #DBCFD6;
   border: solid #9F6172 2px;
   transition: .2s;
   transform: scale(1.1)
+
 }
 
-div.check-in div {
+#check-in-for-loop { /* Targetting the div in between check-in and info */
+
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+
 }
 
 </style>

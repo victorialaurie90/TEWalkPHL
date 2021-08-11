@@ -123,7 +123,7 @@ INSERT INTO category_badge (category_id, badge_id) VALUES (2, 2), (3,3), (4,4), 
 --LOVE PARK
 INSERT INTO locations (location_name, description, address, open_to, open_from, twitter, url, facebook, img, lat, long, categories)
 VALUES ('Love Park', 'LOVE Park, officially known as John F. Kennedy Plaza, is a public park located in Center City.', 'Arch St, Philadelphia, PA 19102',  
-'7:00:00', '22:00:00', 'https://twitter.com/loveparkphilly', 'https://www.visitphilly.com/things-to-do/attractions/love-park/', 'https://www.facebook.com/LOVEParkPhilly/', 'love_park', '39.9543', '-75.1657', 'Parks, Outdoor');
+'7:00:00', '22:00:00', 'https://twitter.com/loveparkphilly', 'https://www.visitphilly.com/things-to-do/attractions/love-park/', 'https://www.facebook.com/LOVEParkPhilly/', 'love_park.jpg', '39.9543', '-75.1657', 'Parks, Outdoor');
 INSERT INTO locations_category (location_id, category_id) VALUES(1, 4);
 INSERT INTO locations_category (location_id, category_id) VALUES(1, 8);
 

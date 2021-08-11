@@ -345,7 +345,7 @@ div.img-search-container {
 
    .imageText {
   position: absolute;
-  top: 83%;
+  top: 86%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 28px;
@@ -435,6 +435,13 @@ ul.social-icons {
 
 @media(max-width: 575px) {
   
+  .imageText {
+    position: absolute;
+    top: 83%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   div.image-search-container {
     display: flex;
     justify-content: center;

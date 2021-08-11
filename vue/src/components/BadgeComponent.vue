@@ -128,6 +128,7 @@ export default {
 
       display: flex;
       flex-direction: row;
+      opacity: .5;
     
     }
 

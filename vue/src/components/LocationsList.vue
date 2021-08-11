@@ -21,7 +21,8 @@
       </div>
 
       <div class="return-search-menu" style="width: 100%; display: flex">
-        <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="returnHome()"><i class="fas fa-search-location fa-2x"> Return to Search Home</i></button>
+        <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="returnHome()"><i class="fas fa-search fa-2x"> Search Home</i></button>
+        <button type="submit" class="locationListButtons" style="flex-grow: 2" v-on:click="applyNameToFilter('')"><i class="fas fa-search-location fa-2x"> Search All</i></button>
       </div>
       
       <div>

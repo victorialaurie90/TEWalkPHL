@@ -1,22 +1,28 @@
 <template>
   <!-- <div class="list"> -->
     <div class="details">
-        <!-- v-for="location in this.$store.state.locations"
-        v-bind:key="location.id" -->
-      <h3 id="location_name">{{location.locationName}}</h3>
-      <ul id="to_and_from">
-        <li id="open_from"><span class="bold">Open From:</span><span class="space">{{location.openFrom}}</span></li> 
-        <li id="open_to"><span class="bold">Open To:  </span><span class="space">{{location.openTo}}</span></li>
-      </ul>
-      <p id="category"><span class="bold">Category: </span> {{location.categories}}</p>
-      <p id="address"><span class="bold">Address: </span> {{location.address}}</p>
-      <p id="description"><span class="bold">Description: </span> {{location.description}}</p>
-    <p id="social_media"> 
-          <span id="facebook"><a v-bind:href="location.facebook"><i class="fab fa-facebook-square fa-2x"></i></a></span>
-          <span id="twitter"><a v-bind:href="location.twitter"><i class="fab fa-twitter fa-2x"></i></a></span>
-          <span id="url"><a v-bind:href="location.url"><i class="fas fa-globe fa-2x"></i></a></span>
-      </p>
-      <button class="check" v-on:click="create" v-show="this.$store.state.isLoggedIn">Click here to check in!</button>
+          <!-- v-for="location in this.$store.state.locations"
+          v-bind:key="location.id" -->
+        <div class="location-image">
+          <img id = "img" :src="require(`../assets/locationPictures/${location.img}`)" >
+          <p id="social_media"> 
+              <span id="facebook"><a v-bind:href="location.facebook"><i class="fab fa-facebook-square fa-2x"></i></a></span>
+              <span id="twitter"><a v-bind:href="location.twitter"><i class="fab fa-twitter fa-2x"></i></a></span>
+              <span id="url"><a v-bind:href="location.url"><i class="fas fa-globe fa-2x"></i></a></span>
+          </p>
+        </div>
+        <div class="location-details">
+          <h3 id="location_name">{{location.locationName}}</h3>
+          <ul id="to_and_from">
+            <li id="open_from"><span class="bold">Open From:</span><span class="space">{{location.openFrom}}</span></li> 
+            <li id="open_to"><span class="bold">Open To:  </span><span class="space">{{location.openTo}}</span></li>
+          </ul>
+          <p id="category"><span class="bold">Category: </span> {{location.categories}}</p>
+          <p id="address"><span class="bold">Address: </span> {{location.address}}</p>
+          <p id="description"><span class="bold">Description: </span> {{location.description}}</p>
+          
+        <button class="check" v-on:click="create" v-show="this.$store.state.isLoggedIn">Click here to check in!</button>
+      </div>
     </div>
   <!-- </div> -->
 </template>
@@ -64,9 +70,29 @@ export default {
     color: black;
 }  */
 div.details{
+    display: flex;
     border-top: solid 1px;
     border-bottom: solid 1px;
 }
+
+div.location-details {
+  display: flex;
+  flex-direction: column;
+}
+
+div.location-image {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.location-image>img {
+  height: 150px;
+  width: 150px;
+  padding-left: 5px;
+}
+
 ul#to_and_from {
     display: flex;
     list-style: none;

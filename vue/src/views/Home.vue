@@ -8,6 +8,7 @@
         <form v-on:submit.prevent="freeTextSearch">
             <input type="text" required="required" id="filterText" placeholder="What do you want to do?">
             <button type="submit">Search</button>
+            <button v-on:click="applyNameToFilter('')">All Locations</button>
         </form>
       </div>
     </div>
@@ -74,8 +75,8 @@
       <p>Check in at enough locations and earn badges to be eligible for special deals and events with our ever-growing list of partners! Think you can visit them all?</p>
     </div>
     <ul class="social-icons">
-        <li><a href="#"><i class="fab fa-facebook fa-2x"></i></a></li>
-        <li><a href="#"><i class="fab fa-instagram fa-2x"></i></a></li>
+        <li><a href="#"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram-square fa-2x"></i></a></li>
         <li><a href="#"><i class="fab fa-twitter fa-2x"></i></a></li>
     </ul>
 
@@ -307,9 +308,20 @@ div.img-search-container {
     margin-left: auto;
     margin-right: auto;
     background-color: #AACCE1;
-    font-family: 'Oswald', sans-serifl
-  
+    font-family: 'Oswald', sans-serif
 }
+
+  .home-info>p {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-top: 0px;
+  }
+
+  .home-info>h2 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
 
 /* Temporary effect on category images */
 @-webkit-keyframes flash {
@@ -333,17 +345,18 @@ div.img-search-container {
 
    .imageText {
   position: absolute;
-  top: 85%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 32px;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight:bolder;
-  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }  
 
 ul.social-icons {
+  margin-top: 8px;
   margin-left: auto;
   margin-right: auto;
   max-width: 600px;
@@ -375,11 +388,11 @@ ul.social-icons {
   div.search-box{
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-top: -35px;
   padding-bottom: 20px;
   transform: scale(1.50);
   z-index: 1;
+  width: 100vw;
 }
 }
 
@@ -396,6 +409,16 @@ ul.social-icons {
 
   input {
   width: 78vw;
+  }
+}
+
+@media(max-width: 720px){
+  div.search-box {
+  width: 100vw;
+  margin-bottom: 10px;
+  }
+  input {
+  width: 70vw;
   }
 }
 
@@ -446,10 +469,29 @@ ul.social-icons {
 }
 
   input {
-    width: 78vw;
+    width: 68vw;
   }
-
-
 }
+
+@media(max-width: 500px) {
+  input {
+    width: 60vw;
+  }
+}
+
+@media(max-width: 400px) {
+  input {
+    width: 55vw;
+  }
+}
+
+@media(max-width: 350px) {
+  input {
+    width: 50vw;
+  }
+}
+
+
+
 
 </style>

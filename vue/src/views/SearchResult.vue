@@ -55,52 +55,61 @@ export default {
 <style>
 
 body {
+
     margin: 0;
     padding: 0;
     min-height: 100vh;
+
 }
 
 div.locations-list-and-map {
+
     display: flex;
     flex-grow: 1; 
     justify-content: center;
     justify-content: space-around;
     width: 100%;
     margin: 0; 
+
 } 
 
-/* .searchResults {
-    display: flex;
-    flex-grow: 1;
-} */
-
 .locations-list {
+
     flex-grow: 1;
     background-color: lightskyblue;
+
 }
 
 .map-api {
+
     flex-grow: 2;
     background-color: teal;
+
 }
 
 @media(max-width: 768px) {
-  div.locations-list-and-map {
-    display: flex;
-    flex-direction: column-reverse;
+    div.locations-list-and-map {
+
+        display: flex;
+        flex-direction: column-reverse;
+    
     }
 
     .map-api {
+
         display: flex;
         flex-direction: column;
         justify-content: center;
         transform: scale(1);
+
     }
 
     .locations-list {
-    width: 100%;
-    background-color: lightskyblue;
-}
+
+        width: 100%;
+        background-color: lightskyblue;
+
+    }
 
 }
 

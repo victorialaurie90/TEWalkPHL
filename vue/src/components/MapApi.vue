@@ -17,24 +17,25 @@ export default {
     }
   },
 
-watch: {
-// filterCriteria: 
-// function() { 
-// this.loadMap();
-// },
-// timeNow:
-// function() { 
-// this.loadMap();
-// },
-filterLocation:
-function() { 
-this.loadMap();
-}
-},
+  watch: {
+  // filterCriteria: 
+  // function() { 
+  // this.loadMap();
+  // },
+  // timeNow:
+  // function() { 
+  // this.loadMap();
+  // },
+    filterLocation:
+      function() { 
+        this.loadMap();
+      }
+  },
 
   mounted() {
     this.loadMap();
   },
+
   methods: {
     loadMap() {
       let mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
@@ -69,7 +70,7 @@ this.loadMap();
 
       const geolocate = new mapboxgl.GeolocateControl({
         positionOptions: {
-            enableHighAccuracy: true
+          enableHighAccuracy: true
         },
         trackUserLocation: true
       });
@@ -80,23 +81,27 @@ this.loadMap();
       });
 
       map.addControl(directions, "bottom-right")
+
     }
+
   },
 
   computed: {
-// filterCriteria() {
-//   return this.$store.state.filterCriteria;
-// },
+  // filterCriteria() {
+  //   return this.$store.state.filterCriteria;
+  // },
 
-// timeNow() {
-//   return this.$store.state.timeNow;
-// },
+  // timeNow() {
+  //   return this.$store.state.timeNow;
+  // },
 
-filterLocation() {
-  return this.$store.state.filterLocation;
-}
+    filterLocation() {
+      return this.$store.state.filterLocation;
+    }
   }
+
 }
+
 </script>
 
 <style>
@@ -105,12 +110,15 @@ filterLocation() {
   
 
   div.container {
+
     background-color: #AACCE1;
     height: 300px;
+
     }
   
   /* Temporary, need to display directions properply */
     div.mapbox-directions-component-keyline {
+
     display: none;
     /* transform: scale(.66); */
   
@@ -122,12 +130,15 @@ filterLocation() {
   
 
   div.container {
+
     background-color: #AACCE1;
     height: 300px;
+
     }
   
   /* Temporary, removing directions to reduce screen clutter */
-    div.mapbox-directions-component-keyline {
+  div.mapbox-directions-component-keyline {
+
     display: none;
   } 
 

@@ -6,9 +6,9 @@
         <div class="location-image">
           <img id = "img" :src="require(`../assets/locationPictures/${location.img}`)" >
           <p id="social_media"> 
-              <span id="facebook"><a v-bind:href="location.facebook"><i class="fab fa-facebook-square fa-2x"></i></a></span>
-              <span id="twitter"><a v-bind:href="location.twitter"><i class="fab fa-twitter fa-2x"></i></a></span>
-              <span id="url"><a v-bind:href="location.url"><i class="fas fa-globe fa-2x"></i></a></span>
+              <span id="facebook"><a v-bind:href="location.facebook" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></span>
+              <span id="twitter"><a v-bind:href="location.twitter" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></span>
+              <span id="url"><a v-bind:href="location.url" target="_blank"><i class="fas fa-globe fa-2x"></i></a></span>
           </p>
         </div>
         <div class="location-details">
